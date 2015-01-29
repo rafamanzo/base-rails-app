@@ -66,7 +66,7 @@ end
 
 # Acceptance tests
 group :cucumber do
-  gem 'cucumber', '~> 1.3.16'
+  gem 'cucumber', '~> 1.3.18'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'poltergeist', '~> 1.5.0'
