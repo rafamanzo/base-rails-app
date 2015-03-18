@@ -68,9 +68,9 @@ end
 group :cucumber do
   gem 'cucumber', '~> 1.3.18'
   gem 'cucumber-rails'
-  # Version fixed at 1.3. See:
+  # Version fixed greater than 1.4.1. See:
   # https://github.com/DatabaseCleaner/database_cleaner/issues/317
-  gem 'database_cleaner', '~> 1.3.0'
+  gem 'database_cleaner', '>= 1.4.1'
   gem 'poltergeist', '~> 1.6.0'
 end
 
