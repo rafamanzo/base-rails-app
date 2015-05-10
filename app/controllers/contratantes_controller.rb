@@ -1,5 +1,6 @@
 class ContratantesController < ApplicationController
   def new
+    raise params.inspect
     @css = {
       barra_filtro: '"visited first previous col-sm-2"',
       barra_contratante: '"active col-sm-2"',
