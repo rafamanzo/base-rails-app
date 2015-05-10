@@ -13,6 +13,12 @@
 ==== Dependências.
 	* SQLite ou outro banco de dados a seu gosto.
 
+==== Intalação para desenvolvimento em Windows
+
+Qualquer instalação do ruby 2.2.2 com bundler deve funcionar.
+Mas https://www.drupal.org/node/2138087 tem um tutorial para usar a RVM no Windows e que funciona.
+Seguido o tutorial basta seguir os passos que valem para linux usando o cygwin =).
+
 ==== Instalação de dependências em Linux.
 
 * Terminal
@@ -37,9 +43,6 @@
 * MySQL
 	Use qualquer instalação ou serviço MySQL
 
-==== Intalação para desenvolvimento em Windows
-
-
 * Criação do banco de dados
 	rake db:create
 
@@ -55,6 +58,7 @@
  	* Também, certifique-se que o servidor onde será intalado tenha RVM instalado e configurado;
   	* _cap deploy:setup_ Intalará a versão correta do ruby, o gemset e toda a árvore de diretórios;
   	* _cap_ _deploy:migrations_ colocará p código em produção e executara todas as migrações de banco de dados.
+
 2. Deploy comum
 	_cap_ _production_ _deploy_
 
