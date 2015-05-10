@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+  - 2.2.2
+
+before_script:
+  - cp config/database.yml.sample config/database.yml
+  - bundle exec rake db:setup
+  - export BUNDLE_GEMFILE=$PWD/Gemfile
+  - export CODECLIMATE_REPO_TOKEN=332312cb939a6a78367c4634372b551df715bfaf2e298b25ae742a02dbd91e79
+
+script:
+  - bundle exec rake spec
+  - bundle exec rake konacha:run
+  - bundle exec rake cucumber
+
+notifications:
+  email:
+    recipients:
+      - labxp-hades@googlegroups.com
+    on_success: change
+    on_failure: always

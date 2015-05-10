@@ -6,6 +6,9 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Use MySQL as the database for Active Record
+gem 'mysql2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0'
 
@@ -33,12 +36,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Rails Html Sanitizer for HTML sanitization
 gem 'rails-html-sanitizer', '~> 1.0'
 
+# Twitter Bootstrap for layout
+gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+# JQueryUI
+gem 'jquery-ui-rails', '~> 5.0.0'
+
 group :test do
   # Easier test writing
   gem "shoulda-matchers", "~> 2.8.0"
 
   # Test coverage
   gem 'simplecov', require: false
+
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :development, :test do
@@ -57,12 +68,22 @@ group :development, :test do
   # Mock framework
   gem 'mocha', '~> 1.1.0'
 
+   # Deployment
+  gem 'capistrano', "~>3.4.0", require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm', "~>0.1.0"
+
   # Fixtures made easy
   gem 'factory_girl_rails', '~> 4.5.0'
 
   # JavaScript unit tests
   gem "konacha", "~> 3.3.0"
   gem 'sprockets', '~>2.12.3' # spckets 3.0.3 breaks konacha
+
+  # Better error interface
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Acceptance tests
