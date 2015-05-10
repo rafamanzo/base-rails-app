@@ -1,0 +1,2 @@
+module DadosObitosHelper
+end

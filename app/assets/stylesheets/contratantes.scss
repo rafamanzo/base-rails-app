@@ -1,0 +1,27 @@
+// Place all the styles related to the Contratantes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@-webkit-keyframes myanimation {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+.navbar-fixed-top{
+  z-index:99999;
+}
+#botoes-navegacao{
+  margin-top: 1%;
+}
+#formulario-dados-pessoais{
+  margin-top: 7%;
+}
+
+.titulo_caixa{
+  margin-top: 0%;
+  margin-bottom: 10px;
+}

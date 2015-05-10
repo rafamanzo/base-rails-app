@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Base Rails App</title>
+    <title>Hades</title>
 
     <link type="text/plain" rel="author" href="humans.txt" />
 
@@ -19,6 +19,18 @@
   </head>
 
   <body>
+
+    <div class="caixa_barra_progresso" id="barra_de_progresso">
+       <ul class="barra_progresso">
+            <!-- visited first previous active next -->
+            <li class=<%= @css[:barra_filtro] %>>Filtro de Processos</li>
+            <li class=<%= @css[:barra_contratante] %>>Cadastro de Contratante</li>
+            <li class=<%= @css[:barra_falecido] %>>Cadastro de Falecido</li>
+            <li class=<%= @css[:barra_obito] %>>Dados do Óbito</li>
+            <li class=<%= @css[:barra_produtos] %>>Escolha de Produtos</li>
+            <li class=<%= @css[:barra_notas] %>>Emissão de Notas</li>
+        </ul>
+    </div>
 
     <%= yield %>
 

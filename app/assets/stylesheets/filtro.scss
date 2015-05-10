@@ -1,0 +1,30 @@
+// Place all the styles related to the Filtro controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#cabecalho{
+	width: 100%;
+	padding-left: 10%;
+	padding-right: 5%;
+}
+
+#intro_caixa_botoes{
+	width:50%;
+	margin-left: 25%;
+}
+
+#intro_caixa_pagina{
+	text-align: center;
+	position: absolute; 
+	width:100%;
+	
+}
+
+#caixa_coluna{
+	margin-top: 10%;
+    margin-left: 25%;
+}
+
+.caixa_barra_progresso{
+	display: none;
+}
