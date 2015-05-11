@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :dados_obitos, only: [:new, :create]
   resources :contratantes, only: [:new, :create]
   
-  get 'contratantes/cpf'
+  get 'contratantes/cpf/:cpf', to: 'contratantes#cpf'
 
   get 'filtro/index'
 

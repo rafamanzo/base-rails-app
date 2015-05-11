@@ -27,16 +27,17 @@
       </div>
     </nav>
 
-    <div class="caixa_barra_progresso" id="barra_de_progresso">
-       <ul class="barra_progresso">
-            <!-- visited first previous active next -->
-            <li class=<%= @css[:barra_filtro] %>>Filtro de Processos</li>
-            <li class=<%= @css[:barra_contratante] %>>Cadastro de Contratante</li>
-            <li class=<%= @css[:barra_falecido] %>>Cadastro de Falecido</li>
-            <li class=<%= @css[:barra_obito] %>>Dados do Óbito</li>
-            <li class=<%= @css[:barra_produtos] %>>Escolha de Produtos</li>
-            <li class=<%= @css[:barra_notas] %>>Emissão de Notas</li>
-        </ul>
+    <div class="caixa_barra_progresso" id="barra_de_progresso" 
+      <% if !@css[:barra_display] %>style="display: none" <% end %>>
+      <ul class="barra_progresso">
+        <!-- visited first previous active next -->
+        <li class="<%= @css[:barra_filtro] %>">Filtro de Processos</li>
+        <li class="<%= @css[:barra_contratante] %>">Cadastro de Contratante</li>
+        <li class="<%= @css[:barra_falecido] %>">Cadastro de Falecido</li>
+        <li class="<%= @css[:barra_obito] %>">Dados do Óbito</li>
+        <li class="<%= @css[:barra_produtos] %>">Escolha de Produtos</li>
+        <li class="<%= @css[:barra_notas] %>">Emissão de Notas</li>
+      </ul>
     </div>
 
     <%= yield %>
