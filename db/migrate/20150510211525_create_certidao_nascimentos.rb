@@ -1,7 +1,7 @@
 class CreateCertidaoNascimentos < ActiveRecord::Migration
   def change
     create_table :certidao_nascimentos do |t|
-      t.timestamps :data_nascimento
+      t.datetime :data_nascimento
       t.string :cartorio
       t.string :cidade
       t.string :uf

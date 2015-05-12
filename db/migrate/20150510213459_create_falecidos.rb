@@ -5,7 +5,7 @@ class CreateFalecidos < ActiveRecord::Migration
       t.string :sexo
       t.string :cor
       t.string :naturalidade
-      t.timestamps :nascimento
+      t.datetime :nascimento
       t.string :profissao
       t.string :documento
       t.string :numero_documento

@@ -2,7 +2,7 @@ class CreateNascimentoObitos < ActiveRecord::Migration
   def change
     create_table :nascimento_obitos do |t|
       t.string :local_nascimento
-      t.timestamps :data_nascimento
+      t.datetime :data_nascimento
       t.string :avo_paterno
       t.string :avo_materno
       t.string :avo_paterna

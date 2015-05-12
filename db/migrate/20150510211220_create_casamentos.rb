@@ -2,7 +2,7 @@ class CreateCasamentos < ActiveRecord::Migration
   def change
     create_table :casamentos do |t|
       t.string :nome
-      t.timestamps :data_casamento
+      t.datetime :data_casamento
       t.string :cartorio
       t.string :cidade
       t.string :uf
