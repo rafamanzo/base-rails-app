@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  resources :produtos, only: [:new, :create]
-  resources :falecidos, only: [:new, :create]
-  resources :dados_obitos, only: [:new, :create]
-  resources :contratantes, only: [:new, :create]
-  
   get 'contratantes/cpf/:cpf', to: 'contratantes#cpf'
+  get 'contratantes/new/:cadastro_id', to: 'contratantes#new', as: "new_contratante"
+  post 'contratantes/:cadastro_id', to: 'contratantes#create', as: "contratantes"
 
   get 'filtro/index'
+
+  post 'filtro', to: 'filtro#create'
+  get 'filtro', to: 'filtro#create'
+
+  get 'falecidos/new/:cadastro_id', to: 'falecidos#new', as: "new_falecido"
+  post 'falecidos/:cadastro_id', to: 'falecidos#create', as: "falecidos"
+
+  get 'dados_obitos/new/:cadastro_id', to: 'dados_obitos#new', as: "new_dados_obito"
+  post 'dados_obitos/:cadastro_id', to: 'dados_obitos#create', as: "dados_obitos"
+
+  get 'produtos/new/:cadastro_id', to: 'produtos#new', as: "new_produto"
+  post 'produtos/:cadastro_id', to: 'produtos#create', as: "produtos"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -12,7 +12,7 @@
 						<button type="button" id="registro_de_obito" class="btn btn-block" style="margin-top:5%;margin-bottom:5%;" onclick="registro_de_obito()">3. <b><u>R</u></b>egistro de Óbito</button>
 				    </div>
                     <div id="caixa_btn_cancelar_ant">
-                        <button type="button" id="cancelar" href="" class="btn btn-default">Cancelar</button>
+                        <%= link_to "Cancelar", filtro_index_path, {id: "cancelar", class: "btn btn-default"} %>
                     </div>
                 </div>
             </div>
