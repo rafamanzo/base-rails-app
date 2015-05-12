@@ -28,7 +28,7 @@
     </nav>
 
     <div class="caixa_barra_progresso" id="barra_de_progresso" 
-      <% if !@css[:barra_display] %>style="display: none" <% end %>>
+      <% if !@css[:barra_display_none].nil? %>style="display: none" <% end %>>
       <ul class="barra_progresso">
         <!-- visited first previous active next -->
         <li class="<%= @css[:barra_filtro] %>">Filtro de Processos</li>

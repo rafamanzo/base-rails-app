@@ -1,2 +1,128 @@
-<h1>Produtos#new</h1>
-<p>Find me in app/views/produtos/new.html.erb</p>
+<%= form_for @produto do |f| %>
+	<div class="container" id="formulario-dados-pessoais">
+		<form:errors path="*" />
+		<div class="row col-md-12">
+        	<div class="col-md-12">
+        	    <div class="shadow">
+        	        <div class="over-shadow">
+            	        <div id="dadosPessoais">
+                        <h1 class="titulo_caixa">Produtos</h1>
+				  	    <div class="row">
+                            <div class="col-md-12">
+                               <table class="table">
+                                 	<thead>
+                                 		<tr>
+                                     		<th colspan="2">Itens</th>
+                                     		<th>Dimensões</th>
+                                     		<th>QTD</th>
+                                     		<th>UDM</th>
+                                     		<th>Valor do Conj.</th>
+                                     		<th>Disponib. em Estoque</th>
+                                     	</tr>
+                                 	</thead>
+                                 	<tbody>
+                                 		<tr>
+                                 			<th>Urna:</th>
+                                 			<td>Urna fixa</td>
+											<td>
+												<%= f.select :dimensao_urna, dimensoes_urnas, {}, class: "form-control", id: "dimensao_urna" %>
+											</td>
+											<td>1</td>
+											<td>PA</td>
+											<!-- banco traz valor pra gente s2 -->
+											<td name="valorUrna">PA</td>
+											<td name="disponibilidadeUrna"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+										</tr>
+										<tr>
+                                 			<th>Revestimento:</th>
+                                 			<td>revestimento fixo</td>
+											<td>
+												<%= f.select :dimensao_revestimento, dimensoes_revestimentos, {}, class: "form-control", id: "dimensao_revestimento" %>
+											</td>
+											<td>1</td>
+											<td>PA</td>
+											<!-- banco traz valor pra gente s2 -->
+											<td name="valorRevestimento">PA</td>
+											<td name="disponibilidadeRevestimento"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+										</tr>
+                                 	</tbody>
+							   </table>
+                            </div>                             
+                       </div>   
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row col-md-12">
+           <div class="shadow">
+               <div class="over-shadow">
+                   <h1 class="titulo_caixa">Taxa de Serviço</h1>
+                   <table class="table">
+                   	<thead>
+                   		<tr>
+                   			<td colspan="5">Serviço</td>
+                   			<td>QTD</td>
+                   			<td>Valor do Conj.</td>
+                   		</tr>
+                   	</thead>
+                   	<tbody>
+                   		<tr>
+                   			<th>Tipo de sepultamento:</th>
+                   			<td colspan="4">Qd. Geral Terra s/ Gaveta</td>
+                   			<td></td>
+                   			<td name="valorSepultamento">PA</td>
+                   		</tr>
+                   		<tr>
+                   			<th rowspan="2">Transporte:</th>
+                   			<td><%= f.check_box :carro_carreto, checked: true, disabled: true %></td>
+                   			<td colspan="2">Carro Carreto</td>
+                   			<td></td>
+                   			<td>1</td>
+                   			<td name="valorCarreto">PA</td>
+                   		</tr>
+                   		<tr>
+                   			<td><%= f.check_box :carro_enterro, checked: true, disabled: true %></td>
+                   			<td colspan="2">Carro Enterro</td>
+                   			<td></td>
+                   			<td>1</td>
+                   			<td name="valorCarreto">PA</td>
+                   		</tr>
+                   		<tr>
+                   			<th rowspan="2">Taxas:</th>
+                   			<td><%= f.check_box :sepultamento, checked: true, disabled: true %></td>
+                   			<td colspan="2">Sepultamento</td>
+                   			<td></td>
+                   			<td colspan="2"></td>
+                   		</tr>
+                   		<tr>
+                   			<td>
+                   				<%= f.check_box :outras_taxas %>
+                   			</td>
+                   			<td  colspan="2">Outras</td>
+                   			<td>
+                   				<%= f.radio_button :tipo_taxa, "(+)Creditar", id: "tipo_taxa", disabled: true %>
+                   				<%= f.label :creditar, "(+)Creditar" %>
+                   				<%= f.radio_button :tipo_taxa, "(-)Debitar", id: "tipo_taxa", disabled: true %>
+                   				<%= f.label :debitar, "(+)Debitar" %>
+                   			</td>
+                   			
+                   			<td></td>
+                   			<td>
+                   				<%= f.number_field :valor_taxa, disabled: true, step: 0.01, id: "valor_taxa" %>
+                   			</td>
+                   		</tr>
+                   	</tbody>
+                   	
+                   </table>
+               </div>
+           </div>
+        </div>
+		<div class="row col-md-12" id="botoes-navegacao">
+            <div class="col-xs-12">
+                <input type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></input>
+                <input type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</input>
+                <input class="col-xs-offset-4 col-xs-1 btn btn-default" value="Próximo" type="submit"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></input>
+            </div>
+        </div>
+	</div>
+<% end %>
