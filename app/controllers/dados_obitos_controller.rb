@@ -1,7 +1,10 @@
 class DadosObitosController < ApplicationController
   def new
+    @cadastro_id = params[:cadastro_id]
+
+    @dados_obito = DadosObito.new
+    
   	@css = {
-      barra_display: true,
   		barra_filtro: "visited first col-sm-2",
   		barra_contratante: "visited col-sm-2",
   		barra_falecido: "visited previous col-sm-2",
@@ -12,5 +15,18 @@ class DadosObitosController < ApplicationController
   end
 
   def create
+    cadastro_id = params[:cadastro_id]
+    cadastro = Cadastro.find(cadastro_id)
+    cadastro.dados_obito = DadosObito.new(dados_obito_params)
+    if cadastro.save
+      redirect_to new_produto_path(cadastro_id)
+    else 
+      render new_dados_obito_path(cadastro_id)
+    end
+  end
+
+  private
+  def dados_obito_params
+    params.require(:dados_obito).permit()
   end
 end

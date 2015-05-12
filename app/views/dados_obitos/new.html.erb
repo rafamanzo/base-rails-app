@@ -1,2 +1,136 @@
-<h1>DadosObitos#new</h1>
-<p>Find me in app/views/dados_obitos/new.html.erb</p>
+<%= form_for @dados_obito do |f| %>
+		<div class="container" id="formulario-dados-pessoais">
+			<form:errors path="*" />
+			<div class="row col-md-6">
+            	<div class="col-md-12">
+            	    <div class="shadow">
+            	        <div class="over-shadow">
+                	        <div id="dadosPessoais">
+                            <h1 class="titulo_caixa">Informações do Óbito</h1>
+					  	      	<div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <%= f.label :local_falecimento, "Local do Falecimento" %>
+                                            <%= f.text_field :local_falecimento, class: "form-control", id: "local_falecimento", placeholder: "Local do Falecimento" %>
+                                        </div>
+                                    </div>                      
+                                </div>
+                                <div class="row">
+									<div class="col-sm-12">		
+                                        <div class="form-group">
+                                            <%= f.label :cartorio, "Cartório" %>
+                                            <%= f.text_field :cartorio, class: "form-control", id: "cartorio", placeholder: "Cartório" %>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <%= f.label :data_falecimento, "Data de Falecimento" %>
+                                            <%= f.text_field :data_falecimento, class: "form-control", id: "data_falecimento", placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <%= f.label :hora_falecimento, "Hora de Falecimento" %>
+                                            <%= f.text_field :hora_falecimento, class: "form-control", id: "hora_falecimento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group" style="margin-top:11%">
+                                            <%= f.label :proaim, "PROAIM" %>
+                                            <%= f.text_field :proaim, class: "form-control", id: "proaim", placeholder: "PROAIM" %>
+                                        </div>
+                                    </div>                       
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <%= f.label :causa_mortis, "Causa Mortis" %>
+                                            <%= f.text_field :causa_mortis, class: "form-control" , id: "causa_mortis", placeholder: "Causa Mortis" %>
+                                        </div>
+                                    </div>                            
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div class="row col-md-6">
+                <div class="col-md-12">
+                    <div class="shadow">
+                        <div class="over-shadow">
+                            <h1 class="titulo_caixa">Dados do Sepultamento</h1>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <%= f.label :cemiterio, "Cemitério" %>
+                                        <%= f.text_field :cemiterio, class: "form-control", id: "cemiterio", placeholder: "Cemitério" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <%= f.label :endereco, "Endereço" %>
+                                        <%= f.text_field :endereco, class: "form-control", id: "endereco", placeholder:"Endereço" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <%= f.label :data_sepultamento, "Data de Sepultamento" %>
+                                        <%= f.text_field :data_sepultamento, class: "form-control", id: "data_sepultamento", placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <%= f.label :hora_sepultamento, "Hora de Sepultamento" %>
+                                        <%= f.text_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00" %>
+                                    </div>
+                                </div>                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <%= f.label :medico, "Médico" %>
+                                        <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <%= f.label :crm, "CRM" %>
+                                        <%= f.text_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
+                                    </div>
+                                </div>                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-12">
+                    <div class="shadow">
+                        <div class="over-shadow">
+                            <h1 class="titulo_caixa">Observações</h1>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <%= f.text_area :observacoes, class: "form-control", id: "observaçoes", placeholder: "Observações" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="row col-md-12" id="botoes-navegacao">
+                <div class="col-xs-12">
+                    <input type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></input>
+                    <input type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</input>
+                    <input class="col-xs-offset-4 col-xs-1 btn btn-default" value="Próximo" type="submit"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></input>
+                </div>
+            </div>
+		</div>
+<% end %>
