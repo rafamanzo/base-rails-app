@@ -42,3 +42,8 @@ function telefone(v){
     v=v.replace(/(\d{4,5})(\d{4})/,"$1-$2")                                            
     return v
 }
+function hora_mask(v){
+    v=v.replace(/\D/g,"")
+    v=v.replace(/(\d{1,2})(\d{2})/,"$1:$2")
+    return v
+}
