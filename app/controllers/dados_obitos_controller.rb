@@ -19,7 +19,7 @@ class DadosObitosController < ApplicationController
     cadastro = Cadastro.find(cadastro_id)
     cadastro.dados_obito = DadosObito.new(dados_obito_params)
     if cadastro.save
-      redirect_to new_produto_path(cadastro_id)
+      redirect_to new_compra_path(cadastro_id)
     else 
       render new_dados_obito_path(cadastro_id)
     end
