@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512030820) do
+ActiveRecord::Schema.define(version: 20150513154550) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "contratante_id"
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(version: 20150512030820) do
     t.boolean  "obito"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "compras", force: :cascade do |t|
+    t.boolean  "remocao_local_falecimento"
+    t.string   "local_remocao"
+    t.string   "endereco_remocao"
+    t.string   "urna"
+    t.string   "revestimento"
+    t.boolean  "finalizada"
+    t.decimal  "taxa_adicional"
+    t.string   "observacoes"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "contratantes", force: :cascade do |t|
@@ -139,6 +152,15 @@ ActiveRecord::Schema.define(version: 20150512030820) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "item_compras", force: :cascade do |t|
+    t.integer  "quatidade"
+    t.integer  "compra_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "item_compras", ["compra_id"], name: "index_item_compras_on_compra_id"
+
   create_table "localizacaos", force: :cascade do |t|
     t.text     "endereco"
     t.string   "bairro"
@@ -165,16 +187,11 @@ ActiveRecord::Schema.define(version: 20150512030820) do
   end
 
   create_table "produtos", force: :cascade do |t|
-    t.string   "dimensao_urna"
-    t.string   "dimensao_revestimento"
-    t.boolean  "carro_carreto"
-    t.boolean  "carro_enterro"
-    t.boolean  "sepultamento"
-    t.boolean  "outras_taxas"
-    t.string   "tipo_taxa"
-    t.decimal  "valor_taxa"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "udm"
+    t.string   "nome"
+    t.decimal  "valor_unitario"
   end
 
   create_table "testemunhas", force: :cascade do |t|
