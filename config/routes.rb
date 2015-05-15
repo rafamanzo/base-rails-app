@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'produtos/new/:cadastro_id', to: 'produtos#new', as: "new_produto"
   post 'produtos/:cadastro_id', to: 'produtos#create', as: "produtos"
 
+  get 'compras/new/:cadastro_id', to: 'compras#new', as: "new_compra"
+  post 'compras/:cadastro_id', to: 'compras#create', as: "compras"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
