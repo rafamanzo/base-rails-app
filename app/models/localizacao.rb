@@ -9,5 +9,4 @@ class Localizacao < ActiveRecord::Base
 	validates :complemento, length: {maximum: 50}
 	validates :cep, presence: true, length:{maximum: 10}
 	validates :estado, presence: true, length: {maximum: 2}, numericality: false
-	
 end
