@@ -61,7 +61,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
 
   # JavaScript unit tests
-  gem "konacha", "~> 3.3.0"
+  gem "konacha", "~> 3.5.0"
   gem 'sprockets', '~>2.12.3' # spckets 3.0.3 breaks konacha
 end
 
