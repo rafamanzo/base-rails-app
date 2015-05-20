@@ -2,6 +2,8 @@ class Falecido < ActiveRecord::Base
   belongs_to :localizacao
   has_one :cadastro
   
+  validates_associated :localizacao
+
   validates :nome, :naturalidade , presence: true, length: {maximum: 50}, numericality: false
   validates :sexo, presence: true, length: {maximum: 20}, numericality: false
   validates :cor, presence: true, numericality: false
