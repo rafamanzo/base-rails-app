@@ -27,6 +27,7 @@ class DadosObitosController < ApplicationController
 
   private
   def dados_obito_params
-    params.require(:dados_obito).permit()
+    params.require(:dados_obito).permit(:local_falecimento, :cartorio, :data_falecimento, :hora_falecimento, 
+	:proaim, :causa_mortis, :cemiterio, :endereco, :data_sepultamento, :hora_sepultamento, :medico, :crm, :observacoes)
   end
 end
