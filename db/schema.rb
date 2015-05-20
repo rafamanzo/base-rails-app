@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513154550) do
+ActiveRecord::Schema.define(version: 20150520152713) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "contratante_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150513154550) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "produto_id"
+    t.string   "status"
   end
 
   add_index "cadastros", ["contratante_id"], name: "index_cadastros_on_contratante_id"
@@ -60,14 +61,14 @@ ActiveRecord::Schema.define(version: 20150513154550) do
     t.boolean  "remocao_local_falecimento"
     t.string   "local_remocao"
     t.string   "endereco_remocao"
-    t.string   "urna"
-    t.string   "revestimento"
-    t.boolean  "finalizada"
     t.decimal  "taxa_adicional"
     t.string   "observacoes"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "cadastro_id"
   end
+
+  add_index "compras", ["cadastro_id"], name: "index_compras_on_cadastro_id"
 
   create_table "contratantes", force: :cascade do |t|
     t.text     "nome_completo"
@@ -154,12 +155,17 @@ ActiveRecord::Schema.define(version: 20150513154550) do
 
   create_table "item_compras", force: :cascade do |t|
     t.integer  "quatidade"
-    t.integer  "compra_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "nome"
+    t.decimal  "valor_unitario"
+    t.string   "unidade_medida"
+    t.string   "dimensoes"
+    t.integer  "item_id"
+    t.string   "item_type"
   end
 
-  add_index "item_compras", ["compra_id"], name: "index_item_compras_on_compra_id"
+  add_index "item_compras", ["item_type", "item_id"], name: "index_item_compras_on_item_type_and_item_id"
 
   create_table "localizacaos", force: :cascade do |t|
     t.text     "endereco"
@@ -189,9 +195,11 @@ ActiveRecord::Schema.define(version: 20150513154550) do
   create_table "produtos", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "udm"
     t.string   "nome"
     t.decimal  "valor_unitario"
+    t.string   "unidade_medida"
+    t.string   "dimensoes"
+    t.boolean  "ativo"
   end
 
   create_table "testemunhas", force: :cascade do |t|
