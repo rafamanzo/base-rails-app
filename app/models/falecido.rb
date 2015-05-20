@@ -5,6 +5,8 @@ class Falecido < ActiveRecord::Base
   accepts_nested_attributes_for :localizacao  
   validates_associated :localizacao
   
+  validates_associated :localizacao
+
   validates :nome, :naturalidade , presence: true, length: {maximum: 50}, numericality: false
   validates :sexo, presence: true, length: {maximum: 20}, numericality: false
   validates :cor, presence: true, numericality: false
