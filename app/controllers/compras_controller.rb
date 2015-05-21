@@ -10,7 +10,7 @@ class ComprasController < ApplicationController
     @compra.build_transporte_enterro
     @compra.build_sepultamento
     @compra.build_outros
-    
+
     @css = {
   		barra_filtro: "visited first col-sm-2",
   		barra_contratante: "visited col-sm-2",
@@ -28,7 +28,7 @@ class ComprasController < ApplicationController
     if cadastro.save
       # TODO: Redirecionar para a tela de nota fiscal
       redirect_to root_path(cadastro_id)
-    else 
+    else
       render 'new'
     end
   end
@@ -36,7 +36,7 @@ class ComprasController < ApplicationController
   private
   def compra_params
     params.require(:compra).permit(:remocao_local_falecimento, :local_remocao, :endereco_remocao,
-                                   :observacoes, :valor_total, 
+                                   :observacoes, :valor_total,
                                    urna_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
                                    revestimento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
                                    tipo_sepultamento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
@@ -44,5 +44,6 @@ class ComprasController < ApplicationController
                                    transporte_enterro_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
                                    sepultamento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
                                    outros_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes])
+
   end
 end
