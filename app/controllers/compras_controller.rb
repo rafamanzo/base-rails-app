@@ -28,6 +28,6 @@ class ComprasController < ApplicationController
 
   private
   def produto_params
-    params.require(:produto).permit()
+    params.require(:compra).permit()
   end
 end

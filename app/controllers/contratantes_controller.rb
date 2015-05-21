@@ -8,8 +8,11 @@ class ContratantesController < ApplicationController
 
   def create
     @cadastro_id = params[:cadastro_id]
+	#raise params[:contratante][:endereco].inspect
+	#localizacao = Localizacao.new(params[:contratante].require(:endereco))
     @contratante = Contratante.new(contratante_params)
-    if @contratante.save
+	#@contratante.localizacao = localizacao
+	if @contratante.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.contratante = @contratante
       cadastro.save
@@ -30,10 +33,8 @@ class ContratantesController < ApplicationController
 
   private
   def contratante_params
-    params.require(:contratante).permit(:nome_completo, :cpf, :rg, :profissao, :parentesco, :telefone_residencial,
-                                        :telefone_celular, :email, :nome_mae, :cnpj, :nome_empresarial,
-                                        localizacao: [:endereco, :bairro, :numero, :cidade, :complemento,
-                                        :cep, :estado])
+     contratante_param = params.require(:contratante).permit(:nome_completo, :cpf, :rg, :profissao, :parentesco, :telefone_residencial,
+                                        :telefone_celular, :email, :nome_mae, :cnpj, :nome_empresarial)
   end
 
   def css
