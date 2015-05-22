@@ -37,6 +37,14 @@ class ComprasController < ApplicationController
 
   private
   def compra_params
-    params.require(:compra).permit()
+    params.require(:compra).permit(:remocao_local_falecimento, :local_remocao, :endereco_remocao,
+                                   :observacoes, :valor_total, 
+                                   urna_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
+                                   revestimento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
+                                   tipo_sepultamento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
+                                   transporte_carreto_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
+                                   transporte_enterro_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
+                                   sepultamento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
+                                   outros_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes])
   end
 end
