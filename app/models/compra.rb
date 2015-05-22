@@ -1,3 +1,13 @@
+class RemocaoLocalFalecimentoValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value = "Sim")
+  	unless value == "Nao"
+  		# byebug	
+      	record.errors[attribute] << ("fill other fields")
+    end
+  end
+end
+
+
 class Compra < ActiveRecord::Base
 	belongs_to :cadastro
 	has_one :urna, class_name: "ItemCompra",as: :item
@@ -7,4 +17,20 @@ class Compra < ActiveRecord::Base
 	has_one :transporte_enterro, class_name: "ItemCompra", as: :item
 	has_one :sepultamento, class_name: "ItemCompra", as: :item
 	has_one :outros, class_name: "ItemCompra", as: :item
+
+	#validates :remocao_local_falecimento
+	validates :remocao_local_falecimento, presence: true, remocao_local_falecimento: true
 end
+
+
+
+
+    # t.boolean  "remocao_local_falecimento"
+    # t.string   "local_remocao"
+    # t.string   "endereco_remocao"
+    # t.decimal  "taxa_adicional"
+    # t.string   "observacoes"
+    # t.datetime "created_at",                null: false
+    # t.datetime "updated_at",                null: false
+    # t.integer  "cadastro_id"
+    # t.decimal  "valor_total"

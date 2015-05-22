@@ -9,8 +9,8 @@ end
 class Contratante < ActiveRecord::Base
 	belongs_to :localizacao
 	has_one :cadastro
-	accepts_nested_attributes_for :localizacao
-	validates_associated :localizacao
+	#accepts_nested_attributes_for :localizacao
+	#validates_associated :localizacao
 	validates :nome_completo, presence: true, length: {maximum: 50}, numericality: false
 	validates :cpf, presence: true
 	validates :rg, presence: true
