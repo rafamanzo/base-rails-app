@@ -1,4 +1,5 @@
 <%= form_for @compra do |f| %>
+  <% raise @compra.inspect %>
 	<div class="container" id="formulario-dados-pessoais">
 		<form:errors path="*" />
 		<div class="row col-md-12">
@@ -22,8 +23,9 @@
                              	</thead>
                              	<tbody>
                              		<tr>
-                             			<th>Urna:</th>
-                             			<td>Urna fixa</td>
+                                  <%= f.fields_for :urna do |e| %>
+                             			  <th>Urna:</th>
+                             			  <td><%= e.text_field :nome, class: "form-control", id: "nome", placeholder: "URNA",   %></td>
 			     						          <td>
 										              <%= f.select :dimensao_urna, dimensoes_urnas, {}, class: "form-control", id: "dimensao_urna" %>
 									               </td>
