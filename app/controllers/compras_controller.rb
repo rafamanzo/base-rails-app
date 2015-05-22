@@ -2,9 +2,9 @@ class ComprasController < ApplicationController
   def new
     @cadastro_id = params[:cadastro_id]
 
-    @produto = Produto.new
+    @compra = Compra.new
     
-  	@css = {
+    @css = {
   		barra_filtro: "visited first col-sm-2",
   		barra_contratante: "visited col-sm-2",
   		barra_falecido: "visited col-sm-2",
@@ -15,19 +15,21 @@ class ComprasController < ApplicationController
   end
 
   def create
-    cadastro_id = params[:cadastro_id]
-    cadastro = Cadastro.find(cadastro_id)
-    cadastro.produto = Produto.new(produto_params)
-    if cadastro.save
-      # Redirecionar para a tela de nota fiscal
-      redirect_to root_path(cadastro_id)
+    @cadastro_id = params[:cadastro_id]
+    cadastro = Cadastro.find(@cadastro_id)
+    @compra = Compra.new(compra_params)
+    if @compra.save
+      cadastro.compra = @compra
+      cadastro.save
+      # TODO: Redirecionar para a tela de nota fiscal
+      redirect_to root_path(@cadastro_id)
     else 
-      render new_produto_path(cadastro_id)
+      render 'new'
     end
   end
 
   private
-  def produto_params
-    params.require(:produto).permit()
+  def compra_params
+    params.require(:compra).permit()
   end
 end
