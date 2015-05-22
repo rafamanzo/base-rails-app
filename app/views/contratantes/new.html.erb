@@ -68,11 +68,68 @@
                 </div>
 			</div>
 		</div>
-	    <div class="row">
-            <div class="col-md-8 shadow">
-                <div class="over-shadow">
-                    <h1 class="titulo_caixa">Endereço</h1>
-                    <%= f.fields_for(:localizacao) do |e| %>
+		<div class="row col-md-12">
+            <div class="col-md-8">
+                <div class="shadow">
+                    <div class="over-shadow">
+                        <h1 class="titulo_caixa">Endereço</h1>
+                        <%= f.fields_for :endereco do |e| %>
+	                        <div class="row">
+	                            <div class="col-sm-6">
+	                                <div class="form-group">
+	                                    <%= e.label :cep, "CEP" %>
+	                                    <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-sm-5">
+	                                <div class="form-group">
+	                                    <%= e.label :endereco, "Endereço" %>
+	                                    <%= e.text_field :endereco, class: "form-control", id: "endereco", placeholder: "Endereço" %>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-2">
+	                                <div class="form-group">
+	                                    <%= e.label :numero, "Número" %>
+	                                    <%= e.number_field :numero, class: "form-control", id: "numero_endereco", placeholder: "nº", min: 1 %>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-5">
+	                                <div class="form-group">
+	                                    <%= e.label :complemento, "Complemento" %>
+	                                    <%= e.text_field :complemento, class: "form-control", id: "complemento_endereco", placeholder: "Complemento" %>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-sm-5">
+	                                <div class="form-group">
+	                                    <%= e.label :bairro, "Bairro" %>
+	                                    <%= e.text_field :bairro, class: "form-control", id: "bairro", placeholder: "Bairro" %>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-5">
+	                                <div class="form-group">
+	                                    <%= e.label :cidade, "Cidade" %>
+	                                    <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-2">
+	                                <div class="form-group">
+	                                    <%= e.label :estado, "UF" %>
+	                                    <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shadow">
+                    <div class="over-shadow">
+                        <h1 class="titulo_caixa">Contatos</h1>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
