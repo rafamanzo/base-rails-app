@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520152713) do
+ActiveRecord::Schema.define(version: 20150522145418) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "contratante_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150520152713) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "cadastro_id"
+    t.decimal  "valor_total"
   end
 
   add_index "compras", ["cadastro_id"], name: "index_compras_on_cadastro_id"
