@@ -1,85 +1,109 @@
-== README
+= Hades
+
+== Description
 
 	{<img src="https://codeclimate.com/github/jaodsilv/Hades/badges/gpa.svg" />}[https://codeclimate.com/github/jaodsilv/Hades] {<img src="https://travis-ci.org/jaodsilv/Hades.png?branch=master" alt="Build Status" />}[https://travis-ci.org/jaodsilv/Hades] {<img src="https://codeclimate.com/github/jaodsilv/Hades/badges/coverage.svg" />}[https://codeclimate.com/github/jaodsilv/Hades/coverage]
 
 	Hades é um projeto teste voltado para o serviço funerário municipal da prefeitura de São Paulo.
-	Também é um projeto idealizado para servir de parametro do edital para a plataforma do serviço.
+	Também é um projeto idealizado para servir de parâmetro do edital para a plataforma do serviço.
 
-=== Desenvolvimento
+== Desenvolvimento
 
-==== Versão do Ruby
-	* 2.2.2
+=== Versão do Ruby
 
-==== Dependências.
-	* SQLite ou outro banco de dados a seu gosto.
+	2.2.2
 
-==== Intalação para desenvolvimento em Windows
+=== Dependências.
 
-Qualquer instalação do ruby 2.2.2 com bundler deve funcionar.
-Mas https://www.drupal.org/node/2138087 tem um tutorial para usar a RVM no Windows e que funciona.
-Seguido o tutorial basta seguir os passos que valem para linux usando o cygwin =).
+	SQLite ou outro banco de dados a seu gosto.
 
-==== Instalação de dependências em Linux.
+=== Intalação para desenvolvimento em Windows
+
+* Qualquer instalação do ruby 2.2.2 com bundler deve funcionar.
+* Mas é recomendável o uso de máquina virtual com linux e seguir as instruções para Linux.
+* Outra alternativa é https://www.drupal.org/node/2138087, que tem um tutorial para usar a RVM no Windows e que funciona. Seguido o tutorial basta seguir os passos que valem para linux usando o cygwin =).
+
+=== Instalação de dependências em Linux.
 
 * Terminal
+
 	Mude as configurações do perfil do terminal para executar o terminal com sessão.
+
 	Em geral essa opção está em "Editar", "Preferências", "perfis", "editar", "Titulo e comando", "Executar comando como shell de sessão".
+
 	Se for um terminal por ssh deve estar assim por padrão.
 
 * RVM
+	
 	$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+
 	$ \curl -sSL https://get.rvm.io | bash
+
 	$ rvm requirements
-	Siga as instruções do comando acima (se houver)
+
+Siga as instruções do comando acima (se houver)
 
 * Ruby
+
 	$ cd [caminho_do_projeto]
+
 	$ rvm install ruby-2.2.2
 
 * Configuração
+
 	Há um _config/database.yml.sample_ e um _config/database.yml.mysqlsample_, use-o e altere conforme a necessidade copiando um deles para _config/database.yml_.
+
 	bundle install
 
 * MySQL
+
 	Use qualquer instalação ou serviço MySQL
 
 * Criação do banco de dados
-	rake db:create
+
+	$ rake db:create
 
 * Inicialização do Banco de Dados
-	rake db:setup
+
+	$ rake db:setup
 
 * Rodar os teste
-	rake
 
-=== Instalação
+	$ rake
+
+== Instalação
 1. Primeiro deploy
-	* Certifique-se que o arquivo de deploy _config/deploy.rb_ está corretamente configurado;
- 	* Também, certifique-se que o servidor onde será intalado tenha RVM instalado e configurado;
-  	* _cap deploy:setup_ Intalará a versão correta do ruby, o gemset e toda a árvore de diretórios;
-  	* _cap_ _deploy:migrations_ colocará p código em produção e executara todas as migrações de banco de dados.
+
+* Certifique-se que o arquivo de deploy _config/deploy.rb_ está corretamente configurado;
+* Também, certifique-se que o servidor onde será intalado tenha RVM instalado e configurado;
+* _cap_ _deploy_:_setup_ Intalará a versão correta do ruby, o gemset e toda a árvore de diretórios;
+* _cap_ _deploy_:_migrations_ colocará p código em produção e executara todas as migrações de banco de dados.
 
 2. Deploy comum
+
 	_cap_ _production_ _deploy_
 
-=== Testes
+== Testes
 
 * testes de unidade e funcionais Ruby
-	Está sendo usado rspec (http://rspec.info).
-	Para executar $_rake_ _spec_
+
+Está sendo usado rspec (http://rspec.info). Para executar 
+	$_rake_ _spec_
 
 * Testes de aceitação
-	Está sendo usado cucumber (https://cukes.info)
-	Para executar $_rake_ _cucumber_
+
+Está sendo usado cucumber (https://cukes.info). Para executar 
+	$_rake_ _cucumber_
 
 * Testes de unidade JavaScript/CoffeeScript
-	Está sendo usado Konacha
-	Para executar $_rake_ _konacha:run_
 
-=== Autores
+Está sendo usado Konacha. Para executar
+	$_rake_ _konacha_:_run_
+
+== Autores
 
 Por favor, consulte o arquivo _public/humans.txt_.
 
-=== Outras informações
+== Outras informações
 
 Os autores contribuiram devido a matéria MAC0342/5716 do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP).
