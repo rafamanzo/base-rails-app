@@ -3,6 +3,13 @@ class ComprasController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @compra = Compra.new
+    @compra.build_urna
+    @compra.build_revestimento
+    @compra.build_tipo_sepultamento
+    @compra.build_transporte_carreto
+    @compra.build_transporte_enterro
+    @compra.build_sepultamento
+    @compra.build_outros
     
     @css = {
   		barra_filtro: "visited first col-sm-2",

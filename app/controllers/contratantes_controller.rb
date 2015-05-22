@@ -3,6 +3,7 @@ class ContratantesController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @contratante = Contratante.new
+    @contratante.build_localizacao
     @css = {
       barra_filtro: "first visited previous col-sm-2",
       barra_contratante: "active col-sm-2",
@@ -36,7 +37,7 @@ class ContratantesController < ApplicationController
   def contratante_params
     params.require(:contratante).permit(:nome_completo, :cpf, :rg, :profissao, :parentesco, :telefone_residencial,
                                         :telefone_celular, :email, :nome_mae, :cnpj, :nome_empresarial,
-                                        localizacao: [:endereco, :bairro, :numero, :cidade, :complemento,
+                                        localizacao_attributes: [:endereco, :bairro, :numero, :cidade, :complemento,
                                         :cep, :estado])
   end
 end

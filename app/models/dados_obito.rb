@@ -1,3 +1,3 @@
 class DadosObito < ActiveRecord::Base
-	has_one :cadastro
+	belongs_to :cadastro
 end

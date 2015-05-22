@@ -1,4 +1,4 @@
 class Localizacao < ActiveRecord::Base
-	has_one :falecido
-	has_one :contratante
+	belongs_to :falecido
+	belongs_to :contratante
 end

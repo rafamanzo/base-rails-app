@@ -11,24 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522145418) do
+ActiveRecord::Schema.define(version: 20150522172755) do
 
   create_table "cadastros", force: :cascade do |t|
-    t.integer  "contratante_id"
-    t.integer  "falecido_id"
     t.integer  "tipo_operacao"
     t.integer  "tipo_contratacao"
     t.integer  "destino_final"
-    t.integer  "dados_obito_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "produto_id"
     t.string   "status"
   end
 
-  add_index "cadastros", ["contratante_id"], name: "index_cadastros_on_contratante_id"
-  add_index "cadastros", ["dados_obito_id"], name: "index_cadastros_on_dados_obito_id"
-  add_index "cadastros", ["falecido_id"], name: "index_cadastros_on_falecido_id"
   add_index "cadastros", ["produto_id"], name: "index_cadastros_on_produto_id"
 
   create_table "casamentos", force: :cascade do |t|
@@ -61,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150522145418) do
     t.boolean  "remocao_local_falecimento"
     t.string   "local_remocao"
     t.string   "endereco_remocao"
-    t.decimal  "taxa_adicional"
     t.string   "observacoes"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -83,12 +76,12 @@ ActiveRecord::Schema.define(version: 20150522145418) do
     t.string   "nome_mae"
     t.string   "cnpj"
     t.string   "nome_empresarial"
-    t.integer  "localizacao_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "cadastro_id"
   end
 
-  add_index "contratantes", ["localizacao_id"], name: "index_contratantes_on_localizacao_id"
+  add_index "contratantes", ["cadastro_id"], name: "index_contratantes_on_cadastro_id"
 
   create_table "dados_obitos", force: :cascade do |t|
     t.string   "local_falecimento"
@@ -106,7 +99,10 @@ ActiveRecord::Schema.define(version: 20150522145418) do
     t.datetime "updated_at",        null: false
     t.text     "hora_falecimento"
     t.text     "hora_sepultamento"
+    t.integer  "cadastro_id"
   end
+
+  add_index "dados_obitos", ["cadastro_id"], name: "index_dados_obitos_on_cadastro_id"
 
   create_table "falecidos", force: :cascade do |t|
     t.string   "nome"
@@ -119,7 +115,6 @@ ActiveRecord::Schema.define(version: 20150522145418) do
     t.string   "numero_documento"
     t.string   "cpf"
     t.string   "estado_civil"
-    t.integer  "localizacao_id"
     t.boolean  "marca_passo"
     t.boolean  "eleitor"
     t.boolean  "reservista"
@@ -142,9 +137,10 @@ ActiveRecord::Schema.define(version: 20150522145418) do
     t.datetime "updated_at",       null: false
     t.integer  "altura"
     t.decimal  "peso"
+    t.integer  "cadastro_id"
   end
 
-  add_index "falecidos", ["localizacao_id"], name: "index_falecidos_on_localizacao_id"
+  add_index "falecidos", ["cadastro_id"], name: "index_falecidos_on_cadastro_id"
 
   create_table "filhos", force: :cascade do |t|
     t.string   "nome"
@@ -176,9 +172,14 @@ ActiveRecord::Schema.define(version: 20150522145418) do
     t.string   "complemento"
     t.string   "cep"
     t.string   "estado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "falecido_id"
+    t.integer  "contratante_id"
   end
+
+  add_index "localizacaos", ["contratante_id"], name: "index_localizacaos_on_contratante_id"
+  add_index "localizacaos", ["falecido_id"], name: "index_localizacaos_on_falecido_id"
 
   create_table "nascimento_obitos", force: :cascade do |t|
     t.string   "local_nascimento"

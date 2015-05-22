@@ -1,12 +1,6 @@
 class Falecido < ActiveRecord::Base
-  belongs_to :localizacao
-  has_one :cadastro
+  has_one :localizacao
+  belongs_to :cadastro
 
-  def localizacao= params
-  	if params.kind_of? Localizacao
-  		@localizacao = localizacao
-  	else
-  		@localizacao = Localizacao.new(params)
-  	end
-  end
+  accepts_nested_attributes_for :localizacao
 end

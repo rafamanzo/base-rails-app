@@ -3,7 +3,7 @@ class FalecidosController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @falecido = Falecido.new
-
+    @falecido.build_localizacao
   	@css = {
   		barra_filtro: "visited first col-sm-2",
   		barra_contratante: "previous visited col-sm-2",
@@ -33,7 +33,7 @@ class FalecidosController < ApplicationController
                               :inventariar, :testamento, :beneficio, :peso, :altura, :nome_mae,
                               :naturalidade_mae, :estado_civil_mae, :idade_mae, :profissao_mae,
                               :nome_pai, :naturalidade_pai, :estado_civil_pai, :profissao_pai,
-                              :idade_pai, :deixa_filhos, localizacao: [:endereco, :bairro,
+                              :idade_pai, :deixa_filhos, localizacao_attributes: [:endereco, :bairro,
                               :numero, :cidade, :complemento, :cep, :estado])
   end
 end

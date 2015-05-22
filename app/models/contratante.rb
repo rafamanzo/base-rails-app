@@ -1,4 +1,6 @@
 class Contratante < ActiveRecord::Base
-  belongs_to :localizacao
-  has_one :cadastro
+  has_one :localizacao
+  belongs_to :cadastro
+
+  accepts_nested_attributes_for :localizacao
 end
