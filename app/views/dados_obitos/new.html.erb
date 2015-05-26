@@ -1,6 +1,19 @@
 <%= form_for @dados_obito do |f| %>
+    <% if @dados_obito.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title"><%= @dados_obito.errors.count %> erros proibiram este dados obito de ser salvo:</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <% @dados_obito.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
     <div class="container" id="formulario-dados-pessoais">
-		<form:errors path="*" />
 		<div class="row">
             <div class="col-md-6 shadow">
             	<div class="over-shadow" id="dadosPessoais">
@@ -11,15 +24,15 @@
                                 <%= f.label :local_falecimento, "Local do Falecimento" %>
                                 <%= f.text_field :local_falecimento, class: "form-control", id: "local_falecimento", placeholder: "Local do Falecimento" %>
                             </div>
-                        </div>                      
+                        </div>
                     </div>
                     <div class="row">
-						<div class="col-sm-12">		
+						<div class="col-sm-12">
                             <div class="form-group">
                                 <%= f.label :cartorio, "Cartório" %>
                                 <%= f.text_field :cartorio, class: "form-control", id: "cartorio", placeholder: "Cartório" %>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4">
@@ -39,7 +52,7 @@
                                 <%= f.label :proaim, "PROAIM" %>
                                 <%= f.text_field :proaim, class: "form-control", id: "proaim", placeholder: "PROAIM" %>
                             </div>
-                        </div>                       
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -47,7 +60,7 @@
                                 <%= f.label :causa_mortis, "Causa Mortis" %>
                                 <%= f.text_field :causa_mortis, class: "form-control" , id: "causa_mortis", placeholder: "Causa Mortis" %>
                             </div>
-                        </div>                            
+                        </div>
                     </div>
                 </div>
 			</div>
@@ -82,7 +95,7 @@
                                 <%= f.label :hora_sepultamento, "Hora de Sepultamento" %>
                                 <%= f.text_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00" %>
                             </div>
-                        </div>                
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-7">
@@ -96,7 +109,7 @@
                                 <%= f.label :crm, "CRM" %>
                                 <%= f.text_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
                             </div>
-                        </div>                
+                        </div>
                     </div>
             </div>
         </div>

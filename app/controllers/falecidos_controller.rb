@@ -16,9 +16,9 @@ class FalecidosController < ApplicationController
       cadastro.falecido = @falecido
       cadastro.save
       redirect_to new_dados_obito_path(@cadastro_id)
-    else 
+    else
       @css = css
-      render 'new' 
+      render 'new'
     end
   end
 
@@ -33,8 +33,8 @@ class FalecidosController < ApplicationController
                               :idade_pai, :deixa_filhos, localizacao_attributes: [:endereco, :bairro,
                               :numero, :cidade, :complemento, :cep, :estado])
   end
-  
-  def css 
+
+  def css
     {
       barra_filtro: "visited first col-sm-2",
       barra_contratante: "previous visited col-sm-2",

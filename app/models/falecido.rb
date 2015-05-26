@@ -8,7 +8,7 @@ class Falecido < ActiveRecord::Base
   validates :nome, presence: true, length: {maximum: 50}, numericality: false
   validates :sexo, presence: true, length: {maximum: 20}, numericality: false
   validates :cor, presence: true, numericality: false
-  validates :nascimento, length: {maximum:20}
+  # validates :nascimento, length: {maximum:20}
   validates :profissao, :profissao_mae, :profissao_pai, numericality: false, length: {maximum: 50}
   validates :documento, :naturalidade, numericality: false, length: {maximum: 50}
   validates :numero_documento, length: {maximum: 50}
