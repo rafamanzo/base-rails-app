@@ -1,12 +1,3 @@
-class RemocaoLocalFalecimentoValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute, value = "Sim")
-  	unless value == "Nao"
-      	record.errors[attribute] << ("fill other fields")
-    end
-  end
-end
-
-
 class Compra < ActiveRecord::Base
 	belongs_to :cadastro
 	has_one :urna, class_name: "ItemCompra",as: :item
@@ -24,7 +15,10 @@ class Compra < ActiveRecord::Base
 	accepts_nested_attributes_for :transporte_enterro
 	accepts_nested_attributes_for :sepultamento
 	accepts_nested_attributes_for :outros
-
-	#validates :remocao_local_falecimento
-	validates :remocao_local_falecimento, presence: true, remocao_local_falecimento: true
+	
+	validates :local_remocao, :endereco_remocao, presence: true, length: {maximum: 50}, if: :remove_local_falecimento?
+ 
+  def remove_local_falecimento?
+    remocao_local_falecimento == false
+  end
 end
