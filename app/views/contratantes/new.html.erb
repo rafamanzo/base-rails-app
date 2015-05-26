@@ -1,157 +1,151 @@
 <%= form_for @contratante do |f| %>
 	<div class="container" id="formulario-dados-pessoais">
 		<form:errors path="*" />
-		<div class="row col-md-12">
-        	<div class="col-md-12">
-        	    <div class="shadow">
-        	        <div class="over-shadow">
-            	        <div id="dadosPessoais">
-	                        <h1 class="titulo_caixa">Dados pessoais</h1>
-					  	    <div class="row">
-	                            <div class="col-md-6 col-xs-12">
-	                                <div class="form-group">
-	                                    <%= f.label :cpf, "CPF" %>
-	                                    <%= f.text_field(:cpf, class: "form-control", onblur: "buscaPorCpf()", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14") %>
-	                                </div>
-	                            </div>                             
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-12">
-	                                <div class="form-group">
-	                                    <%= f.label :nome_completo, 'Nome Completo' %>
-	                                    <%= f.text_field :nome_completo, class: "form-control", id: "nome_completo", placeholder: "Nome Completo" %>
-	                                </div>
-	                            </div>                        
-	                        </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <%= f.label :rg, "RG" %>
-                                        <%= f.text_field :rg, class: "form-control", id: "rg", placeholder: "RG" %>
-                                    </div>
+		<div class="row">
+        	<div class="col-md-12 shadow">
+        	    <div class="over-shadow">
+                    <div id="dadosPessoais">
+	                    <h1 class="titulo_caixa">Dados pessoais</h1>
+				  	    <div class="row">
+	                        <div class="col-md-6 col-xs-12">
+	                            <div class="form-group">
+	                                <%= f.label :cpf, "CPF" %>
+	                                <%= f.text_field(:cpf, class: "form-control", onblur: "buscaPorCpf()", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14") %>
+	                            </div>
+	                        </div>                             
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-sm-12">
+	                            <div class="form-group">
+	                                <%= f.label :nome_completo, 'Nome Completo' %>
+	                                <%= f.text_field :nome_completo, class: "form-control", id: "nome_completo", placeholder: "Nome Completo" %>
+	                            </div>
+	                        </div>                        
+	                    </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <%= f.label :rg, "RG" %>
+                                    <%= f.text_field :rg, class: "form-control", id: "rg", placeholder: "RG" %>
                                 </div>
-                                <div class="col-sm-8">
-                                    <div class="form-group">
-                                        <%= f.label :nome_mae, "Nome da Mãe" %>
-                                        <%= f.text_field :nome_mae, class: "form-control", id: "nome_mae", placeholder: "Nome da mãe" %>
-                                    </div>
-                                </div>                                
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :profissao, "Profissão" %>
-                                        <%= f.text_field :profissao, class: "form-control", id: "profissao",placeholder: "Profissão" %>
-                                    </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <%= f.label :nome_mae, "Nome da Mãe" %>
+                                    <%= f.text_field :nome_mae, class: "form-control", id: "nome_mae", placeholder: "Nome da mãe" %>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :parentesco, "Parentesco" %>
-                                        <%= f.text_field :parentesco, class: "form-control", id: "parentesco", placeholder: "Parentesco" %>
-                                    </div>
+                            </div>                                
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= f.label :profissao, "Profissão" %>
+                                    <%= f.text_field :profissao, class: "form-control", id: "profissao",placeholder: "Profissão" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= f.label :parentesco, "Parentesco" %>
+                                    <%= f.text_field :parentesco, class: "form-control", id: "parentesco", placeholder: "Parentesco" %>
                                 </div>
                             </div>
                         </div>
                     </div>
-				</div>
+                </div>
 			</div>
 		</div>
-		<div class="row col-md-12">
-            <div class="col-md-8">
-                <div class="shadow">
-                    <div class="over-shadow">
-                        <h1 class="titulo_caixa">Endereço</h1>
-                        <%= f.fields_for(:localizacao) do |e| %>
-	                        <div class="row">
-	                            <div class="col-sm-6">
-	                                <div class="form-group">
-	                                    <%= e.label :cep, "CEP" %>
-	                                    <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <%= e.label :endereco, "Endereço" %>
-	                                    <%= e.text_field :endereco, class: "form-control", id: "endereco", placeholder: "Endereço" %>
-	                                </div>
-	                            </div>
-	                            <div class="col-sm-2">
-	                                <div class="form-group">
-	                                    <%= e.label :numero, "Número" %>
-	                                    <%= e.number_field :numero, class: "form-control", id: "numero_endereco", placeholder: "nº", min: 1 %>
-	                                </div>
-	                            </div>
-	                            <div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <%= e.label :complemento, "Complemento" %>
-	                                    <%= e.text_field :complemento, class: "form-control", id: "complemento_endereco", placeholder: "Complemento" %>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <%= e.label :bairro, "Bairro" %>
-	                                    <%= e.text_field :bairro, class: "form-control", id: "bairro", placeholder: "Bairro" %>
-	                                </div>
-	                            </div>
-	                            <div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <%= e.label :cidade, "Cidade" %>
-	                                    <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
-	                                </div>
-	                            </div>
-	                            <div class="col-sm-2">
-	                                <div class="form-group">
-	                                    <%= e.label :estado, "UF" %>
-	                                    <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    <% end %>
-                    </div>
+	    <div class="row">
+            <div class="col-md-8 shadow">
+                <div class="over-shadow">
+                    <h1 class="titulo_caixa">Endereço</h1>
+                    <%= f.fields_for(:localizacao) do |e| %>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= e.label :cep, "CEP" %>
+                                    <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :endereco, "Endereço" %>
+                                    <%= e.text_field :endereco, class: "form-control", id: "endereco", placeholder: "Endereço" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <%= e.label :numero, "Número" %>
+                                    <%= e.number_field :numero, class: "form-control", id: "numero_endereco", placeholder: "nº", min: 1 %>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :complemento, "Complemento" %>
+                                    <%= e.text_field :complemento, class: "form-control", id: "complemento_endereco", placeholder: "Complemento" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :bairro, "Bairro" %>
+                                    <%= e.text_field :bairro, class: "form-control", id: "bairro", placeholder: "Bairro" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :cidade, "Cidade" %>
+                                    <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <%= e.label :estado, "UF" %>
+                                    <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="shadow">
-                    <div class="over-shadow">
-                        <h1 class="titulo_caixa">Contatos</h1>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <%= f.label :telefone_residencial, "Tel Residencial" %>
-                                    <%= f.text_field :telefone_residencial, class: "form-control", id: "telefone_residencial", placeholder: "Tel Residencial", onkeypress: "mascara(this,telefone)", maxlength: "15" %>
-                                </div>
+            <div class="col-md-4 shadow">
+                <div class="over-shadow">
+                    <h1 class="titulo_caixa">Contatos</h1>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <%= f.label :telefone_residencial, "Tel Residencial" %>
+                                <%= f.text_field :telefone_residencial, class: "form-control", id: "telefone_residencial", placeholder: "Tel Residencial", onkeypress: "mascara(this,telefone)", maxlength: "15" %>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <%= f.label :telefone_celular, "Tel Celular" %>
-                                    <%= f.text_field :telefone_celular, class: "form-control", id: "telefone_celular", placeholder: "Tel Celular", onkeypress: "mascara(this,telefone)", maxlength: "15" %>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <%= f.label :telefone_celular, "Tel Celular" %>
+                                <%= f.text_field :telefone_celular, class: "form-control", id: "telefone_celular", placeholder: "Tel Celular", onkeypress: "mascara(this,telefone)", maxlength: "15" %>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <%= f.label :email, "Email" %>
-                                    <%= f.email_field :email, class: "form-control", id: "email", placeholder: "Email" %>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <%= f.label :email, "Email" %>
+                                <%= f.email_field :email, class: "form-control", id: "email", placeholder: "Email" %>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-		<div class="row col-md-12" id="botoes-navegacao">
-            <div class="col-xs-12">
-                <input type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></input>
-                <input type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</input>
-                <input class="col-xs-offset-4 col-xs-1 btn btn-default" value="Próximo" type="submit"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></input>
+        <div class="row">
+            <div class="col-xs-12" id="botoes-navegacao">
+                <button type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+                <button type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</button>
+                <button class="col-xs-offset-4 col-xs-1 btn btn-default" value="Próximo" type="submit"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
             </div>
         </div>
-	</div>
+    </div>
 <% end %>

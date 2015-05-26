@@ -1,84 +1,82 @@
 <%= form_for @falecido do |f| %>
     <div class="container" id="formulario-dados-pessoais">
     	<form:errors path="*" />
-        <div class="row col-md-12">
-            <div class="col-md-12">
-                <div class="shadow">
-                    <div class="over-shadow">
-                        <div id="dadosPessoais">
-                            <h1 class="titulo_caixa">Dados pessoais</h1>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <%= f.label :nome, "Nome completo" %>
-                                        <%= f.text_field :nome, class: "form-control", id: "nome_completo", placeholder: "Nome Completo" %>
-                                    </div>
-                                </div>                        
+        <div class="row">
+            <div class="col-md-12 shadow">
+                <div class="over-shadow">
+                    <div id="dadosPessoais">
+                        <h1 class="titulo_caixa">Dados pessoais</h1>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <%= f.label :nome, "Nome completo" %>
+                                    <%= f.text_field :nome, class: "form-control", id: "nome_completo", placeholder: "Nome Completo" %>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= f.label :naturalidade, "Naturalidade" %>
+                                    <%= f.text_field :naturalidade, class: "form-control", id: "naturalidade", placeholder: "Naturalidade" %>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :naturalidade, "Naturalidade" %>
-                                        <%= f.text_field :naturalidade, class: "form-control", id: "naturalidade", placeholder: "Naturalidade" %>
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= f.label :profissao, "Profissão" %>
+                                    <%= f.text_field :profissao, class: "form-control", id: "profissao", placeholder: "Profissão" %>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :profissao, "Profissão" %>
-                                        <%= f.text_field :profissao, class: "form-control", id: "profissao", placeholder: "Profissão" %>
-                                    </div>
-                                </div>                        
+                            </div>                        
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <%= f.label :documento, "Documento" %>
+                                    <%= f.select :documento, documentos, {}, class: "form-control", id: "documento" %>
+                                </div>
                             </div>
-                            <div class="row">
-                            	<div class="col-sm-2">
-                                    <div class="form-group">
-                                        <%= f.label :documento, "Documento" %>
-                                        <%= f.select :documento, documentos, {}, class: "form-control", id: "documento" %>
-                                    </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <%= f.label :numero_documento, "Número" %>
+                                    <%= f.text_field :numero_documento, class: "form-control", id: "numero_documento", placeholder: "Número do Documento" %>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :numero_documento, "Número" %>
-                                        <%= f.text_field :numero_documento, class: "form-control", id: "numero_documento", placeholder: "Número do Documento" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :cpf, "CPF" %>
-                                        <%= f.text_field :cpf, class: "form-control", id: "cpf", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14" %>
-                                    </div>
-                                </div>                        
                             </div>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <div class="form-group">
-                                        <%= f.label :sexo, "Sexo" %>
-                                        <%= f.select :sexo, sexos, {}, class: "form-control", id: "sexo" %>
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= f.label :cpf, "CPF" %>
+                                    <%= f.text_field :cpf, class: "form-control", id: "cpf", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14" %>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <%= f.label :nascimento, "Data de Nascimento" %>
-                                        <%= f.text_field :nascimento, class: "form-control", id: "data_nascimento",  placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
-                                    </div>
+                            </div>                        
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <%= f.label :sexo, "Sexo" %>
+                                    <%= f.select :sexo, sexos, {}, class: "form-control", id: "sexo" %>
                                 </div>
-                                <div class="col-md-1">
-                                    <div class="form-group">
-                                        <%= f.label :idade, "Idade" %>
-                                        <div class="form-control" id="idade" placeholder="Idade"></div>
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <%= f.label :nascimento, "Data de Nascimento" %>
+                                    <%= f.text_field :nascimento, class: "form-control", id: "data_nascimento",  placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <%= f.label :estado_civil, "Estado Civil" %>
-                                        <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil" %>
-                                    </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <%= f.label :idade, "Idade" %>
+                                    <div class="form-control" id="idade" placeholder="Idade"></div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <%= f.label :cor, "Cor" %>
-                                        <%= f.select :cor, cores, {}, class: "form-control", id: "cor" %>
-                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <%= f.label :estado_civil, "Estado Civil" %>
+                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil" %>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <%= f.label :cor, "Cor" %>
+                                    <%= f.select :cor, cores, {}, class: "form-control", id: "cor" %>
                                 </div>
                             </div>
                         </div>
@@ -86,226 +84,215 @@
                 </div>
             </div>    
         </div>
-        <div class="row col-md-12">
-            <div class="col-md-7">
-                <div class="shadow">
-                    <div class="over-shadow">
-                    	<h1 class="titulo_caixa">Endereço</h1>
-                        <%= f.fields_for(:localizacao) do |e| %>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= e.label :cep, "CEP" %>
-                                        <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
-                                    </div>
+        <div class="row">
+            <div class="col-md-7 shadow">
+                <div class="over-shadow">
+                    <%= f.fields_for(:localizacao) do |e| %>
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="form-group">
+                                    <%= e.label :cep, "CEP" %>
+                                    <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <%= e.label :endereco, "Endereço" %>
-                                        <%= e.text_field :endereco, class: "form-control", id: "endereco", placeholder: "Endereço" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <%= e.label :numero, "Número" %>
-                                        <%= e.number_field :numero, class: "form-control", id: "numero_endereco", placeholder: "nº", min: 1 %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <%= e.label :complemento, "Complemento" %>
-                                        <%= e.text_field :complemento, class: "form-control", id: "complemento_endereco", placeholder: "Complemento" %>
-                                    </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="form-group">
+                                    <%= e.label :endereco, "Endereço" %>
+                                    <%= e.text_field :endereco, class: "form-control", id: "endereco", placeholder: "Endereço" %>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <%= e.label :bairro, "Bairro" %>
-                                        <%= e.text_field :bairro, class: "form-control", id: "bairro", placeholder: "Bairro" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <%= e.label :cidade, "Cidade" %>
-                                        <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <%= e.label :estado, "UF" %>
-                                        <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
-                                    </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :numero, "Número" %>
+                                    <%= e.number_field :numero, class: "form-control", id: "numero_endereco", placeholder: "nº", min: 1 %>
                                 </div>
                             </div>
-                        <% end %>
-                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= e.label :complemento, "Complemento" %>
+                                    <%= e.text_field :complemento, class: "form-control", id: "complemento_endereco", placeholder: "Complemento" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <%= e.label :bairro, "Bairro" %>
+                                    <%= e.text_field :bairro, class: "form-control", id: "bairro", placeholder: "Bairro" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="form-group">
+                                    <%= e.label :cidade, "Cidade" %>
+                                    <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :estado, "UF" %>
+                                    <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
-            <div class="col-md-5">
-                <div class="shadow">
-                    <div class="over-shadow">
-                        <h1 class="titulo_caixa">Informações Adicionais</h1>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :altura, "Altura(cm)" %>
-                                        <%= f.number_field :altura, class: "form-control", id: "altura", placeholder: "Altura", min: 1, max: 400 %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <%= f.label :peso, "Peso(kg)" %>
-                                        <%= f.number_field :peso, class: "form-control", id: "peso", placeholder: "Peso", step: 0.01 %>
-                                    </div>
-                                </div>
+            <div class="col-md-5 shadow">
+                <div class="over-shadow">
+                    <h1 class="titulo_caixa">Informações Adicionais</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :altura, "Altura(cm)" %>
+                                <%= f.number_field :altura, class: "form-control", id: "altura", placeholder: "Altura", min: 1, max: 400 %>
                             </div>
-                            <div class="row">
-                            	<div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :inventariar, "Bens a inventariar" %>
-                                        <%= f.select :inventariar, sim_nao, {}, class: "form-control", id: "bens" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :testamento, "Deixa Testamento" %>
-                                        <%= f.select :testamento, sim_nao, {}, class: "form-control", id: "testamento" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group" style="margin-top:17%">
-                                        <%= f.label :deixa_filhos, "Deixa Filhos" %>
-                                        <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos" %>
-                                    </div>
-                                </div>
-	                        </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :marca_passo, "Marca Passo" %>
-                                        <%= f.select :marca_passo, sim_nao, {}, class: "form-control", id: "marcaPasso" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :eleitor, "Eleitor" %>
-                                        <%= f.select :eleitor, sim_nao, {}, class: "form-control", id: "eleitor" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :reservista, "Reservista" %>
-                                        <%= f.select :reservista, sim_nao, {}, class: "form-control", id: "reservista" %>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :peso, "Peso(kg)" %>
+                                <%= f.number_field :peso, class: "form-control", id: "peso", placeholder: "Peso", step: 0.01 %>
                             </div>
-                            <div class="row">
-                            	<div class="col-sm-4">
-                                    <div class="form-group">
-                                        <%= f.label :inss, "INSS" %>
-                                        <%= f.select :inss, sim_nao, {}, class: "form-control", id: "inss" %>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="form-group">
-                                        <%= f.label :beneficio, "Nº Beneficio" %>
-                                        <%= f.text_field :beneficio, class: "form-control", id: "beneficio", placeholder: "Nº Beneficio" %>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                       	<div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :inventariar, "Bens a inventariar" %>
+                                <%= f.select :inventariar, sim_nao, {}, class: "form-control", id: "bens" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :testamento, "Deixa Testamento" %>
+                                <%= f.select :testamento, sim_nao, {}, class: "form-control", id: "testamento" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :deixa_filhos, "Deixa Filhos" %>
+                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos" %>
+                            </div>
+                        </div>
+	                </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :marca_passo, "Marca Passo" %>
+                                <%= f.select :marca_passo, sim_nao, {}, class: "form-control", id: "marcaPasso" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :eleitor, "Eleitor" %>
+                                <%= f.select :eleitor, sim_nao, {}, class: "form-control", id: "eleitor" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :reservista, "Reservista" %>
+                                <%= f.select :reservista, sim_nao, {}, class: "form-control", id: "reservista" %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      	<div class="col-sm-4">
+                            <div class="form-group">
+                                <%= f.label :inss, "INSS" %>
+                                <%= f.select :inss, sim_nao, {}, class: "form-control", id: "inss" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <%= f.label :beneficio, "Nº Beneficio" %>
+                                <%= f.text_field :beneficio, class: "form-control", id: "beneficio", placeholder: "Nº Beneficio" %>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row col-md-12">
-	            <div class="col-md-12">
-	                <div class="shadow">
-	                    <div class="over-shadow">
-	                        <div id="dadosPais">
-	                            <h1 class="titulo_caixa">Dados dos Pais</h1>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <%= f.label :nome_mae, "Nome da Mãe" %>
-                                            <%= f.text_field :nome_mae, class: "form-control", id: "nome_mae", placeholder: "Nome da Mãe" %>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <%= f.label :estado_civil_mae, "Estado Civil" %>
-                                            <%= f.select :estado_civil_mae, estados_civis, {}, class: "form-control", id: "estado_civil_mae" %>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                           <%= f.label :idade_mae, "Idade" %>
-                                           <%= f.text_field :idade_mae, class: "form-control", id: "idade_mae", placeholder: "Idade" %>
-                                        </div>
-                                    </div>                        
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <%= f.label :naturalidade_mae, "Naturalidade" %>
-                                            <%= f.text_field :naturalidade_mae, class: "form-control", id: "naturalidade_mae", placeholder: "Naturalidade da Mãe" %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <%= f.label :profissao_mae, "Profissão" %>
-                                            <%= f.text_field :profissao_mae, class: "form-control", id: "profissao_mae", placeholder: "Profissão da Mãe" %>
-                                        </div>
-                                    </div>                        
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <%= f.label :nome_pai, "Nome do Pai" %>
-                                            <%= f.text_field :nome_pai, class: "form-control", id: "nome_pai", placeholder: "Nome do Pai" %>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <%= f.label :estado_civil_pai, "Estado Civil" %>
-                                            <%= f.select :estado_civil_pai, estados_civis, {},  class: "form-control", id: "estado_civil_pai" %>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                           <%= f.label :idade_pai, "Idade" %>
-                                           <%= f.text_field :idade_pai, class: "form-control", id: "idade_pai", placeholder: "Idade" %>
-                                        </div>
-                                    </div>                        
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <%= f.label :naturalidade_pai, "Naturalidade" %>
-                                            <%= f.text_field :naturalidade_pai, class: "form-control", id: "naturalidade_pai", placeholder: "Naturalidade do Pai" %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <%= f.label :profissao_pai, "Profissão" %>
-                                            <%= f.text_field :profissao_pai, class: "form-control", id: "profissao_pai", placeholder: "Profissão do Pai" %>
-                                        </div>
-                                    </div>                        
-                                </div>
-	                        </div>
-	                    </div>
-                    </div>
-                </div>
-            </div>    
         </div>
-        <div class="row col-md-12" id="botoes-navegacao">
-            <div class="col-xs-12">
-                <button type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+        <div class="row">
+	        <div class="col-md-12 shadow">
+	            <div class="over-shadow" id="dadosPais">
+                    <h1 class="titulo_caixa">Dados dos Pais</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :nome_mae, "Nome da Mãe" %>
+                                <%= f.text_field :nome_mae, class: "form-control", id: "nome_mae", placeholder: "Nome da Mãe" %>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <%= f.label :estado_civil_mae, "Estado Civil" %>
+                                <%= f.select :estado_civil_mae, estados_civis, {}, class: "form-control", id: "estado_civil_mae" %>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <%= f.label :idade_mae, "Idade" %>
+                                <%= f.text_field :idade_mae, class: "form-control", id: "idade_mae", placeholder: "Idade" %>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :naturalidade_mae, "Naturalidade" %>
+                                <%= f.text_field :naturalidade_mae, class: "form-control", id: "naturalidade_mae", placeholder: "Naturalidade da Mãe" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :profissao_mae, "Profissão" %>
+                                <%= f.text_field :profissao_mae, class: "form-control", id: "profissao_mae", placeholder: "Profissão da Mãe" %>                                       
+                            </div>
+                        </div>                        
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :nome_pai, "Nome do Pai" %>
+                                <%= f.text_field :nome_pai, class: "form-control", id: "nome_pai", placeholder: "Nome do Pai" %>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <%= f.label :estado_civil_pai, "Estado Civil" %>
+                                <%= f.select :estado_civil_pai, estados_civis, {},  class: "form-control", id: "estado_civil_pai" %>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <%= f.label :idade_pai, "Idade" %>
+                                <%= f.text_field :idade_pai, class: "form-control", id: "idade_pai", placeholder: "Idade" %>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :naturalidade_pai, "Naturalidade" %>
+                                <%= f.text_field :naturalidade_pai, class: "form-control", id: "naturalidade_pai", placeholder: "Naturalidade do Pai" %>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <%= f.label :profissao_pai, "Profissão" %>
+                                <%= f.text_field :profissao_pai, class: "form-control", id: "profissao_pai", placeholder: "Profissão do Pai" %>
+                            </div>
+                        </div>                        
+                    </div>
+	            </div>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="col-xs-12" id="botoes-navegacao">
+                <button type="button" class="col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-left" ></span></button>
                 <button type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</button>
-                <input type="submit" class="col-xs-offset-4 col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                <button type="submit" class="col-xs-offset-4 col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
             </div>
         </div>
     </div>
