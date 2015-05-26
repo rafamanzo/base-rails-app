@@ -22,4 +22,5 @@ class Contratante < ActiveRecord::Base
 	validates :cnpj, length: {maximum: 50}
 	validates :nome_empresarial, length: {maximum: 50}
 	validates :email, length: {maximum: 50}, allow_blank: true, email: true
+	validates :localizacao, presence: true
 end

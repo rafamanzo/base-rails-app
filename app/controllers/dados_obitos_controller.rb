@@ -3,7 +3,7 @@ class DadosObitosController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @dados_obito = DadosObito.new
-    
+
   	@css = {
   		barra_filtro: "visited first col-sm-2",
   		barra_contratante: "visited col-sm-2",
@@ -20,15 +20,15 @@ class DadosObitosController < ApplicationController
     cadastro.dados_obito = DadosObito.new(dados_obito_params)
     if cadastro.save
       redirect_to new_compra_path(cadastro_id)
-    else 
+    else
       render new_dados_obito_path(cadastro_id)
     end
   end
 
   private
   def dados_obito_params
-    params.require(:dados_obito).permit(:local_falecimento, :data_falecimento, :cartorio, :proaim, 
-                                        :cemiterio, :endereco, :data_sepultamento, :medico, :crm, 
+    params.require(:dados_obito).permit(:local_falecimento, :data_falecimento, :cartorio, :proaim,
+                                        :cemiterio, :endereco, :data_sepultamento, :medico, :crm,
                                         :observacoes, :causa_mortis, :hora_falecimento, :hora_sepultamento)
   end
 end

@@ -1,6 +1,6 @@
 class DadosObito < ActiveRecord::Base
 	belongs_to :cadastro
-	
+
 	validates :local_falecimento, length: {maximum: 50}, numericality: false
 	validates :cartorio, :causa_mortis, :cemiterio, :endereco, :medico, :proaim, length: {maximum: 50}, numericality: false
 	validates :crm, length: {maximum: 10}, numericality: {only_integer: true}
