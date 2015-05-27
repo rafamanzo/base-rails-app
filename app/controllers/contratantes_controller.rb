@@ -10,11 +10,10 @@ class ContratantesController < ApplicationController
 
   def create
     @cadastro_id = params[:cadastro_id]
-	#raise params[:contratante][:endereco].inspect
-	#localizacao = Localizacao.new(params[:contratante].require(:endereco))
     @contratante = Contratante.new(contratante_params)
-	#@contratante.localizacao = localizacao
-	if @contratante.save
+    @contratante.localizacao.valida = true
+
+		if @contratante.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.contratante = @contratante
       cadastro.save

@@ -3,7 +3,6 @@ class Falecido < ActiveRecord::Base
   belongs_to :cadastro
 
   accepts_nested_attributes_for :localizacao
-  validates_associated :localizacao
 
   validates :nome, presence: true, length: {maximum: 50}, numericality: false
   validates :sexo, presence: true, length: {maximum: 20}, numericality: false
@@ -18,5 +17,4 @@ class Falecido < ActiveRecord::Base
   validates :peso, :altura, length: {maximum: 5}
   validates :nome_mae, :nome_pai, :naturalidade_mae, :naturalidade_pai, length: {maximum: 50}, numericality: false
   validates :idade_mae, :idade_pai, numericality: {only_integer: true}, allow_blank: true
-
 end

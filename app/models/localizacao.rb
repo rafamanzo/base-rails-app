@@ -9,9 +9,13 @@ class Localizacao < ActiveRecord::Base
 	validates :complemento, length: {maximum: 50}, if: :valida_localizacao?
 	validates :cep, presence: true, length:{maximum: 10}, if: :valida_localizacao?
 	validates :estado, presence: true, length: {maximum: 2}, numericality: false, if: :valida_localizacao?
-  
-  def valida_localizacao?
-    falecido.present?
-    #ainda não está funcionando
-  end
+
+	def valida_localizacao?
+		@valida ||= false
+		@valida
+	end
+
+	def valida= param
+		@valida = param
+	end
 end
