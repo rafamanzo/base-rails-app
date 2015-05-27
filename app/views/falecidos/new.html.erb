@@ -1,6 +1,19 @@
 <%= form_for @falecido do |f| %>
+    <% if @falecido.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title"><%= @falecido.errors.count %> erros proibiram este falecido de ser salvo:</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <% @falecido.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
     <div class="container" id="formulario-dados-pessoais">
-    	<form:errors path="*" />
         <div class="row">
             <div class="col-md-12 shadow">
                 <div class="over-shadow">
@@ -12,7 +25,7 @@
                                     <%= f.label :nome, "Nome completo" %>
                                     <%= f.text_field :nome, class: "form-control", id: "nome_completo", placeholder: "Nome Completo" %>
                                 </div>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -26,7 +39,7 @@
                                     <%= f.label :profissao, "Profissão" %>
                                     <%= f.text_field :profissao, class: "form-control", id: "profissao", placeholder: "Profissão" %>
                                 </div>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-2">
@@ -46,7 +59,7 @@
                                     <%= f.label :cpf, "CPF" %>
                                     <%= f.text_field :cpf, class: "form-control", id: "cpf", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14" %>
                                 </div>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-1">
@@ -82,14 +95,15 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
         <div class="row">
             <div class="col-md-7 shadow">
                 <div class="over-shadow">
-                    <%= f.fields_for(:localizacao) do |e| %>
+                    <h1 class="titulo_caixa">Endereço</h1>
+                    <%= f.fields_for :localizacao do |e| %>
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <%= e.label :cep, "CEP" %>
                                     <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
@@ -97,19 +111,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <%= e.label :endereco, "Endereço" %>
                                     <%= e.text_field :endereco, class: "form-control", id: "endereco", placeholder: "Endereço" %>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <div class="form-group">
                                     <%= e.label :numero, "Número" %>
                                     <%= e.number_field :numero, class: "form-control", id: "numero_endereco", placeholder: "nº", min: 1 %>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <%= e.label :complemento, "Complemento" %>
                                     <%= e.text_field :complemento, class: "form-control", id: "complemento_endereco", placeholder: "Complemento" %>
@@ -117,19 +131,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <%= e.label :bairro, "Bairro" %>
                                     <%= e.text_field :bairro, class: "form-control", id: "bairro", placeholder: "Bairro" %>
                                 </div>
                             </div>
-                            <div class="col-sm-9">
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <%= e.label :cidade, "Cidade" %>
                                     <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <div class="form-group">
                                     <%= e.label :estado, "UF" %>
                                     <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
@@ -235,7 +249,7 @@
                                 <%= f.label :idade_mae, "Idade" %>
                                 <%= f.text_field :idade_mae, class: "form-control", id: "idade_mae", placeholder: "Idade" %>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -247,10 +261,10 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <%= f.label :profissao_mae, "Profissão" %>
-                                <%= f.text_field :profissao_mae, class: "form-control", id: "profissao_mae", placeholder: "Profissão da Mãe" %>                                       
+                                <%= f.text_field :profissao_mae, class: "form-control", id: "profissao_mae", placeholder: "Profissão da Mãe" %>
                             </div>
-                        </div>                        
-                    </div> 
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -269,7 +283,7 @@
                                 <%= f.label :idade_pai, "Idade" %>
                                 <%= f.text_field :idade_pai, class: "form-control", id: "idade_pai", placeholder: "Idade" %>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -283,11 +297,11 @@
                                 <%= f.label :profissao_pai, "Profissão" %>
                                 <%= f.text_field :profissao_pai, class: "form-control", id: "profissao_pai", placeholder: "Profissão do Pai" %>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 	            </div>
             </div>
-        </div>   
+        </div>
         <div class="row">
             <div class="col-xs-12" id="botoes-navegacao">
                 <button type="button" class="col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-left" ></span></button>

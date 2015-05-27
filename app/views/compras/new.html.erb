@@ -1,4 +1,18 @@
 <%= form_for @compra do |f| %>
+  <% if @compra.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @compra.errors.count %> erros proibiram este compra de ser salvo:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @compra.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
   <div class="container" id="formulario-dados-pessoais">
     <div class="row">
       <div class="col-md-12 shadow">
@@ -10,9 +24,9 @@
             <div class="col-md-2">
                   <%= f.select :remocao_local_falecimento, sim_nao, {}, class: "form-control", id:"remocao_local_falecimento" %>
             </div>
-          </div>  
+          </div>
           <div class="row">
-            <div class="col-md-6">  
+            <div class="col-md-6">
               <%= f.label :local_remocao, "Local do Falecimento" %>
               <%= f.text_field :local_remocao, class: "form-control", id: "local_remocao", placeholder: "Local de Remoção" %>
             </div>
@@ -20,8 +34,8 @@
               <%= f.label :endereco_remocao, "Endereço" %>
               <%= f.text_field :endereco_remocao, class: "form-control", id: "endereco_remocao", placeholder: "Endereço" %>
             </div>
-          </div>  
-        </div>    
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -69,12 +83,12 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>                             
-            </div>   
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
     <div class="row">
       <div class="col-md-12 shadow">
         <div class="over-shadow">

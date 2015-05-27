@@ -4,24 +4,21 @@ class FalecidosController < ApplicationController
 
     @falecido = Falecido.new
     @falecido.build_localizacao
-  	@css = {
-  		barra_filtro: "visited first col-sm-2",
-  		barra_contratante: "previous visited col-sm-2",
-  		barra_falecido: "active col-sm-2",
-  		barra_obito: "next col-sm-2",
-  		barra_produtos: "col-sm-2",
-  		barra_notas: "col-sm-2",
-  	}
+
+  	@css = css
   end
 
   def create
-    cadastro_id = params[:cadastro_id]
-    cadastro = Cadastro.find(cadastro_id)
-    cadastro.falecido = Falecido.new(falecido_params)
-    if cadastro.save
-      redirect_to new_dados_obito_path(cadastro_id)
-    else 
-      render new_falecido_path(cadastro_id)
+    @cadastro_id = params[:cadastro_id]
+    @falecido = Falecido.new(falecido_params)
+    if @falecido.save
+      cadastro = Cadastro.find(@cadastro_id)
+      cadastro.falecido = @falecido
+      cadastro.save
+      redirect_to new_dados_obito_path(@cadastro_id)
+    else
+      @css = css
+      render 'new'
     end
   end
 
@@ -36,4 +33,16 @@ class FalecidosController < ApplicationController
                               :idade_pai, :deixa_filhos, localizacao_attributes: [:endereco, :bairro,
                               :numero, :cidade, :complemento, :cep, :estado])
   end
+
+  def css
+    {
+      barra_filtro: "visited first col-sm-2",
+      barra_contratante: "previous visited col-sm-2",
+      barra_falecido: "active col-sm-2",
+      barra_obito: "next col-sm-2",
+      barra_produtos: "col-sm-2",
+      barra_notas: "col-sm-2",
+    }
+  end
 end
+
