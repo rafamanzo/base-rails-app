@@ -145,13 +145,14 @@
                   </td>
                   <td  colspan="2">Outras</td>
                   <td>
-                    <%= e.radio_button :nome, "(+)Creditar", id: "tipo_taxa", disabled: true %>
+                    <%= e.radio_button :nome, "(+)Creditar", id: "tipo_taxa", class: "tipo_taxa_class",disabled: true %>
                     <%= e.label :creditar, "(+)Creditar" %>
-                    <%= e.radio_button :nome, "(-)Debitar", id: "tipo_taxa", disabled: true %>
-                    <%= e.label :debitar, "(+)Debitar" %>
+                    <%= e.radio_button :nome, "(-)Debitar", id: "tipo_taxa",class: "tipo_taxa_class", disabled: true %>
+                    <%= e.label :debitar, "(-)Debitar" %>
                   </td>
+                  <td></td>
                   <td>
-                    <%= e.number_field :valor_unitario, disabled: true, step: 0.01, id: "valor_taxa" %>
+                    <%= e.number_field :valor_unitario, disabled: true, step: 0.01, id: "valor_taxa", onkeypress: "mascara(this,dinheiro_mask)" %>
                   </td>
                 <% end %>
               </tr>

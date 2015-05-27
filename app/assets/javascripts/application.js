@@ -47,3 +47,9 @@ function hora_mask(v){
     v=v.replace(/(\d{1,2})(\d{2})/,"$1:$2")
     return v
 }
+function dinheiro_mask(v){
+    //v=v.replace(/\D/g,"")
+    //v=v.replace(/^(\d{1})$/, "0,0$1")
+    //v=v.replace(/(\d)(\d{1,2})$/,"$1,$2")
+    return v
+}
