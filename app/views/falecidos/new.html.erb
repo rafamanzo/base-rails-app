@@ -71,7 +71,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <%= f.label :nascimento, "Data de Nascimento" %>
-                                    <%= f.text_field :nascimento, class: "form-control", id: "data_nascimento",  placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
+                                    <%= f.date_field :nascimento, :class => 'datepicker form-control', id: "data_nascimento",  placeholder: "01/01/1900", max: Date.today %>
                                 </div>
                             </div>
                             <div class="col-md-1">
@@ -247,7 +247,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <%= f.label :idade_mae, "Idade" %>
-                                <%= f.text_field :idade_mae, class: "form-control", id: "idade_mae", placeholder: "Idade" %>
+                                <%= f.number_field :idade_mae, class: "form-control", id: "idade_mae", placeholder: "Idade" %>
                             </div>
                         </div>
                     </div>
@@ -281,7 +281,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <%= f.label :idade_pai, "Idade" %>
-                                <%= f.text_field :idade_pai, class: "form-control", id: "idade_pai", placeholder: "Idade" %>
+                                <%= f.number_field :idade_pai, class: "form-control", id: "idade_pai", placeholder: "Idade" %>
                             </div>
                         </div>
                     </div>

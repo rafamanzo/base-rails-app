@@ -38,13 +38,13 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :data_falecimento, "Data de Falecimento" %>
-                                <%= f.text_field :data_falecimento, class: "form-control", id: "data_falecimento", placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
+                                <%= f.date_field :data_falecimento, :class => 'datepicker form-control', id: "data_falecimento", placeholder: "01/01/1900", max: Date.today %>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <%= f.label :hora_falecimento, "Hora de Falecimento" %>
-                                <%= f.text_field :hora_falecimento, class: "form-control", id: "hora_falecimento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
+                                <%= f.datetime_field :hora_falecimento, class: "form-control", id: "hora_falecimento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
                             </div>
                         </div>
                         <div class="col-sm-5">
@@ -87,13 +87,13 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :data_sepultamento, "Data de Sepultamento" %>
-                                <%= f.text_field :data_sepultamento, class: "form-control", id: "data_sepultamento", placeholder: "01/01/1900", onkeypress: "mascara(this,data_mask)" %>
+                                <%= f.date_field :data_sepultamento, :class => 'datepicker form-control', id: "data_sepultamento",  placeholder: "01/01/1900", max: Date.today %>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <%= f.label :hora_sepultamento, "Hora de Sepultamento" %>
-                                <%= f.text_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00" %>
+                                <%= f.datetime_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <%= f.label :crm, "CRM" %>
-                                <%= f.text_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
+                                <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
                             </div>
                         </div>
                     </div>
