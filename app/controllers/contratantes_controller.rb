@@ -13,7 +13,7 @@ class ContratantesController < ApplicationController
     @contratante = Contratante.new(contratante_params)
     @contratante.localizacao.valida = true
 
-		if @contratante.save
+    if @contratante.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.contratante = @contratante
       cadastro.save
