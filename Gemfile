@@ -79,6 +79,7 @@ group :development, :test do
 
   # JavaScript unit tests
   gem "konacha", "~> 3.3.0"
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'sprockets', '~>2.12.3' # spckets 3.0.3 breaks konacha
 
   # Better error interface
@@ -87,9 +88,9 @@ group :development, :test do
 end
 
 # Acceptance tests
-group :cucumber do
+group :test, :cucumber do
   gem 'cucumber', '~> 1.3.18'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   # Version fixed greater than 1.4.1. See:
   # https://github.com/DatabaseCleaner/database_cleaner/issues/317
   gem 'database_cleaner', '>= 1.4.1'
