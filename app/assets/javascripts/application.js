@@ -36,7 +36,7 @@ function cep_mask(v){
     v=v.replace(/(\d{5})(\d{1,3})$/,"$1-$2")
     return v
 }
-function telefone(v){
+function telefone_mask(v){
     v=v.replace(/\D/g,"")
     v=v.replace(/(\d{2})(\d)/,"($1) $2")
     v=v.replace(/(\d{4,5})(\d{4})/,"$1-$2")
