@@ -2,7 +2,7 @@
 
 == Description
 
-	{<img src="https://codeclimate.com/github/jaodsilv/Hades/badges/gpa.svg" />}[https://codeclimate.com/github/jaodsilv/Hades] {<img src="https://travis-ci.org/jaodsilv/Hades.png?branch=master" alt="Build Status" />}[https://travis-ci.org/jaodsilv/Hades] {<img src="https://codeclimate.com/github/jaodsilv/Hades/badges/coverage.svg" />}[https://codeclimate.com/github/jaodsilv/Hades/coverage]
+	{<img src="https://codeclimate.com/github/jaodsilv/Hades/badges/gpa.svg" />}[https://codeclimate.com/github/jaodsilv/Hades] {<img src="https://travis-ci.org/jaodsilv/Hades.png?branch=stable" alt="Build Status" />}[https://travis-ci.org/jaodsilv/Hades] {<img src="https://codeclimate.com/github/jaodsilv/Hades/badges/coverage.svg" />}[https://codeclimate.com/github/jaodsilv/Hades/coverage]
 
 	Hades é um projeto teste voltado para o serviço funerário municipal da prefeitura de São Paulo.
 	Também é um projeto idealizado para servir de parâmetro do edital para a plataforma do serviço.
