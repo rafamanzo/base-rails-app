@@ -14,8 +14,13 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+if ENV['CI']
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
+else
+  require 'simplecov'
+  SimpleCov.start
+end
 
 RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience
