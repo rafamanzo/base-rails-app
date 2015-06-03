@@ -164,21 +164,23 @@
                     <div class="over-shadow">
                         <div id="dadosPessoais">
                             <h1 class="titulo_caixa">Dados da Empresa</h1>
+                             <%= f.fields_for :empresa do |e| %>
                             <div class="row">
                                 <div class="col-sm-7">
                                     <div class="form-group">
-                                        <%= f.label :nome_empresarial, "Nome Empresarial" %>
-                                        <%= f.text_field(:nome_empresarial, class: "form-control", placeholder: "Nome empresarial", maxlength: "40") %>
+                                        <%= e.label :nome, "Nome Empresarial" %>
+                                        <%= e.text_field(:nome, class: "form-control", placeholder: "Nome empresarial", maxlength: "40") %>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <%= f.label :cnpj, 'CNPJ' %>
-                                        <%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "CNPJ",
+                                        <%= e.label :cnpj, 'CNPJ' %>
+                                        <%= e.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "CNPJ",
                                         onkeypress: "mascara(this,cnpj_mask)", maxlength: "19" %>
                                     </div>
                                 </div>
                             </div>
+                            <% end %>
                         </div>
                     </div>
                 </div>

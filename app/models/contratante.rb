@@ -8,8 +8,10 @@ end
 
 class Contratante < ActiveRecord::Base
 	has_one :localizacao
+	has_one :empresa
 	belongs_to :cadastro
 
+	
 	accepts_nested_attributes_for :localizacao
 	validates_associated :localizacao
 
@@ -19,7 +21,5 @@ class Contratante < ActiveRecord::Base
 	validates :profissao, numericality: false, length: {maximum: 50}
 	validates :parentesco, numericality: false, length: {maximum: 50}
 	validates :nome_mae, presence:true, length: {maximum: 50}, numericality: false
-	validates :cnpj, length: {maximum: 50}
-	validates :nome_empresarial, length: {maximum: 50}
 	validates :email, length: {maximum: 50}, allow_blank: true, email: true
 end
