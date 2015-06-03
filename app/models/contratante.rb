@@ -11,7 +11,7 @@ class Contratante < ActiveRecord::Base
 	has_one :empresa
 	belongs_to :cadastro
 
-	
+	accepts_nested_attributes_for :empresa
 	accepts_nested_attributes_for :localizacao
 	validates_associated :localizacao
 

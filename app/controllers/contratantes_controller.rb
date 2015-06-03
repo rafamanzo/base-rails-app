@@ -1,9 +1,9 @@
 class ContratantesController < ApplicationController
   def new
     @cadastro_id = params[:cadastro_id]
- 
+
     @cadastro = Cadastro.find(@cadastro_id)
- 
+
     @contratante = Contratante.new
     @contratante.build_localizacao
     @contratante.build_empresa
@@ -15,6 +15,7 @@ class ContratantesController < ApplicationController
     @cadastro_id = params[:cadastro_id]
     @contratante = Contratante.new(contratante_params)
     @contratante.localizacao.valida = true
+    byebug
 
     if @contratante.save
       cadastro = Cadastro.find(@cadastro_id)
@@ -40,8 +41,8 @@ class ContratantesController < ApplicationController
   def contratante_params
     params.require(:contratante).permit(:nome_completo, :cpf, :rg, :profissao, :parentesco, :telefone_residencial,
                                         :telefone_celular, :email, :nome_mae,
-                                        localizacao_attributes: 
-                                        [:endereco, :bairro, :numero, :cidade, :complemento,:cep, :estado], 
+                                        localizacao_attributes:
+                                        [:endereco, :bairro, :numero, :cidade, :complemento,:cep, :estado],
                                         empresa_attributes:
                                         [:nome, :cnpj])
   end
