@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522172755) do
+ActiveRecord::Schema.define(version: 20150603151903) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
@@ -74,8 +74,6 @@ ActiveRecord::Schema.define(version: 20150522172755) do
     t.string   "telefone_celular"
     t.string   "email"
     t.string   "nome_mae"
-    t.string   "cnpj"
-    t.string   "nome_empresarial"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "cadastro_id"
@@ -103,6 +101,16 @@ ActiveRecord::Schema.define(version: 20150522172755) do
   end
 
   add_index "dados_obitos", ["cadastro_id"], name: "index_dados_obitos_on_cadastro_id"
+
+  create_table "empresas", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cnpj"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "contratante_id"
+  end
+
+  add_index "empresas", ["contratante_id"], name: "index_empresas_on_contratante_id"
 
   create_table "falecidos", force: :cascade do |t|
     t.string   "nome"
