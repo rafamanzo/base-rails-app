@@ -1,4 +1,5 @@
 <%= form_for @contratante do |f| %>
+
     <% if @contratante.errors.any? %>
         <div id="error_expl" class="panel panel-danger">
             <div class="panel-heading">
@@ -155,6 +156,37 @@
                 </div>
             </div>
         </div>
+        
+
+        <% if @cadastro.tipo_operacao == 1 and @cadastro.tipo_contratacao == 1 and @cadastro.destino_final == 1 %>
+            <div class="row">
+                <div class="col-md-12 shadow">
+                    <div class="over-shadow">
+                        <div id="dadosPessoais">
+                            <h1 class="titulo_caixa">Dados da Empresa</h1>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <%= f.label :nome_empresarial, "Nome Empresarial" %>
+                                        <%= f.text_field(:nome_empresarial, class: "form-control", placeholder: "Nome empresarial", maxlength: "40") %>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <%= f.label :cnpj, 'CNPJ' %>
+                                        <%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "CNPJ",
+                                        onkeypress: "mascara(this,cnpj_mask)", maxlength: "19" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+
+
         <div class="row">
             <div class="col-xs-12" id="botoes-navegacao">
                 <button type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
