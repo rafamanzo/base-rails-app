@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150603151903) do
+ActiveRecord::Schema.define(version: 20150603205003) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
@@ -37,7 +36,10 @@ ActiveRecord::Schema.define(version: 20150603151903) do
     t.integer  "numero"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "casamentos", ["falecido_id"], name: "index_casamentos_on_falecido_id"
 
   create_table "certidao_nascimentos", force: :cascade do |t|
     t.datetime "data_nascimento"
@@ -103,7 +105,6 @@ ActiveRecord::Schema.define(version: 20150603151903) do
 
   add_index "dados_obitos", ["cadastro_id"], name: "index_dados_obitos_on_cadastro_id"
 
-<<<<<<< HEAD
   create_table "dados_velorios", force: :cascade do |t|
     t.string   "local_velorio"
     t.text     "endereco_velorio"
@@ -120,8 +121,6 @@ ActiveRecord::Schema.define(version: 20150603151903) do
 
   add_index "dados_velorios", ["dados_obito_id"], name: "index_dados_velorios_on_dados_obito_id"
 
-=======
->>>>>>> master
   create_table "empresas", force: :cascade do |t|
     t.string   "nome"
     t.string   "cnpj"
@@ -176,7 +175,10 @@ ActiveRecord::Schema.define(version: 20150603151903) do
     t.text     "observacoes"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "filhos", ["falecido_id"], name: "index_filhos_on_falecido_id"
 
   create_table "item_compras", force: :cascade do |t|
     t.integer  "quatidade"
@@ -220,7 +222,11 @@ ActiveRecord::Schema.define(version: 20150603151903) do
     t.string   "gravidez"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "falecido_id"
+    t.string   "hora_nascimento"
   end
+
+  add_index "nascimento_obitos", ["falecido_id"], name: "index_nascimento_obitos_on_falecido_id"
 
   create_table "produtos", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -239,9 +245,12 @@ ActiveRecord::Schema.define(version: 20150603151903) do
     t.string   "profissao"
     t.string   "endereco"
     t.string   "bairro"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "nascimento_obito_id"
   end
+
+  add_index "testemunhas", ["nascimento_obito_id"], name: "index_testemunhas_on_nascimento_obito_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "nome"

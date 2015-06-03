@@ -1,8 +1,14 @@
 class Falecido < ActiveRecord::Base
   has_one :localizacao
+  has_one :casamento
+  has_one :nascimento_obito
+  has_many :filhos
   belongs_to :cadastro
 
   accepts_nested_attributes_for :localizacao
+  accepts_nested_attributes_for :casamento
+  accepts_nested_attributes_for :nascimento_obito
+  accepts_nested_attributes_for :filhos
 
 
   #Geral
