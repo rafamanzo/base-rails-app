@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603151903) do
+ActiveRecord::Schema.define(version: 20150610180643) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
@@ -49,7 +49,10 @@ ActiveRecord::Schema.define(version: 20150603151903) do
     t.boolean  "obito"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "certidao_nascimentos", ["falecido_id"], name: "index_certidao_nascimentos_on_falecido_id"
 
   create_table "compras", force: :cascade do |t|
     t.boolean  "remocao_local_falecimento"

@@ -83,7 +83,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <%= f.label :estado_civil, "Estado Civil" %>
-                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil" %>
+                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil", onchange: "mostraOuEscondeDadosCertidaoNascimento();" %>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -186,7 +186,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :deixa_filhos, "Deixa Filhos" %>
-                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos" %>
+                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeDadosCertidaoNascimento();" %>
                             </div>
                         </div>
 	                </div>
@@ -302,6 +302,60 @@
 	            </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12 shadow">
+                <div class="over-shadow" id="dadosCertidaoNascimento">
+                    <h1 class="titulo_caixa">Certidão de Nascimento</h1>
+                    <%= f.fields_for :certidao_nascimento do |e| %>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :cartorio, "Cartório" %>
+                                    <%= e.text_field :cartorio, class: "form-control", id: "cartorio", placeholder: "Cartório" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :cidade, "Cidade" %>
+                                    <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <%= e.label :estado, "UF" %>
+                                    <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :livro, "Livro" %>
+                                    <%= e.text_field :livro, class: "form-control", id: "livro", placeholder: "Livro" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :folha, "Folha" %>
+                                    <%= e.text_field :folha, class: "form-control", id: "folha", placeholder: "Folha" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :numero, "Número" %>
+                                    <%= e.text_field :numero, class: "form-control", id: "numero", placeholder: "Número" %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        
+
+
+
         <div class="row">
             <div class="col-xs-12" id="botoes-navegacao">
                 <button type="button" class="col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-left" ></span></button>
