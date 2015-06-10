@@ -30,6 +30,12 @@ describe("cep", function() {
     cep_mask('12345678').should.equal('12345-678');
   });
 
+});
+
+describe("cnpj", function() {
+  it("testando mascara cnpj", function() {
+    cnpj_mask('123456789123456').should.equal('123.456.789/1234-56');
+  });
 
 });
 
