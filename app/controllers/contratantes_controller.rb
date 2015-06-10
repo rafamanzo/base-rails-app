@@ -3,7 +3,6 @@ class ContratantesController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @cadastro = Cadastro.find(@cadastro_id)
-
     @contratante = Contratante.new
     @contratante.build_localizacao
     @contratante.build_empresa
