@@ -20,4 +20,16 @@ module ComprasHelper
 		# Deveria pegar essa informação do banco de dados da loja
 		["2,00x0,60x0,40", "1,90x0,60x0,40"]
 	end
+
+	def tipos_enfeite
+		options_for_select(["Véu"], "Véu")
+	end
+
+	def tipos_veu
+		options_for_select(["Rendado"], "Rendado")
+	end
+
+	def tipos_iluminacao
+		options_for_select(["Velas"], "Velas")
+	end
 end

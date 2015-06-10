@@ -4,6 +4,7 @@ class Falecido < ActiveRecord::Base
 
   accepts_nested_attributes_for :localizacao
 
+
   #Geral
   #validates :nascimento_obito, presence: true
   validates :nome, :nome_mae, :nome_pai, length: {maximum: 255}, numericality: false
@@ -16,19 +17,18 @@ class Falecido < ActiveRecord::Base
   validates :numero_documento, length: {maximum: 50}
   validates :beneficio, length: {maximum: 20}
   validates :peso, :altura, length: {maximum: 5}
-  validates :idade_mae, :idade_pai, numericality: {only_integer: true}, allow_blank: true
-  
+
   #GD
   validates :nome, presence: true, if: :GD?
 
   #PNS
   validates :nome, :sexo, :cor, :naturalidade, :estado_civil, presence: true, if: :PNS?
-  validates :nome_mae, :nome_pai, :estado_civil_mae, :estado_civil_pai, presence: true, if: :PNS?  
-  
+  validates :nome_mae, :nome_pai, :estado_civil_mae, :estado_civil_pai, presence: true, if: :PNS?
+
   def GD?
-    cadastro.tipo_operacao == 2 && cadastro.tipo_contratacao == 3 
+    cadastro.tipo_operacao == 2 && cadastro.tipo_contratacao == 3
   end
-	
+
   def PNS?
     cadastro.tipo_operacao == 1 && cadastro.tipo_contratacao == 1 && cadastro.destino_final == 1
   end
