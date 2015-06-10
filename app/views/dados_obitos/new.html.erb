@@ -15,7 +15,7 @@
     <% end %>
     <div class="container" id="formulario-dados-pessoais">
 		<div class="row">
-            <div class="col-md-6 shadow">
+            <div class="col-md-12 shadow">
             	<div class="over-shadow" id="dadosPessoais">
                     <h1 class="titulo_caixa">Informações do Óbito</h1>
 				  	<div class="row">
@@ -62,58 +62,63 @@
                             </div>
                         </div>
                     </div>
-                </div>
-			</div>
-            <div class="col-md-6 shadow">
-                <div class="over-shadow">
-                    <h1 class="titulo_caixa">Dados do Sepultamento</h1>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <%= f.label :cemiterio, "Cemitério" %>
-                                <%= f.text_field :cemiterio, class: "form-control", id: "cemiterio", placeholder: "Cemitério" %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <%= f.label :endereco, "Endereço" %>
-                                <%= f.text_field :endereco, class: "form-control", id: "endereco", placeholder:"Endereço" %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <%= f.label :data_sepultamento, "Data de Sepultamento" %>
-                                <%= f.date_field :data_sepultamento, :class => 'datepicker form-control', id: "data_sepultamento",  placeholder: "01/01/1900", max: Date.today %>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <%= f.label :hora_sepultamento, "Hora de Sepultamento" %>
-                                <%= f.datetime_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="form-group">
-                                <%= f.label :medico, "Médico" %>
-                                <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
-                            </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <div class="form-group">
-                                <%= f.label :crm, "CRM" %>
-                                <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
-                            </div>
-                        </div>
-                    </div>
             </div>
+		        	</div>
         </div>
-    </div>
+
+    <div class="row">
+      <div class="col-md-12 shadow">
+          <div class="over-shadow">
+              <h1 class="titulo_caixa">Dados do Sepultamento</h1>
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                          <%= f.label :cemiterio, "Cemitério" %>
+                          <%= f.text_field :cemiterio, class: "form-control", id: "cemiterio", placeholder: "Cemitério" %>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                          <%= f.label :endereco, "Endereço" %>
+                          <%= f.text_field :endereco, class: "form-control", id: "endereco", placeholder:"Endereço" %>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-4">
+                      <div class="form-group">
+                          <%= f.label :data_sepultamento, "Data de Sepultamento" %>
+                          <%= f.date_field :data_sepultamento, :class => 'datepicker form-control', id: "data_sepultamento",  placeholder: "01/01/1900", max: Date.today %>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="form-group">
+                          <%= f.label :hora_sepultamento, "Hora de Sepultamento" %>
+                          <%= f.datetime_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-7">
+                      <div class="form-group">
+                          <%= f.label :medico, "Médico" %>
+                          <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
+                      </div>
+                  </div>
+                  <div class="col-sm-5">
+                      <div class="form-group">
+                          <%= f.label :crm, "CRM" %>
+                          <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+
+
     <div class="row">
         <div class="col-md-12 shadow">
             <div class="over-shadow">
