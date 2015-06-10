@@ -1,6 +1,7 @@
 class ComprasController < ApplicationController
   def new
     @cadastro_id = params[:cadastro_id]
+    @cadastro = Cadastro.find(@cadastro_id)
 
     @compra = Compra.new
     @compra.build_urna

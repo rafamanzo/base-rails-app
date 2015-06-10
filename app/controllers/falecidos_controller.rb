@@ -1,7 +1,7 @@
 class FalecidosController < ApplicationController
   def new
     @cadastro_id = params[:cadastro_id]
-
+    cadastro = Cadastro.find(@cadastro_id)
     @falecido = Falecido.new
     @falecido.build_localizacao
 
@@ -11,6 +11,7 @@ class FalecidosController < ApplicationController
   def create
     @cadastro_id = params[:cadastro_id]
     @falecido = Falecido.new(falecido_params)
+	@falecido.cadastro_id = @cadastro_id
     if @falecido.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.falecido = @falecido

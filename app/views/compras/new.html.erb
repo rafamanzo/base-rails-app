@@ -22,17 +22,17 @@
                   <%= f.label :remocao_local_falecimento, "Remoção do corpo no local de falecimento?" %>
             </div>
             <div class="col-md-2">
-                  <%= f.select :remocao_local_falecimento, sim_nao, {}, class: "form-control", id:"remocao_local_falecimento" %>
+                  <%= f.select :remocao_local_falecimento, sim_nao, {}, class: "form-control", id:"remocao_local_falecimento", onchange: "disableIfEqual('local_remocao', 'remocao_local_falecimento', 'true'); disableIfEqual('endereco_remocao', 'remocao_local_falecimento', 'true');" %>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <%= f.label :local_remocao, "Local do Falecimento" %>
-              <%= f.text_field :local_remocao, class: "form-control", id: "local_remocao", placeholder: "Local de Remoção" %>
+              <%= f.label :local_remocao, "Local de Remoção" %>
+              <%= f.text_field :local_remocao, class: "form-control", id: "local_remocao", placeholder: "Local de Remoção", disabled: true %>
             </div>
             <div class="col-md-6">
               <%= f.label :endereco_remocao, "Endereço" %>
-              <%= f.text_field :endereco_remocao, class: "form-control", id: "endereco_remocao", placeholder: "Endereço" %>
+              <%= f.text_field :endereco_remocao, class: "form-control", id: "endereco_remocao", placeholder: "Endereço", disabled: true %>
             </div>
           </div>
         </div>
@@ -81,6 +81,49 @@
                         <td id="disponibilidade_revestimento"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
                       <% end %>
                     </tr>
+
+
+                    
+                    <% if @cadastro.tipo_operacao == 1 and @cadastro.tipo_contratacao == 1 and @cadastro.destino_final == 1 %>
+
+                      <tr>
+                        <%= f.fields_for :enfeite do |e| %>
+                          <th>Enfeite:</th>
+                          <td><%= e.select :nome, tipos_enfeite, {}, class: "form-control", id: "nome", placeholder: "ENFEITE", disabled: true %></td>
+                          <td></td>
+                          <td><%= e.number_field :quantidade, disabled: true, value: 1 %></td>
+                          <td><%= e.text_field :unidade_medida, disabled: true, value: "cm", id: "udm_enfeite" %></td>
+                          <!-- banco traz valor pra gente s2 -->
+                          <td><%= e.number_field :valor_unitario, disabled: true, step: 0.01,value: 0.00, id: "valor_enfeite" %></td>
+                          <td id="disponibilidade_enfeite"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        <% end %>
+                      </tr>
+                      <tr>
+                        <%= f.fields_for :veu do |e| %>
+                          <th>Véu:</th>
+                          <td><%= e.select :nome, tipos_veu, {}, class: "form-control", id: "nome", placeholder: "VÉU", disabled: true %></td>
+                          <td></td>
+                          <td><%= e.number_field :quantidade, disabled: true, value: 1 %></td>
+                          <td><%= e.text_field :unidade_medida, disabled: true, value: "cm", id: "udm_veu" %></td>
+                          <!-- banco traz valor pra gente s2 -->
+                          <td><%= e.number_field :valor_unitario, disabled: true, step: 0.01,value: 0.00, id: "valor_veu" %></td>
+                          <td id="disponibilidade_veu"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        <% end %>
+                      </tr>
+                      <tr>
+                        <%= f.fields_for :iluminacao do |e| %>
+                          <th>Iluminação:</th>
+                          <td><%= e.select :nome, tipos_iluminacao, {}, class: "form-control", id: "nome", placeholder: "ILUMINAÇÃO", disabled: true %></td>
+                          <td></td>
+                          <td><%= e.number_field :quantidade, disabled: true, value: 1 %></td>
+                          <td><%= e.text_field :unidade_medida, disabled: true, value: "cm", id: "udm_iluminacao" %></td>
+                          <!-- banco traz valor pra gente s2 -->
+                          <td><%= e.number_field :valor_unitario, disabled: true, step: 0.01,value: 0.00, id: "valor_iluminacao" %></td>
+                          <td id="disponibilidade_iluminacao"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+
                   </tbody>
                 </table>
               </div>

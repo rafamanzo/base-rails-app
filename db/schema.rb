@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603193512) do
+
+ActiveRecord::Schema.define(version: 20150603151903) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150603193512) do
 
   add_index "dados_obitos", ["cadastro_id"], name: "index_dados_obitos_on_cadastro_id"
 
+<<<<<<< HEAD
   create_table "dados_velorios", force: :cascade do |t|
     t.string   "local_velorio"
     t.text     "endereco_velorio"
@@ -118,6 +120,8 @@ ActiveRecord::Schema.define(version: 20150603193512) do
 
   add_index "dados_velorios", ["dados_obito_id"], name: "index_dados_velorios_on_dados_obito_id"
 
+=======
+>>>>>>> master
   create_table "empresas", force: :cascade do |t|
     t.string   "nome"
     t.string   "cnpj"

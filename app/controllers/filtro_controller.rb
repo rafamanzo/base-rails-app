@@ -18,6 +18,6 @@ class FiltroController < ApplicationController
     @cadastro.destino_final = params[:destino]
     @cadastro.save
 
-    redirect_to new_contratante_path(@cadastro.id)
+    redirect_to new_contratante_path(@cadastro)
   end
 end

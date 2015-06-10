@@ -11,6 +11,7 @@ class DadosObitosController < ApplicationController
   def create
     @cadastro_id = params[:cadastro_id]
     @dados_obito = DadosObito.new(dados_obito_params)
+    @dados_obito.cadastro_id = @cadastro_id
     if @dados_obito.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.dados_obito = @dados_obito

@@ -14,3 +14,9 @@ function enableTaxas(){
     	$('#valor_taxa').prop("disabled",true);
     }
 }
+
+function disableIfEqual(id, id_valor, valor) {
+	id = '#'+id;
+	if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
+	else $(id).prop("disabled", false);
+}
