@@ -6,4 +6,12 @@ class Cadastro < ActiveRecord::Base
 
   validates_associated( :contratante)
   validates_associated( :falecido)
+
+  def GD?
+    tipo_operacao == 2 && tipo_contratacao == 3
+  end
+
+  def PNS?
+    tipo_operacao == 1 && tipo_contratacao == 1 && destino_final == 1
+  end
 end

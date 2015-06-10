@@ -4,6 +4,9 @@ class DadosObito < ActiveRecord::Base
 
   accepts_nested_attributes_for :dados_velorio
   # validates_associated :dados_velorio
+	# accepts_nested_attributes_for :corpo_velado
+	# validates_associated :corpo_a_ser_velado, if: :PNS?
+	# TODO criar esse dropdown
 
 	#Geral
 	validates :local_falecimento, :causa_mortis, :endereco, :medico, length: {maximum: 255}, numericality: false
