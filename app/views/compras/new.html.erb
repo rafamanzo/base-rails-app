@@ -81,6 +81,48 @@
                         <td id="disponibilidade_revestimento"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
                       <% end %>
                     </tr>
+
+
+                    <!-- Só deve existir no caso de PNS -->
+
+                    <tr>
+                      <%= f.fields_for :enfeite do |e| %>
+                        <th>Enfeite:</th>
+                        <td><%= e.select :nome, tipos_enfeite, {}, class: "form-control", id: "nome", placeholder: "ENFEITE", disabled: true %></td>
+                        <td></td>
+                        <td><%= e.number_field :quantidade, disabled: true, value: 1 %></td>
+                        <td><%= e.text_field :unidade_medida, disabled: true, value: "cm", id: "udm_enfeite" %></td>
+                        <!-- banco traz valor pra gente s2 -->
+                        <td><%= e.number_field :valor_unitario, disabled: true, step: 0.01,value: 0.00, id: "valor_enfeite" %></td>
+                        <td id="disponibilidade_enfeite"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                      <% end %>
+                    </tr>
+                    <tr>
+                      <%= f.fields_for :veu do |e| %>
+                        <th>Véu:</th>
+                        <td><%= e.select :nome, tipos_veu, {}, class: "form-control", id: "nome", placeholder: "VÉU", disabled: true %></td>
+                        <td></td>
+                        <td><%= e.number_field :quantidade, disabled: true, value: 1 %></td>
+                        <td><%= e.text_field :unidade_medida, disabled: true, value: "cm", id: "udm_veu" %></td>
+                        <!-- banco traz valor pra gente s2 -->
+                        <td><%= e.number_field :valor_unitario, disabled: true, step: 0.01,value: 0.00, id: "valor_veu" %></td>
+                        <td id="disponibilidade_veu"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                      <% end %>
+                    </tr>
+                    <tr>
+                      <%= f.fields_for :iluminacao do |e| %>
+                        <th>Iluminação:</th>
+                        <td><%= e.select :nome, tipos_iluminacao, {}, class: "form-control", id: "nome", placeholder: "ILUMINAÇÃO", disabled: true %></td>
+                        <td></td>
+                        <td><%= e.number_field :quantidade, disabled: true, value: 1 %></td>
+                        <td><%= e.text_field :unidade_medida, disabled: true, value: "cm", id: "udm_iluminacao" %></td>
+                        <!-- banco traz valor pra gente s2 -->
+                        <td><%= e.number_field :valor_unitario, disabled: true, step: 0.01,value: 0.00, id: "valor_iluminacao" %></td>
+                        <td id="disponibilidade_iluminacao"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                      <% end %>
+                    </tr>
+                    <!-- Fim:Só deve existir no caso de PNS -->
+
                   </tbody>
                 </table>
               </div>
