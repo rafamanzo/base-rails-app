@@ -53,3 +53,9 @@ function dinheiro_mask(v){
     //v=v.replace(/(\d)(\d{1,2})$/,"$1,$2")
     return v
 }
+
+function disableIfEqual(id, id_valor, valor) {
+    id = '#'+id;
+    if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
+    else $(id).prop("disabled", false);
+}
