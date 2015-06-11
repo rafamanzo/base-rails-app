@@ -10,7 +10,7 @@ class Falecido < ActiveRecord::Base
   accepts_nested_attributes_for :casamentos
   accepts_nested_attributes_for :nascimento_obito
   accepts_nested_attributes_for :filhos
-  validates_associated :casamento, :filho, :nascimento_obito, :localizacao, if: :PNS?
+  validates_associated :casamentos, :filhos, :nascimento_obito, :localizacao, if: :PNS?
   
 
 
@@ -38,6 +38,24 @@ class Falecido < ActiveRecord::Base
 
   def PNS?
     cadastro.PNS?
+  end
+
+  def valida_filho?
+    @valida_filho ||= false
+    @valida_filho
+  end
+
+  def valida_filho= param
+    @valida_filho = param
+  end
+
+  def valida_casamento?
+    @valida_casamento ||= false
+    @valida_casamento
+  end
+
+  def valida_casamento= param
+    @valida_casamento = param
   end
 end
 

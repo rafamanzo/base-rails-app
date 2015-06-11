@@ -6,11 +6,6 @@ class Filho < ActiveRecord::Base
 
 
   def valida?
-    @valida ||= false
-    @valida
-  end
-
-  def valida= param
-    @valida = param
+    falecido.valida_filho?
   end
 end
