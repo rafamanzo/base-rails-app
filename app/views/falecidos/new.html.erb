@@ -14,6 +14,20 @@
         </div>
     <% end %>
     <div class="container" id="formulario-dados-pessoais">
+        
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-4">
+          <%= f.label :nascimento_obito, "Nascimento e Óbito" %>
+        </div>
+      </div> 
+      <div class="row"> 
+        <div class="col-sm-2">
+          <%= f.select :nascimento_obito, sim_nao, {}, class: "form-control", id: "nascimento_obito" %>
+        </div>
+      </div>
+    </div>
+
         <div class="row">
             <div class="col-md-12 shadow">
                 <div class="over-shadow">
@@ -352,8 +366,38 @@
                 </div>
             </div>
         </div>
-        
-
+        <div class="row">
+          <div class="col-md-12 shadow">
+                <div class="over-shadow">
+                    <div id="dadosNascimento">
+                        <h1 class="titulo_caixa">Dados do Nascimento</h1>
+                        <%= f.fields_for :nascimento_obito do |e| %>  
+                        <div class="row">
+                            <div class="col-md-8">
+                              <div class="form-group">
+                                <%= e.label :local_nascimento, "Local" %>
+                                <%= e.text_field :local_nascimento, class: "form-control", id: "local_nascimento", placeholder: "Local" %>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <%= e.label :data_nascimento, "Data de Nascimento" %>
+                                    <%= e.date_field :data_nascimento, :class => 'datepicker form-control', id: "data_nascimento",  placeholder: "01/01/1900", max: Date.today %>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <%= e.label :horario_nascimento, "Horário" %>
+                                    <%= e.datetime_field :hora_nascimento, class: "form-control", id: "hora_nascimento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
+                            </div>
+                            </div>
+                            
+                        </div>
+                       <% end %> 
+                    </div>
+                </div>
+          </div>
+        </div>
 
 
         <div class="row">
