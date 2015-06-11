@@ -1,5 +1,5 @@
 class DadosObito < ActiveRecord::Base
-	belongs_to :cadastro
+  belongs_to :cadastro
   has_one :dados_velorio
 
   accepts_nested_attributes_for :dados_velorio

@@ -1,12 +1,17 @@
 class Casamento < ActiveRecord::Base
   belongs_to :falecido
+  validates :nome, presence: { message: "não pode ser vazio."}, length: {maximum: 255, message: "pode ter no máximo 255 caracteres."}, if: :valida?
+  validates :livro :folha, :numero, numericality: {only_integer: true, message: "só pode conter numeros."}, allow_blank: true
+  validates :cartorio, :cidade, length: {maximum: 50, message: "pode ter no máximo 50 caracteres."}, if: :valida?
+  validates :uf, length: {maximum: 2, message: "pode ter no máximo 2 caracteres."}, if: :valida?
 
-  # validates :nome, presence: true, length: {maximum: 255}, numericality: false
-  # validates :data_casamento, presence: true
-  # validates :cartorio, presence: true, length: {maximum: 255}, numericality: false
-  # validates :cidade, presence: true, length: {maximum: 255}, numericality: false
-  # validates :uf, presence: true
-  # validates :livro, presence: true, numericality: true
-  # validates :folha, presence: true, numericality: true
-  # validates :numero, presence: true, numericality: true
+
+  def valida?
+    @valida ||= false
+    @valida
+  end
+
+  def valida= param
+    @valida = param
+  end
 end
