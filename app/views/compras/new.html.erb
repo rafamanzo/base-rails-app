@@ -22,17 +22,17 @@
                   <%= f.label :remocao_local_falecimento, "Remoção do corpo no local de falecimento?" %>
             </div>
             <div class="col-md-2">
-                  <%= f.select :remocao_local_falecimento, sim_nao, {}, class: "form-control", id:"remocao_local_falecimento" %>
+                  <%= f.select :remocao_local_falecimento, sim_nao, {}, class: "form-control", id:"remocao_local_falecimento", onchange: "disableIfEqual('local_remocao', 'remocao_local_falecimento', 'true'); disableIfEqual('endereco_remocao', 'remocao_local_falecimento', 'true');" %>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <%= f.label :local_remocao, "Local do Falecimento" %>
-              <%= f.text_field :local_remocao, class: "form-control", id: "local_remocao", placeholder: "Local de Remoção" %>
+              <%= f.label :local_remocao, "Local de Remoção" %>
+              <%= f.text_field :local_remocao, class: "form-control", id: "local_remocao", placeholder: "Local de Remoção", disabled: true %>
             </div>
             <div class="col-md-6">
               <%= f.label :endereco_remocao, "Endereço" %>
-              <%= f.text_field :endereco_remocao, class: "form-control", id: "endereco_remocao", placeholder: "Endereço" %>
+              <%= f.text_field :endereco_remocao, class: "form-control", id: "endereco_remocao", placeholder: "Endereço", disabled: true %>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610180643) do
+ActiveRecord::Schema.define(version: 20150603205003) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20150610180643) do
     t.integer  "numero"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "casamentos", ["falecido_id"], name: "index_casamentos_on_falecido_id"
 
   create_table "certidao_nascimentos", force: :cascade do |t|
     t.datetime "data_nascimento"
@@ -49,10 +52,7 @@ ActiveRecord::Schema.define(version: 20150610180643) do
     t.boolean  "obito"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "falecido_id"
   end
-
-  add_index "certidao_nascimentos", ["falecido_id"], name: "index_certidao_nascimentos_on_falecido_id"
 
   create_table "compras", force: :cascade do |t|
     t.boolean  "remocao_local_falecimento"
@@ -104,6 +104,22 @@ ActiveRecord::Schema.define(version: 20150610180643) do
   end
 
   add_index "dados_obitos", ["cadastro_id"], name: "index_dados_obitos_on_cadastro_id"
+
+  create_table "dados_velorios", force: :cascade do |t|
+    t.string   "local_velorio"
+    t.text     "endereco_velorio"
+    t.datetime "data_saida"
+    t.text     "hora_saida"
+    t.string   "crematorio"
+    t.text     "endereco_crematorio"
+    t.datetime "data_cremacao"
+    t.text     "hora_cremacao"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "dados_obito_id"
+  end
+
+  add_index "dados_velorios", ["dados_obito_id"], name: "index_dados_velorios_on_dados_obito_id"
 
   create_table "empresas", force: :cascade do |t|
     t.string   "nome"
@@ -159,7 +175,10 @@ ActiveRecord::Schema.define(version: 20150610180643) do
     t.text     "observacoes"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "filhos", ["falecido_id"], name: "index_filhos_on_falecido_id"
 
   create_table "item_compras", force: :cascade do |t|
     t.integer  "quatidade"
@@ -203,7 +222,11 @@ ActiveRecord::Schema.define(version: 20150610180643) do
     t.string   "gravidez"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "falecido_id"
+    t.string   "hora_nascimento"
   end
+
+  add_index "nascimento_obitos", ["falecido_id"], name: "index_nascimento_obitos_on_falecido_id"
 
   create_table "produtos", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -222,9 +245,12 @@ ActiveRecord::Schema.define(version: 20150610180643) do
     t.string   "profissao"
     t.string   "endereco"
     t.string   "bairro"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "nascimento_obito_id"
   end
+
+  add_index "testemunhas", ["nascimento_obito_id"], name: "index_testemunhas_on_nascimento_obito_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "nome"

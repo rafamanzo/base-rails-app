@@ -3,6 +3,7 @@ class DadosObitosController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @dados_obito = DadosObito.new
+    @dados_obito.build_dados_velorio
 
     @css = css
   end
@@ -26,7 +27,10 @@ class DadosObitosController < ApplicationController
   def dados_obito_params
     params.require(:dados_obito).permit(:local_falecimento, :data_falecimento, :cartorio, :proaim,
                                         :cemiterio, :endereco, :data_sepultamento, :medico, :crm,
-                                        :observacoes, :causa_mortis, :hora_falecimento, :hora_sepultamento)
+                                        :observacoes, :causa_mortis, :hora_falecimento, :hora_sepultamento,
+                                        dados_velorio_attributes: [:local_velorio, :endereco,
+                                        :data_saida, :hora_saida, :crematorio, :endereco_crematorio,
+                                        :data_cremacao, :hora_cremacao])
   end
 
   def css

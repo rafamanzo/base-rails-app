@@ -12,5 +12,3 @@ describe("funcao pago", function() {
   });
 
 });
-
-

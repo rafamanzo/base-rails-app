@@ -37,7 +37,7 @@ function contratacoes_pago(valor, urlAnterior){
 
 	var botao1 = '<button type="button" onclick="destino(1, \''+ url+'\');" id="sepultamento" class="btn btn-block" style="margin-top:10%;">1. <b><u>S</u></b>epultamento</button>';
     var botao2 = '<button type="button" onclick="destino(2, \''+ url+'\');" id="cremacao" class="btn btn-block" style="margin-top:5%;margin-bottom:5%;">2. <b><u>C</u></b>remação</button>';
-    $('#intro_caixa_botoes').append(botao1).append(botao2); 
+    $('#intro_caixa_botoes').append(botao1).append(botao2);
     $('#titulo_caixa').append(titulo);
 }
 
@@ -57,7 +57,7 @@ function inicio(){
 	var titulo = '<h1>Destino Final</h1>';
 	var botao1 = '<button type="button" onclick="destinoFinal(1, \''+ url+'\');" id="sepultamento" class="btn btn-block" style="margin-top:10%;">1. <b><u>S</u></b>epultamento</button>';
     var botao2 = '<button type="button" onclick="destinoFinal(2, \''+ url+'\');" id="cremacao" class="btn btn-block" style="margin-top:5%;margin-bottom:5%;">2. <b><u>C</u></b>remação</button>';
-    $('#intro_caixa_botoes').append(botao1).append(botao2); 
+    $('#intro_caixa_botoes').append(botao1).append(botao2);
     $('#titulo_caixa').append(titulo);
 }
 */
@@ -80,9 +80,9 @@ function textsizer(e){
     var evtobj=window.event? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
     var unicode=evtobj.charCode? evtobj.charCode : evtobj.keyCode
     var actualkey=String.fromCharCode(unicode)
-    
+
     verifica_acao(actualkey);
-   
+
 
     //alert(actualkey);
 }
@@ -95,10 +95,10 @@ function verifica_acao(tecla){
 	    acao_segunda_tela_pago(tecla);
 	}
 	else if($('#social').length == 1){
-	    acao_segunda_tela_gratuito(tecla);	    
+	    acao_segunda_tela_gratuito(tecla);
 	}
 	else if($('#sepultamento').length == 1){
-	    acao_terceira_tela(tecla);	    
+	    acao_terceira_tela(tecla);
 	}
 
 }

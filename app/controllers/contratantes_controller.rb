@@ -14,7 +14,6 @@ class ContratantesController < ApplicationController
     @cadastro_id = params[:cadastro_id]
     @contratante = Contratante.new(contratante_params)
     @contratante.localizacao.valida = true
-    byebug
 
     if @contratante.save
       cadastro = Cadastro.find(@cadastro_id)
