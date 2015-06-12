@@ -2,6 +2,7 @@ class Falecido < ActiveRecord::Base
   has_one :localizacao
   has_one :casamento
   has_one :nascimento_obito
+  has_one :certidao_nascimento
   has_many :filhos
   belongs_to :cadastro
 
@@ -9,6 +10,8 @@ class Falecido < ActiveRecord::Base
   accepts_nested_attributes_for :casamento
   accepts_nested_attributes_for :nascimento_obito
   accepts_nested_attributes_for :filhos
+  accepts_nested_attributes_for :nascimento_obito
+  accepts_nested_attributes_for :certidao_nascimento
 
 
   #Geral
@@ -32,6 +35,7 @@ class Falecido < ActiveRecord::Base
   validates :nome_mae, :nome_pai, :estado_civil_mae, :estado_civil_pai, presence: true, if: :PNS?
 
   def GD?
+    byebug
     cadastro.tipo_operacao == 2 && cadastro.tipo_contratacao == 3
   end
 
