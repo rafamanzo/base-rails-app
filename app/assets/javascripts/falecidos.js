@@ -5,3 +5,27 @@ function mostraOuEscondeDadosCertidaoNascimento() {
     	$("#dadosCertidaoNascimento").hide();
     }
 }
+
+function mostraOuEscondeDadosNascimento() {
+    if ($("#nascimento_obito").val() == "true") {
+      $("#dadosNascimento").show();
+    } else {
+      $("#dadosNascimento").hide();
+    }
+}
+
+function mostraOuEscondeDadosFamiliares() {
+    if ($("#nascimento_obito").val() == "true") {
+      $("#dadosFamiliares").show();
+    } else {
+      $("#dadosFamiliares").hide();
+    }
+}
+
+function mostraOuEscondeDadosTestemunhas() {
+    if ($("#nascimento_obito").val() == "true") {
+      $("#dadosTestemunhas").show();
+    } else {
+      $("#dadosTestemunhas").hide();
+    }
+}

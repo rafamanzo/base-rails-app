@@ -45,7 +45,10 @@ class FalecidosController < ApplicationController
                               :avo_paterna, :avo_materna, :semanas_gestacao, :gravidez, testemunha_attributes:
                               [:nome, :estado_civil, :nacionalidade, :profissao, :endereco, :bairro]],
                               casamento_attributes:[:nome, :data_casamento, :cartorio, :cidade, :uf,
-                              :livro, :folha, :numero], filho_attributes: [:nome, :categoria_idade, :observacoes])
+                              :livro, :folha, :numero], filho_attributes: [:nome, :categoria_idade, :observacoes],
+                              testemunha_attributes: [:nome, :estado_civil, :nacionalidade, :profissao, :endereco,
+                              :bairro], testemunha_attributes: [:nome, :estado_civil, :nacionalidade, :profissao,
+                              :endereco, :bairro])
   end
 
   def css
