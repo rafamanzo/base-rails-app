@@ -4,13 +4,7 @@ class ComprasController < ApplicationController
     @cadastro = Cadastro.find(@cadastro_id)
 
     @compra = Compra.new
-    @compra.build_urna
-    @compra.build_revestimento
-    @compra.build_tipo_sepultamento
-    @compra.build_transporte_carreto
-    @compra.build_transporte_enterro
-    @compra.build_sepultamento
-    @compra.build_outros
+    @compra.item_compras.build
 
     @css = css
   end
@@ -34,13 +28,7 @@ class ComprasController < ApplicationController
   def compra_params
     params.require(:compra).permit(:remocao_local_falecimento, :local_remocao, :endereco_remocao,
                                    :observacoes, :valor_total,
-                                   urna_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
-                                   revestimento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
-                                   tipo_sepultamento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
-                                   transporte_carreto_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
-                                   transporte_enterro_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
-                                   sepultamento_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes],
-                                   outros_attributes: [:quatidade, :nome, :valor_unitario, :unidade_medida, :dimensoes])
+                                   item_compras: [])
   end
 
   def css
