@@ -137,9 +137,5 @@ class UpdateProdutos < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    change_table :compras do |t|
-      t.decimal :compras, :valor_total
-
-    end
   end
 end
