@@ -41,9 +41,6 @@
     </div>
     <div class="titulo_pagina" id="titulo_pag"
       <% if !@css[:barra_display_none].nil? %>style="display: none" <% end %>>
-<<<<<<< HEAD
-      <h1 style=" padding-top:3%; text-align:center;"><b>Contratação gratuito desconhecido</b></h1>
-=======
       <h1 style="  padding-left: 35%; padding-top: 3%; padding-bottom: 0%;">
         <% if @cadastro!=nil %>
           <% if @cadastro.tipo_operacao == 2 and @cadastro.tipo_contratacao == 3 %>
@@ -53,7 +50,6 @@
             <b>Contratação Sepultamento Normal</b></h1>
           <% end %>
         <% end %>
->>>>>>> 38303358b3084c5e1b522cb1f0906d1c8a9f16ad
     </div>
     
     <%= yield %>
