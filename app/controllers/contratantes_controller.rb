@@ -14,14 +14,12 @@ class ContratantesController < ApplicationController
     @cadastro_id = params[:cadastro_id]
     @contratante = Contratante.new(contratante_params)
     @contratante.localizacao.valida = true
-
+    @cadastro = Cadastro.find(@cadastro_id)
     if @contratante.save
-      cadastro = Cadastro.find(@cadastro_id)
-      cadastro.contratante = @contratante
-      cadastro.save
+      @cadastro.contratante = @contratante
+      @cadastro.save
       redirect_to new_falecido_path(@cadastro_id)
     else
-      @cadastro = Cadastro.find(@cadastro_id)
       @css = css
       render 'new'
     end
