@@ -28,7 +28,10 @@ class ComprasController < ApplicationController
   def compra_params
     params.require(:compra).permit(:remocao_local_falecimento, :local_remocao, :endereco_remocao,
                                    :observacoes, :valor_total,
-                                   item_compras: [])
+                                   item_compras_attributes: [
+                                      :nome, :enabled, :unidade_de_medida, :dimensoes,
+                                      :tipo, :quantidade, :preco, :sinal
+                                   ])
   end
 
   def css
