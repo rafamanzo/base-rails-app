@@ -12,10 +12,10 @@ class ComprasController < ApplicationController
   def create
     @cadastro_id = params[:cadastro_id]
     @compra = Compra.new(compra_params)
+    @cadastro = Cadastro.find(@cadastro_id)
     if @compra.save
-      cadastro = Cadastro.find(@cadastro_id)
-      cadastro.compra = @compra
-      cadastro.save
+      @cadastro.compra = @compra
+      @cadastro.save
       # TODO: Redirecionar para a tela de nota fiscal
       redirect_to root_path
     else
