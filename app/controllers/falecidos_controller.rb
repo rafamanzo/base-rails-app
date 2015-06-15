@@ -17,6 +17,7 @@ class FalecidosController < ApplicationController
     @cadastro_id = params[:cadastro_id]
     @falecido = Falecido.new(falecido_params)
     @cadastro = Cadastro.find(@cadastro_id)
+    @falecido.cadastro_id = @cadastro_id
     if @falecido.save
       @cadastro.falecido = @falecido
       @cadastro.save

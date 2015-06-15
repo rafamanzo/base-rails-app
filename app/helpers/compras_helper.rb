@@ -1,35 +1,53 @@
 module ComprasHelper
-	def tipos_urna
-		options_for_select(["Urna fixa"], "Urna fixa")
-	end
+  def tipos_urna
+    @urnas ||= Urna.all
+    options_for_select(@urnas.collect{|u| u.nome}, @urnas.first.nome)
+  end
 
-	def tipos_revestimento
-		options_for_select(["Revestimento fixo"], "Revestimento fixo")
-	end
+  def tipos_revestimento
+    @revestimentos ||= Revestimento.all
+    options_for_select(@revestimentos.collect{|r| r.nome}, @revestimentos.first.nome)
+  end
 
-	def tipos_sepultamento
-		options_for_select(["Qd. Geral Terra s/ Gaveta"], "Qd. Geral Terra s/ Gaveta")
-	end
+  def tipos_sepultamento
+    tipos = TipoSepultamento.all
+    options_for_select(tipos.collect{|t| t.nome}, tipos.first.nome)
+  end
 
-	def dimensoes_urnas
-		# Deveria pegar essa informação do banco de dados da loja
-		["2,00x0,60x0,40", "1,90x0,60x0,40"]
-	end
+  def dimensoes_urnas urna_id = nil
+    if urna_id.nil?
+      @urnas ||= Urna.all
+      urna = @urnas.first
+    else
+      urna = Urna.find(urna_id)
+    end
+    dimensoes = urna.dimensaos
+    options_for_select(dimensoes.collect{|d| d.dimensoes}, dimensoes.first.dimensoes)
+  end
 
-	def dimensoes_revestimentos
-		# Deveria pegar essa informação do banco de dados da loja
-		["2,00x0,60x0,40", "1,90x0,60x0,40"]
-	end
+  def dimensoes_revestimentos revestimento_id = nil
+    if revestimento_id.nil?
+      @revestimentos ||= Urna.all
+      revestimento = @revestimentos.first
+    else
+      revestimento = Urna.find(revestimento_id)
+    end
+    dimensoes = revestimento.dimensaos
+    options_for_select(dimensoes.collect{|d| d.dimensoes}, dimensoes.first.dimensoes)
+  end
 
-	def tipos_enfeite
-		options_for_select(["Véu"], "Véu")
-	end
+  def tipos_enfeite
+    enfeites ||= Enfeite.all
+    options_for_select(enfeites.collect{|r| r.nome}, enfeites.first.nome)
+  end
 
-	def tipos_veu
-		options_for_select(["Rendado"], "Rendado")
-	end
+  def tipos_veu
+    veus ||= Veu.all
+    options_for_select(veus.collect{|r| r.nome}, veus.first.nome)
+  end
 
-	def tipos_iluminacao
-		options_for_select(["Velas"], "Velas")
-	end
+  def tipos_iluminacao
+    iluminacoes ||= Iluminacao.all
+    options_for_select(iluminacoes.collect{|r| r.nome}, iluminacoes.first.nome)
+  end
 end
