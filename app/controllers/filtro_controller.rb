@@ -1,5 +1,6 @@
 class FiltroController < ApplicationController
   def index
+    @cadastro = Cadastro.new
   	@css = {
       barra_display_none: true,
   		barra_filtro: "",

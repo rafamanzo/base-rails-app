@@ -12,32 +12,14 @@ class Cadastro < ActiveRecord::Base
   end
 
   def PNS?
-    tipo_operacao == 1 && tipo_contratacao == 1 && destino_final == 1
+    tipo_operacao == 1 and tipo_contratacao == 1 and destino_final == 1
   end
 
   def nome_fluxo
-    case tipo_operacao
-    when 1
-      case tipo_contratacao
-      when 1
-        case destino_final
-        when 1
-          "Processo Pago Normal Sepultamento (PNS)"
-        else
-          ""
-        end
-      else
-        ""
-      end
-    when 2
-      case tipo_contratacao
-      when 2
-        "Processo Gratuito Desconhecido (GD)"
-      else
-        ""
-      end
-    else
-      ""
+    if PNS?
+      "Processo Pago Normal Sepultamento (PNS)"
+    elsif GD?
+      "Processo Gratuito Desconhecido (GD)"
     end
   end
 end

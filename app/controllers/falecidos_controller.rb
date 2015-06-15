@@ -21,6 +21,7 @@ class FalecidosController < ApplicationController
     @falecido.nascimento_obito.valida = params[:nascimento_obito]
     @falecido.valida_casamento = params[:estado_civil]
     @cadastro = Cadastro.find(@cadastro_id)
+    @falecido.cadastro_id = @cadastro_id
     if @falecido.save
       @cadastro.falecido = @falecido
       @cadastro.save
