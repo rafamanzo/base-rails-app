@@ -13,9 +13,10 @@ class Falecido < ActiveRecord::Base
   accepts_nested_attributes_for :casamentos
   accepts_nested_attributes_for :nascimento_obito
   accepts_nested_attributes_for :filhos
-  validates_associated :casamentos, :filhos, :nascimento_obito, :localizacao, if: :PNS?
+  accepts_nested_attributes_for :nascimento_obito
   accepts_nested_attributes_for :certidao_nascimento
 
+  validates_associated :casamentos, :filhos, :nascimento_obito, :localizacao, if: :PNS?
 
   #Geral
   #validates :nascimento_obito, presence: true
@@ -36,7 +37,12 @@ class Falecido < ActiveRecord::Base
   validates :nome_mae, :nome_pai, :estado_civil_mae, :estado_civil_pai, presence: { message: "não pode ser vazio."}, if: :PNS?
 
   def GD?
+<<<<<<< HEAD
     cadastro.GD?
+=======
+    byebug
+    cadastro.tipo_operacao == 2 && cadastro.tipo_contratacao == 3
+>>>>>>> 508fce9c97298c27e67807d362ce642c22d13781
   end
 
   def PNS?
