@@ -12,6 +12,7 @@ class DadosObitosController < ApplicationController
     @cadastro_id = params[:cadastro_id]
     @dados_obito = DadosObito.new(dados_obito_params)
     @dados_obito.cadastro_id = @cadastro_id
+    @dados_obito.dados_velorio.valida = params[:corpo_a_ser_velado]
     if @dados_obito.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.dados_obito = @dados_obito
