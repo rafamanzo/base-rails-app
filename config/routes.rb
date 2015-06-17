@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'nota_fiscal/new/:cadastro_id', to: 'nota_fiscal#new', as: "new_nota_fiscal"
   get 'nota_fiscal/:cadastro_id', to: 'nota_fiscal#create', as: "nota_fiscal"
 
