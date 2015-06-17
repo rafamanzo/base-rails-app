@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="col-sm-5">
-                            <div class="form-group" style="margin-top:11%">
+                            <div class="form-group">
                                 <%= f.label :proaim, "PROAIM" %>
                                 <%= f.text_field :proaim, class: "form-control", id: "proaim", placeholder: "PROAIM" %>
                             </div>
@@ -62,9 +62,23 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                    <div class="row">
+                      <div class="col-sm-7">
+                          <div class="form-group">
+                              <%= f.label :medico, "Médico" %>
+                              <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
+                          </div>
+                      </div>
+                      <div class="col-sm-5">
+                          <div class="form-group">
+                              <%= f.label :crm, "CRM" %>
+                              <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
+                          </div>
+                      </div>
+                  </div>
+                </div>
 		        	</div>
-        </div>
+        </div>    
     <div class="row">
       <div class="col-md-12 shadow">
           <div class="over-shadow">
@@ -72,7 +86,7 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <%= label_tag :sera_velado, "Corpo será velado?" %>
-                    <%= select_tag "sera_velado", options_for_select(sim_nao,false), {class: "form-control", id: "sera_velado", style: "width: 20%"} %>
+                    <%= select_tag "sera_velado", options_for_select(sim_nao,false), {class: "form-control", id: "sera_velado", style: "width: 20%", onchange: "verifica_acao_velorio();"} %>
                   </div>
                 </div>
               </div>
@@ -81,10 +95,44 @@
     </div>
 
 
+    <%= f.fields_for :dados_velorio, @dados_obito.dados_velorio do |e| %>
     <div class="row">
       <div class="col-md-12 shadow">
           <div class="over-shadow">
               <h1 class="titulo_caixa">Dados do Sepultamento</h1>
+              <div id="div_dados_valorio" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <%= e.label :local_velorio, "Local do velório" %>
+                            <%= e.text_field :local_velorio, class: "form-control", id: "local_velorio", placeholder: "local do velório" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <%= e.label :endereco_velorio, "Endereço" %>
+                            <%= e.text_field :endereco_velorio, class: "form-control", id: "endereco_velorio", placeholder:"Endereço velório" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <%= e.label :data_saida, "Data de saída" %>
+                            <%= e.date_field :data_saida, :class => 'datepicker form-control', id: "data_saida",  placeholder: "01/01/1900", max: Date.today %>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <%= e.label :hora_sepultamento, "Hora de saida" %>
+                            <%= e.datetime_field :hora_saida, class: "form-control", id: "hora_saida", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
               <div class="row">
                   <div class="col-sm-12">
                       <div class="form-group">
@@ -115,118 +163,12 @@
                       </div>
                   </div>
               </div>
-              <div class="row">
-                  <div class="col-sm-7">
-                      <div class="form-group">
-                          <%= f.label :medico, "Médico" %>
-                          <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
-                      </div>
-                  </div>
-                  <div class="col-sm-5">
-                      <div class="form-group">
-                          <%= f.label :crm, "CRM" %>
-                          <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>  
-        <div class="row">
-      <div class="col-md-12 shadow">
-          <div class="over-shadow">
-              <h1 class="titulo_caixa">Dados do Sepultamento</h1>
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="form-group">
-                          <%= f.label :local_do_velorio, "Local do velório" %>
-                          <%= f.text_field :local_do_velorio, class: "form-control", id: "local_do_velorio", placeholder: "local do velório" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="form-group">
-                          <%= f.label :endereco_velorio, "Endereço" %>
-                          <%= f.text_field :endereco_velorio, class: "form-control", id: "endereco_velorio", placeholder:"Endereço velório" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-4">
-                      <div class="form-group">
-                          <%= f.label :data_saida, "Data de saída" %>
-                          <%= f.date_field :data_saida, :class => 'datepicker form-control', id: "data_saida",  placeholder: "01/01/1900", max: Date.today %>
-                      </div>
-                  </div>
-                  <div class="col-sm-3">
-                      <div class="form-group">
-                          <%= f.label :hora_sepultamento, "Hora de saida" %>
-                          <%= f.datetime_field :hora_saida, class: "form-control", id: "hora_saida", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-7">
-                      <div class="form-group">
-                          <%= f.label :medico, "Médico" %>
-                          <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
-                      </div>
-                  </div>
-                  <div class="col-sm-5">
-                      <div class="form-group">
-                          <%= f.label :crm, "CRM" %>
-                          <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="form-group">
-                          <%= f.label :cemiterio, "Cemitério" %>
-                          <%= f.text_field :cemiterio, class: "form-control", id: "cemiterio", placeholder: "Cemitério" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="form-group">
-                          <%= f.label :endereco, "Endereço" %>
-                          <%= f.text_field :endereco, class: "form-control", id: "endereco", placeholder:"Endereço" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-4">
-                      <div class="form-group">
-                          <%= f.label :data_sepultamento, "Data de Sepultamento" %>
-                          <%= f.date_field :data_sepultamento, :class => 'datepicker form-control', id: "data_sepultamento",  placeholder: "01/01/1900", max: Date.today %>
-                      </div>
-                  </div>
-                  <div class="col-sm-3">
-                      <div class="form-group">
-                          <%= f.label :hora_sepultamento, "Hora de Sepultamento" %>
-                          <%= f.datetime_field :hora_sepultamento, class: "form-control", id: "hora_sepultamento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-7">
-                      <div class="form-group">
-                          <%= f.label :medico, "Médico" %>
-                          <%= f.text_field :medico, class: "form-control", id: "medico", placeholder: "Nome do Médico" %>
-                      </div>
-                  </div>
-                  <div class="col-sm-5">
-                      <div class="form-group">
-                          <%= f.label :crm, "CRM" %>
-                          <%= f.number_field :crm, class: "form-control", id: "crm", placeholder: "CRM" %>
-                      </div>
-                  </div>
-              </div>
+
             </div>
           </div>
         </div>
+
+        <% end %>
 
 
     <div class="row">
