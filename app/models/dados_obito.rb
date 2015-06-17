@@ -3,8 +3,6 @@ class DadosObito < ActiveRecord::Base
   has_one :dados_velorio
 
   accepts_nested_attributes_for :dados_velorio
-  # validates_associated :dados_velorio
-	# accepts_nested_attributes_for :corpo_velado
   validates_associated :dados_velorio, if: :PNS?
 	# TODO criar esse dropdown
 
