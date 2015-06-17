@@ -15,9 +15,9 @@ class Compra < ActiveRecord::Base
 	accepts_nested_attributes_for :transporte_enterro
 	accepts_nested_attributes_for :sepultamento
 	accepts_nested_attributes_for :outros
-	
-	validates :local_remocao, :endereco_remocao, presence: true, length: {maximum: 50}, if: :remove_local_falecimento?
- 
+
+	validates :local_remocao, :endereco_remocao, presence: { message: "não pode ser vazio."}, length: {maximum: 50, message: "pode ter no máximo 50 caracteres."}, if: :remove_local_falecimento?
+
   def remove_local_falecimento?
     remocao_local_falecimento == false
   end

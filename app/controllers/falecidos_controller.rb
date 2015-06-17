@@ -4,9 +4,9 @@ class FalecidosController < ApplicationController
     cadastro = Cadastro.find(@cadastro_id)
     @falecido = Falecido.new
     @falecido.build_localizacao
-    @falecido.build_nascimento_obito
     @falecido.filhos.build
-    @falecido.build_casamento
+    @falecido.casamentos.build
+    @falecido.build_nascimento_obito
     @falecido.nascimento_obito.testemunhas.build
 
   	@css = css
@@ -15,7 +15,10 @@ class FalecidosController < ApplicationController
   def create
     @cadastro_id = params[:cadastro_id]
     @falecido = Falecido.new(falecido_params)
-    @falecido.cadastro_id = @cadastro_id
+  	@falecido.cadastro_id = @cadastro_id
+    @falecido.valida_filho = params[:deixa_filhos]
+    @falecido.nascimento_obito.valida = params[:nascimento_obito]
+    @falecido.valida_casamento = params[:estado_civil]
     if @falecido.save
       cadastro = Cadastro.find(@cadastro_id)
       cadastro.falecido = @falecido
@@ -38,10 +41,11 @@ class FalecidosController < ApplicationController
                               :nome_pai, :naturalidade_pai, :estado_civil_pai, :profissao_pai,
                               :idade_pai, :deixa_filhos, localizacao_attributes: [:endereco, :bairro,
                               :numero, :cidade, :complemento, :cep, :estado], nascimento_obito_attributes:
-                              [:local_nascimento, :data_nascimento, :avo_paterno, :avo_materno,
-                              :avo_paterna, :avo_materna, :semanas_gestacao, :gravidez],
+                              [:local_nascimento, :data_nascimento, :hora_nascimento, :avo_paterno, :avo_materno,
+                              :avo_paterna, :avo_materna, :semanas_gestacao, :gravidez, testemunha_attributes:
+                              [:nome, :estado_civil, :nacionalidade, :profissao, :endereco, :bairro]],
                               casamento_attributes:[:nome, :data_casamento, :cartorio, :cidade, :uf,
-                              :livro, :folha, :numero])
+                              :livro, :folha, :numero], filho_attributes: [:nome, :categoria_idade, :observacoes])
   end
 
   def css
