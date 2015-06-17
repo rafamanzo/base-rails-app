@@ -39,9 +39,10 @@ class ComprasController < ApplicationController
       barra_filtro: "visited first col-sm-2",
       barra_contratante: "visited col-sm-2",
       barra_falecido: "visited col-sm-2",
-      barra_obito: "previous visited col-sm-2",
-      barra_produtos: "active col-sm-2",
-      barra_notas: "next col-sm-2",
+      barra_obito: "previous visited col-sm-1",
+      barra_produtos: "active col-sm-1",
+      barra_pagamento: "next col-sm-1",
+      barra_notas: "col-sm-2",
     }
   end
 end

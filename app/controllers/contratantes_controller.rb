@@ -51,6 +51,7 @@ class ContratantesController < ApplicationController
       barra_falecido: "next col-sm-2",
       barra_obito: "col-sm-2",
       barra_produtos: "col-sm-2",
+      barra_pagamento: "next col-sm-2",
       barra_notas: "col-sm-2",
     }
   end
