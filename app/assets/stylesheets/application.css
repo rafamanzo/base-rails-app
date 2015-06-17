@@ -221,3 +221,9 @@ ul.barra_progresso a {
   background: #FFFFFF;
   border: 1px solid #CACACA;
 }
+
+.footer {
+  /*position:absolute;*/
+  bottom:0;
+  width:100%;
+}
