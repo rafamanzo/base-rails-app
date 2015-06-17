@@ -14,16 +14,16 @@
         </div>
     <% end %>
     <div class="container" id="formulario-dados-pessoais">
-        
+
     <div class="form-group">
       <div class="row">
         <div class="col-md-4">
           <%= f.label :nascimento_obito, "Nascimento e Óbito" %>
         </div>
-      </div> 
-      <div class="row"> 
+      </div>
+      <div class="row">
         <div class="col-sm-2">
-          <%= f.select :nascimento_obito, sim_nao, {}, class: "form-control", id: "nascimento_obito", onchange: "mostraOuEscondeDadosNascimento(); mostraOuEscondeDadosFamiliares(); mostraOuEscondeDadosTestemunhas();" %>
+          <%= f.select :nascimento_obito, nao_sim, {}, class: "form-control", id: "nascimento_obito", onchange: "mostraOuEscondeNascimentoObito();" %>
         </div>
       </div>
     </div>
@@ -368,9 +368,9 @@
         </div>
         <div class="row" id="dadosNascimento">
           <div class="col-md-12 shadow">
-              <div class="over-shadow">  
+              <div class="over-shadow">
                 <h1 class="titulo_caixa">Dados do Nascimento</h1>
-                <%= f.fields_for :nascimento_obito do |e| %>  
+                <%= f.fields_for :nascimento_obito do |e| %>
                 <div class="row">
                   <div class="col-md-8">
                     <div class="form-group">
@@ -391,7 +391,7 @@
                   </div>
                   </div>
                 </div>
-               <% end %> 
+               <% end %>
               </div>
           </div>
         </div>
@@ -400,7 +400,7 @@
           <div class="col-md-12 shadow">
             <div class="over-shadow">
               <h1 class="titulo_caixa">Dados Familiares</h1>
-              <%= f.fields_for :nascimento_obito do |e| %>  
+              <%= f.fields_for :nascimento_obito do |e| %>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -413,7 +413,7 @@
                     <%= e.label :avo_paterna, "Avó paterna" %>
                     <%= e.text_field :avo_paterna, class: "form-control", id: "avo_paterna", placeholder: "Avó paterna" %>
                   </div>
-                </div> 
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -427,9 +427,9 @@
                     <%= e.label :avo_materna, "Avó materna" %>
                     <%= e.text_field :avo_materna, class: "form-control", id: "avo_materna", placeholder: "Avó materna" %>
                   </div>
-                </div> 
+                </div>
               </div>
-             <% end %> 
+             <% end %>
             </div>
           </div>
         </div>
@@ -438,7 +438,7 @@
           <div class="col-md-12 shadow">
             <div class="over-shadow">
               <h1 class="titulo_caixa">Testemunhas</h1>
-              <%= f.fields_for :testemunhas do |e| %>  
+              <%= f.fields_for :testemunhas do |e| %>
                 <div class="row">
                   <div class="col-md-9">
                     <div class="form-group">
@@ -465,7 +465,7 @@
                       <%= e.label :profissao, "Profissão" %>
                       <%= e.text_field :profissao, class: "form-control", id: "profissao_testemunha1", placeholder: "Profissão" %>
                     </div>
-                  </div> 
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -479,11 +479,11 @@
                       <%= e.label :bairro, "Bairro" %>
                       <%= e.text_field :bairro, class: "form-control", id: "bairro_testemunha1", placeholder: "Bairro" %>
                     </div>
-                  </div> 
+                  </div>
                 </div>
-              <% end %> 
+              <% end %>
               <hr size="10px" />
-              <%= f.fields_for :testemunhas do |e| %>  
+              <%= f.fields_for :testemunhas do |e| %>
                 <div class="row">
                   <div class="col-md-9">
                     <div class="form-group">
@@ -510,7 +510,7 @@
                       <%= e.label :profissao, "Profissão" %>
                       <%= e.text_field :profissao, class: "form-control", id: "profissao_testemunha2", placeholder: "Profissão" %>
                     </div>
-                  </div> 
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -524,7 +524,7 @@
                       <%= e.label :bairro, "Bairro" %>
                       <%= e.text_field :bairro, class: "form-control", id: "bairro_testemunha2", placeholder: "Bairro" %>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               <% end %>
             </div>

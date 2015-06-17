@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610180643) do
+ActiveRecord::Schema.define(version: 20150611145550) do
+
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
     t.integer  "tipo_contratacao"
@@ -23,6 +24,24 @@ ActiveRecord::Schema.define(version: 20150610180643) do
   end
 
   add_index "cadastros", ["produto_id"], name: "index_cadastros_on_produto_id"
+
+  create_table "carro_carretos", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carro_enterros", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carro_remocaos", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "casamentos", force: :cascade do |t|
     t.string   "nome"
@@ -123,6 +142,30 @@ ActiveRecord::Schema.define(version: 20150610180643) do
 
   add_index "dados_velorios", ["dados_obito_id"], name: "index_dados_velorios_on_dados_obito_id"
 
+  create_table "dimensaos", force: :cascade do |t|
+    t.integer  "urna_id"
+    t.integer  "revestimento_id"
+    t.string   "unidade_de_medida"
+    t.string   "dimensoes"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "dimensaos", ["revestimento_id"], name: "index_dimensaos_on_revestimento_id"
+  add_index "dimensaos", ["urna_id"], name: "index_dimensaos_on_urna_id"
+
+  create_table "elemento_kits", force: :cascade do |t|
+    t.integer  "urna_id"
+    t.integer  "produto_id"
+    t.string   "produto_type"
+    t.decimal  "preco"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "elemento_kits", ["produto_type", "produto_id"], name: "index_elemento_kits_on_produto_type_and_produto_id"
+  add_index "elemento_kits", ["urna_id"], name: "index_elemento_kits_on_urna_id"
+
   create_table "empresas", force: :cascade do |t|
     t.string   "nome"
     t.string   "cnpj"
@@ -132,6 +175,19 @@ ActiveRecord::Schema.define(version: 20150610180643) do
   end
 
   add_index "empresas", ["contratante_id"], name: "index_empresas_on_contratante_id"
+
+  create_table "enfeites", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "unidade_de_medida"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "essa_paramentos", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "falecidos", force: :cascade do |t|
     t.string   "nome"
@@ -182,19 +238,28 @@ ActiveRecord::Schema.define(version: 20150610180643) do
 
   add_index "filhos", ["falecido_id"], name: "index_filhos_on_falecido_id"
 
-  create_table "item_compras", force: :cascade do |t|
-    t.integer  "quatidade"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "iluminacaos", force: :cascade do |t|
     t.string   "nome"
-    t.decimal  "valor_unitario"
-    t.string   "unidade_medida"
-    t.string   "dimensoes"
-    t.integer  "item_id"
-    t.string   "item_type"
+    t.string   "unidade_de_medida"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "item_compras", ["item_type", "item_id"], name: "index_item_compras_on_item_type_and_item_id"
+  create_table "item_compras", force: :cascade do |t|
+    t.string   "nome"
+    t.boolean  "enabled"
+    t.string   "unidade_de_medida"
+    t.string   "dimensoes"
+    t.string   "tipo"
+    t.integer  "quantidade"
+    t.decimal  "preco"
+    t.boolean  "sinal"
+    t.integer  "compra_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "item_compras", ["compra_id"], name: "index_item_compras_on_compra_id"
 
   create_table "localizacaos", force: :cascade do |t|
     t.text     "endereco"
@@ -213,6 +278,12 @@ ActiveRecord::Schema.define(version: 20150610180643) do
   add_index "localizacaos", ["contratante_id"], name: "index_localizacaos_on_contratante_id"
   add_index "localizacaos", ["falecido_id"], name: "index_localizacaos_on_falecido_id"
 
+  create_table "mesa_condolencia", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "nascimento_obitos", force: :cascade do |t|
     t.string   "local_nascimento"
     t.datetime "data_nascimento"
@@ -230,14 +301,22 @@ ActiveRecord::Schema.define(version: 20150610180643) do
 
   add_index "nascimento_obitos", ["falecido_id"], name: "index_nascimento_obitos_on_falecido_id"
 
-  create_table "produtos", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "revestimentos", force: :cascade do |t|
     t.string   "nome"
-    t.decimal  "valor_unitario"
-    t.string   "unidade_medida"
-    t.string   "dimensoes"
-    t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxa_sepultamentos", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxa_velorios", force: :cascade do |t|
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "testemunhas", force: :cascade do |t|
@@ -254,11 +333,30 @@ ActiveRecord::Schema.define(version: 20150610180643) do
 
   add_index "testemunhas", ["nascimento_obito_id"], name: "index_testemunhas_on_nascimento_obito_id"
 
+  create_table "tipo_sepultamentos", force: :cascade do |t|
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "urnas", force: :cascade do |t|
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "nome"
     t.string   "senha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "veus", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "unidade_de_medida"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end

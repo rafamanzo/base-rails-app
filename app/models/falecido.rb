@@ -36,12 +36,7 @@ class Falecido < ActiveRecord::Base
   validates :nome_mae, :nome_pai, :estado_civil_mae, :estado_civil_pai, presence: { message: "não pode ser vazio."}, if: :PNS?
 
   def GD?
-<<<<<<< HEAD
     cadastro.GD?
-=======
-    byebug
-    cadastro.tipo_operacao == 2 && cadastro.tipo_contratacao == 3
->>>>>>> ERRO: não está salvando o falecido no banco (não encontra Cadastro e dá erros de 'unpermitted parameters' para testemunhas, dados_familiares e outros.
   end
 
   def PNS?

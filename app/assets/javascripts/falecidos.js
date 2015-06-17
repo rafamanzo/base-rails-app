@@ -1,31 +1,55 @@
 function mostraOuEscondeDadosCertidaoNascimento() {
-    if ($("#estado_civil").val() == "Solteiro" &&  $("#deixa_filhos").val() == "true") {
-    	$("#dadosCertidaoNascimento").show();
-    } else {
+    if($("#nascimento_obito").val() == false){
+      if ($("#estado_civil").val() == "Solteiro") {
+      	$("#dadosCertidaoNascimento").show();
+        //$("#dadosCasamentos").hide();
+      }
+      /* Nao existe ainda */
+      else if ($("#estado_civil").val() == "Casado") {
+        //$("#dadosCasamentos").show();
+        $("#dadosCertidaoNascimento").hide();
+      };
+      else
+      {
+        $("#dadosCertidaoNascimento").hide();
+        //$("#dadosCasamentos").hide();
+        /* Viuvos tem quais campos? */
+      }
+    }
+    else {
     	$("#dadosCertidaoNascimento").hide();
+      //$("#dadosCasamentos").hide();
     }
 }
 
-function mostraOuEscondeDadosNascimento() {
-    if ($("#nascimento_obito").val() == "true") {
+function mostraOuEscondeCamposDeFilhos() {
+    if ($("#deixa_filhos").val() == true && $("#nascimento_obito").val() == false) {
+      //$("#dadosCamposFilhos").show();
+    }
+    else {
+      //$("#dadosCamposFilhos").hide();
+    }
+}
+
+function mostraOuEscondeNascimentoObito() {
+    alert
+    if ($("#nascimento_obito").val() == true) {
       $("#dadosNascimento").show();
-    } else {
-      $("#dadosNascimento").hide();
-    }
-}
-
-function mostraOuEscondeDadosFamiliares() {
-    if ($("#nascimento_obito").val() == "true") {
-      $("#dadosFamiliares").show();
-    } else {
-      $("#dadosFamiliares").hide();
-    }
-}
-
-function mostraOuEscondeDadosTestemunhas() {
-    if ($("#nascimento_obito").val() == "true") {
       $("#dadosTestemunhas").show();
-    } else {
+      $("#dadosFamiliares").show();
+
+      //Esconde outros.
+      $("#dadosCertidaoNascimento").hide();
+      //$("#dadosCasamentos").hide();
+      //$("#dadosCamposFilhos").hide();
+    }
+    else {
+      $("#dadosFamiliares").hide();
       $("#dadosTestemunhas").hide();
+      $("#dadosNascimento").hide();
+
+      //Mostra outros?
+      mostraOuEscondeCamposDeFilhos();
+      mostraOuEscondeDadosCertidaoNascimento();
     }
 }
