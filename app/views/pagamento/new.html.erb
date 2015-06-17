@@ -1,11 +1,12 @@
 <script type="text/javascript">
-	function adicionaNovo() {
+	function adicionaNovo() {	
+		$linha_nova = $('#row_pagamento').clone();
+		$("#table_pagamentos").append($linha_nova);
+	}
 
-		var linha_nova = "<tr id='row_pagamento'><td><input type='text' size='10' /></td><td><input type='text' size='10' /></td><td><input type='text' size='10' /></td><td><select><option>Teste 1</option></select></td><td><select><option>Teste 1</option></select></td><td><select><option>Teste 1</option></select></td><td><input type='text' size='10' /></td><td><input type='text' size='10' /></td><td><input type='text' size='10' /></td><td><input type='text' size='10' /></td><td><input type='text' size='10' /></td><td><button value='Adiciona novo pagamento' onclick='adicionaNovo();' /></td></tr>";
-
-
-		$("#table_pagamentos").append(linha_nova);
-		
+	function removePagamento(e) {
+		alert("teste");
+		e.parent().parent().hide();
 	}
 </script>
 <div class="container">
@@ -27,71 +28,73 @@
   		</div>
 
 			<div class="over-shadow">
-      		<div class="col-sm-2">
-            <div class="form-group">
-              <table id="table_pagamentos">
-            		<tr>
-            			<td>Emitente</td>
-            			<td>RG</td>
-            			<td>Telefone</td>
-            			<td>Endereço</td>
-            			<td>Tipo de Pagamento</td>
-            			<td>Bandeira</td>
-            			<td>Parcelamento</td>
-            			<td>PinPad</td>
-            			<td>Autorização</td>
-            			<td>Nº CV/DOC</td>
-            			<td>Valor</td>
-            		</tr>
-            		<div >
-	            		<tr id="row_pagamento">
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	          					<select>
-	          						<option>Teste 1</option>
-	          					</select>
-	            			</td>
-	            			<td>
-	            				<select>
-	          						<option>Teste 1</option>
-	          					</select>
-	            			</td>
-	            			<td>
-	            				<select>
-	          						<option>Teste 1</option>
-	          					</select>
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<input type="text" size="10" />
-	            			</td>
-	            			<td>
-	            				<button value="Adiciona novo pagamento" onclick="adicionaNovo();" />
-	            			</td>
-            			</tr>
-            		</div>
-            	</table>
-            </div>
+      	<div class="row">
+          <div class="col-md-12">
+            <table class="table" id="table_pagamentos">
+          		<tr>
+          			<td>Emitente</td>
+          			<td>RG</td>
+          			<td>Telefone</td>
+          			<td>Endereço</td>
+          			<td>Tipo de Pagamento</td>
+          			<td>Bandeira</td>
+          			<td>Parcelamento</td>
+          			<td>PinPad</td>
+          			<td>Autorização</td>
+          			<td>Nº CV/DOC</td>
+          			<td>Valor</td>
+          			<td></td>
+          		</tr>
+          		<tr id="row_pagamento">
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+        					<select class="form-control">
+        						<option>Teste 1</option>
+        					</select>
+          			</td>
+          			<td>
+          				<select class="form-control">
+        						<option>Teste 1</option>
+        					</select>
+          			</td>
+          			<td>
+          				<select class="form-control">
+        						<option>Teste 1</option>
+        					</select>
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<input class="form-control" type="text" />
+          			</td>
+          			<td>
+          				<button type="button" class="close" aria-label="Close" onclick="removePagamento(this);">
+          					<span aria-hidden="true">&times;</span>
+          				</button>
+          			</td>
+        			</tr>
+          	</table>
+          	<button class="btn btn-info pull-right"  onclick="adicionaNovo();" >Adiciona novo pagamento</button>
           </div>
+        </div>
   		</div>
 
   	</div>

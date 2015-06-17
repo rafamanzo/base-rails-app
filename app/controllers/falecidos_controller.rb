@@ -18,7 +18,7 @@ class FalecidosController < ApplicationController
     @falecido = Falecido.new(falecido_params)
   	@falecido.cadastro_id = @cadastro_id
     @falecido.valida_filho = params[:deixa_filhos]
-    @falecido.nascimento_obito.valida = params[:nascimento_obito]
+    #@falecido.nascimento_obito.valida = params[:nascimento_obito]
     @falecido.valida_casamento = params[:estado_civil]
     @cadastro = Cadastro.find(@cadastro_id)
     @falecido.cadastro_id = @cadastro_id
