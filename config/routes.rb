@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'nota_fiscal/new/:cadastro_id', to: 'nota_fiscal#new', as: "new_nota_fiscal"
+  get 'nota_fiscal/:cadastro_id', to: 'nota_fiscal#create', as: "nota_fiscal"
+
   get 'contratantes/cpf/:cpf', to: 'contratantes#cpf'
   get 'contratantes/new/:cadastro_id', to: 'contratantes#new', as: "new_contratante"
   post 'contratantes/:cadastro_id', to: 'contratantes#create', as: "contratantes"

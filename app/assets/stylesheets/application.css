@@ -227,3 +227,8 @@ ul.barra_progresso a {
   bottom:0;
   width:100%;
 }
+
+
+ul.barra_progresso li:nth-child(6):after {
+  width: 10%;
+}
