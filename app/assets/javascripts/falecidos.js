@@ -1,5 +1,12 @@
-function mostraOuEscondeDadosCertidaoNascimento() {
-    if($("#nascimento_obito").val() == false){
+$(document).ready(function() {
+  mostraOuEscondeNascimentoObito();
+  mostraOuEscondeDadosEstadoCivil();
+  mostraOuEscondeCamposDeFilhos();
+});
+
+function mostraOuEscondeDadosEstadoCivil() {
+    console.log('teste')
+    if($("#nascimento_obito").val() == "false"){
       if ($("#estado_civil").val() == "Solteiro") {
       	$("#dadosCertidaoNascimento").show();
         //$("#dadosCasamentos").hide();
@@ -8,7 +15,7 @@ function mostraOuEscondeDadosCertidaoNascimento() {
       else if ($("#estado_civil").val() == "Casado") {
         //$("#dadosCasamentos").show();
         $("#dadosCertidaoNascimento").hide();
-      };
+      }
       else
       {
         $("#dadosCertidaoNascimento").hide();
@@ -23,7 +30,7 @@ function mostraOuEscondeDadosCertidaoNascimento() {
 }
 
 function mostraOuEscondeCamposDeFilhos() {
-    if ($("#deixa_filhos").val() == true && $("#nascimento_obito").val() == false) {
+    if ($("#deixa_filhos").val() == "true" && $("#nascimento_obito").val() == "false") {
       //$("#dadosCamposFilhos").show();
     }
     else {
@@ -32,8 +39,7 @@ function mostraOuEscondeCamposDeFilhos() {
 }
 
 function mostraOuEscondeNascimentoObito() {
-    alert
-    if ($("#nascimento_obito").val() == true) {
+    if ($("#nascimento_obito").val() == "true") {
       $("#dadosNascimento").show();
       $("#dadosTestemunhas").show();
       $("#dadosFamiliares").show();
@@ -50,6 +56,6 @@ function mostraOuEscondeNascimentoObito() {
 
       //Mostra outros?
       mostraOuEscondeCamposDeFilhos();
-      mostraOuEscondeDadosCertidaoNascimento();
+      mostraOuEscondeDadosEstadoCivil();
     }
 }

@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         <div class="col-sm-2">
-          <%= f.select :nascimento_obito, nao_sim, {}, class: "form-control", id: "nascimento_obito", onchange: "mostraOuEscondeNascimentoObito();" %>
+          <%= f.select :nascimento_obito, options_for_select(sim_nao, false), {}, class: "form-control", id: "nascimento_obito", onchange: "mostraOuEscondeNascimentoObito();" %>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <%= f.label :estado_civil, "Estado Civil" %>
-                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil", onchange: "mostraOuEscondeDadosCertidaoNascimento();" %>
+                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil", onchange: "mostraOuEscondeDadosEstadoCivil();" %>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -199,7 +199,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :deixa_filhos, "Deixa Filhos" %>
-                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeDadosCertidaoNascimento();" %>
+                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeDadosEstadoCivil();" %>
                             </div>
                         </div>
 	                </div>
@@ -320,7 +320,7 @@
             <div class="col-md-12 shadow">
                 <div class="over-shadow">
                     <h1 class="titulo_caixa">Certidão de Nascimento</h1>
-                    <%= f.fields_for :certidao_nascimento do |e| %>
+                    <%= f.fields_for :certidao_nascimento, CertidaoNascimento.new do |e| %>
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="form-group">
@@ -336,8 +336,8 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <%= e.label :estado, "UF" %>
-                                    <%= e.select :estado, estados, {}, class: "form-control", id: "estado" %>
+                                    <%= e.label :uf, "UF" %>
+                                    <%= e.select :uf, estados, {}, class: "form-control", id: "estado" %>
                                 </div>
                             </div>
                         </div>

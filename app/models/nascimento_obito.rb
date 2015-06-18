@@ -3,7 +3,6 @@ class NascimentoObito < ActiveRecord::Base
   has_many :testemunhas
 
   accepts_nested_attributes_for :testemunhas
-<<<<<<< HEAD
   validates_associated :testemunhas
 
 
@@ -21,15 +20,4 @@ class NascimentoObito < ActiveRecord::Base
   def valida= param
     @valida = param
   end
-=======
-
-  # validates :local_nascimento, presence:true, length: {maximum: 255}, numericality: false
-  # validates :data_nascimento, presence:true
-  # validates :avo_paterno, presence:true, length: {maximum: 255}, numericality: false
-  # validates :avo_materno, presence:true, length: {maximum: 255}, numericality: false
-  # validates :avo_paterna, presence:true, length: {maximum: 255}, numericality: false
-  # validates :avo_materna, presence:true, length: {maximum: 255}, numericality: false
-  # validates :semanas_gestacao, presence:true, numericality: true
-  # validates :gravidez, presence:true, length: {maximum: 255}, numericality: false
->>>>>>> 508fce9c97298c27e67807d362ce642c22d13781
 end
