@@ -1,7 +1,8 @@
 class FalecidosController < ApplicationController
   def new
     @cadastro_id = params[:cadastro_id]
-    cadastro = Cadastro.find(@cadastro_id)
+    @cadastro = Cadastro.find(@cadastro_id)
+
     @falecido = Falecido.new
     @falecido.build_localizacao
     @falecido.filhos.build
@@ -19,10 +20,11 @@ class FalecidosController < ApplicationController
     @falecido.valida_filho = params[:deixa_filhos]
     @falecido.nascimento_obito.valida = params[:nascimento_obito]
     @falecido.valida_casamento = params[:estado_civil]
+    @cadastro = Cadastro.find(@cadastro_id)
+    @falecido.cadastro_id = @cadastro_id
     if @falecido.save
-      cadastro = Cadastro.find(@cadastro_id)
-      cadastro.falecido = @falecido
-      cadastro.save
+      @cadastro.falecido = @falecido
+      @cadastro.save
       redirect_to new_dados_obito_path(@cadastro_id)
     else
       @css = css

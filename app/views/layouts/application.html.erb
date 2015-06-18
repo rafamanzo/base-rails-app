@@ -41,17 +41,15 @@
     </div>
     <div class="titulo_pagina" id="titulo_pag"
       <% if !@css[:barra_display_none].nil? %>style="display: none" <% end %>>
-      <h1 style="  padding-left: 35%; padding-top: 3%; padding-bottom: 0%;"><b>Contratação gratuito desconhecido</b></h1>
+      <h1 style="  padding-left: 35%; padding-top: 3%; padding-bottom: 0%;"><b><%= @cadastro.nome_fluxo %></b></h1>
     </div>
+    
     <%= yield %>
-
+    
+      <div id="footer" style="<% if !@css[:barra_display_none].nil? %>position:absolute; <% end %> background-color: #f5f5f5; padding: 2%; margin-top: 2%;" class="footer">
+        <p class="muted credit"> 
+        Sistema Funerário de São Paulo
+        </p>
+      </div>
   </body>
-
-  <div id="footer" style="background-color: #f5f5f5; padding: 2%; margin-top: 2%;">
-    <div class="container">
-      <p class="muted credit"> 
-      Sistema Funerário de São Paulo
-      </p>
-    </div>
-  </div>
 </html>

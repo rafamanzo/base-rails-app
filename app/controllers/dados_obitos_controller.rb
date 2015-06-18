@@ -1,6 +1,7 @@
 class DadosObitosController < ApplicationController
   def new
     @cadastro_id = params[:cadastro_id]
+    @cadastro = Cadastro.find(@cadastro_id)
 
     @dados_obito = DadosObito.new
     @dados_obito.build_dados_velorio
@@ -13,10 +14,10 @@ class DadosObitosController < ApplicationController
     @dados_obito = DadosObito.new(dados_obito_params)
     @dados_obito.cadastro_id = @cadastro_id
     @dados_obito.dados_velorio.valida = params[:corpo_a_ser_velado]
+    @cadastro = Cadastro.find(@cadastro_id)
     if @dados_obito.save
-      cadastro = Cadastro.find(@cadastro_id)
-      cadastro.dados_obito = @dados_obito
-      cadastro.save
+      @cadastro.dados_obito = @dados_obito
+      @cadastro.save
       redirect_to new_compra_path(@cadastro_id)
     else
       @css = css
