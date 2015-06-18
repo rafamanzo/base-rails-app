@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611145550) do
+ActiveRecord::Schema.define(version: 20150618143020) do
 
   create_table "cadastros", force: :cascade do |t|
     t.integer  "tipo_operacao"
@@ -70,7 +70,10 @@ ActiveRecord::Schema.define(version: 20150611145550) do
     t.boolean  "obito"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "certidao_nascimentos", ["falecido_id"], name: "index_certidao_nascimentos_on_falecido_id"
 
   create_table "compras", force: :cascade do |t|
     t.boolean  "remocao_local_falecimento"
@@ -242,6 +245,24 @@ ActiveRecord::Schema.define(version: 20150611145550) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "info_pagamentos", force: :cascade do |t|
+    t.string   "emitente"
+    t.string   "rg"
+    t.string   "telefone"
+    t.string   "tipo"
+    t.string   "bandeira"
+    t.string   "parcelamento"
+    t.string   "pin_pad"
+    t.string   "autorizacao"
+    t.string   "cv_doc"
+    t.decimal  "valor"
+    t.integer  "pagamento_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "info_pagamentos", ["pagamento_id"], name: "index_info_pagamentos_on_pagamento_id"
+
   create_table "item_compras", force: :cascade do |t|
     t.string   "nome"
     t.boolean  "enabled"
@@ -297,6 +318,18 @@ ActiveRecord::Schema.define(version: 20150611145550) do
   end
 
   add_index "nascimento_obitos", ["falecido_id"], name: "index_nascimento_obitos_on_falecido_id"
+
+  create_table "pagamentos", force: :cascade do |t|
+    t.boolean  "emitente_contratante"
+    t.string   "convenio"
+    t.integer  "cadastro_id"
+    t.decimal  "valor_restante"
+    t.decimal  "valor_total"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "pagamentos", ["cadastro_id"], name: "index_pagamentos_on_cadastro_id"
 
   create_table "revestimentos", force: :cascade do |t|
     t.string   "nome"
