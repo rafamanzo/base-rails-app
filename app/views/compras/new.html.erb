@@ -22,7 +22,7 @@
                   <%= f.label :remocao_local_falecimento, "Remoção do corpo no local de falecimento?" %>
             </div>
             <div class="col-md-2">
-                  <%= f.select :remocao_local_falecimento, options_for_select(sim_nao, false), {}, class: "form-control", id:"remocao_local_falecimento", onchange: "disableIfEqual('local_remocao', 'remocao_local_falecimento', 'false'); disableIfEqual('endereco_remocao', 'remocao_local_falecimento', 'false');" %>
+                  <%= f.select :remocao_local_falecimento, options_for_select(sim_nao, false), {}, class: "form-control", id:"remocao_local_falecimento", onchange: "disableIfEqual('local_remocao', 'remocao_local_falecimento', 'false'); disableIfEqual('endereco_remocao', 'remocao_local_falecimento', 'false'); preencheLocalFalecimento('remocao_local_falecimento', '" + @cadastro.dados_obito.local_falecimento + "');" %>
             </div>
           </div>
           <div class="row">

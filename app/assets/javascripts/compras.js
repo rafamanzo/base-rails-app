@@ -1,3 +1,10 @@
+function preencheLocalFalecimento(id, local) {
+    if ($("#"+id).val() == "true")
+        $("#endereco_remocao").val(local);
+    else
+        $("#endereco_remocao").val("");
+}
+
 function enableTaxas(){
     if($('#outros').is(':checked')){
     	$('.tipo_taxa_class').prop("disabled",false);
@@ -11,8 +18,8 @@ function enableTaxas(){
     }
 }
 
-function disableIfEqual(id, id_valor, valor) {
-	id = '#'+id;
-	if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
-	else $(id).prop("disabled", false);
-}
+// function disableIfEqual(id, id_valor, valor) {
+// 	id = '#'+id;
+// 	if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
+// 	else $(id).prop("disabled", false);
+// }
