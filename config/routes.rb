@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'nota_fiscal/new/:cadastro_id', to: 'nota_fiscal#new', as: "new_nota_fiscal"
   get 'nota_fiscal/:cadastro_id', to: 'nota_fiscal#create', as: "nota_fiscal"
 
-  get 'pagamento/new/:cadastro_id', to: 'pagamento#new', as: "new_pagamento"
-  post 'pagamento/:cadastro_id', to: 'pagamento#create', as: "pagamento"
+  get 'pagamentos/new/:cadastro_id', to: 'pagamentos#new', as: "new_pagamento"
+  post 'pagamentos/:cadastro_id', to: 'pagamentos#create', as: "pagamentos"
 
   get 'contratantes/cpf/:cpf', to: 'contratantes#cpf'
   get 'contratantes/new/:cadastro_id', to: 'contratantes#new', as: "new_contratante"
@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get 'compras/new/:cadastro_id', to: 'compras#new', as: "new_compra"
   post 'compras/:cadastro_id', to: 'compras#create', as: "compras"
+
+  # resources :pagamento
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

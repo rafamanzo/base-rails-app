@@ -1,0 +1,154 @@
+<%= form_for @pagamento do |f| %>
+<% if @pagamento.errors.any? %>
+<div id="error_expl" class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @pagamento.errors.count %> erros proibiram este contratante de ser salvo:</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @pagamento.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12 shadow">
+          <div class="over-shadow">
+              <div>
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <div class="form-group">
+                              Convênio:
+                              <input class="form-control" />
+                          </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <div class="form-group">
+                              Emitente é o contratate:
+                              <%= f.select :emitente_contratante, sim_nao, {}, class: "form-control", id: "emitente_contratante" %>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="row">
+      <div class="col-md-12 shadow">
+          <div class="over-shadow">
+              <div id="dadosPessoais">
+                  <h1 class="titulo_caixa pull-left">Informações de Pagamento</h1>
+                  <button class="btn btn-info pull-right" onclick="novoPagamento(); return false;" ><u>N</u>ovo pagamento</button>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <table class="table" id="table_pagamentos">
+                                <tr>
+                                  <td>Emitente</td>
+                                  <td>RG</td>
+                                  <td>Telefone</td>
+                                  <td>Tipo de Pagamento</td>
+                                  <td>Bandeira</td>
+                                  <td>Parcelamento</td>
+                                  <td>PinPad</td>
+                                  <td>Autorização</td>
+                                  <td>Nº CV/DOC</td>
+                                  <td>Valor</td>
+                                  <td></td>
+                                </tr>
+                                <tr id="row_pagamento">
+                                  <%= f.fields_for :info_pagamentos do |e| %>
+                                    <td>
+                                      <%= e.text_field :emitente, class: "form-control", id: "emitente" %>
+                                    </td>
+                                    <td>
+                                      <%= e.text_field :rg, class: "form-control", id: "rg" %>
+                                    </td>
+                                    <td>
+                                      <%= e.text_field :telefone, class: "form-control", id: "telefone", onkeypress: "mascara(this,telefone_mask)", maxlength: "15" %>
+                                    </td>
+                                    <td>
+                                      <%= e.select :tipo, tipos_pagamento, {}, class: "form-control", id: "tipo" %>
+                                    </td>
+                                    <td>
+                                      <%= e.select :bandeira, bandeiras, {}, class: "form-control", id: "bandeira" %>
+                                    </td>
+                                    <td>
+                                      <%= e.select :parcelamento, parcelamentos, {}, class: "form-control", id: "parcelamento" %>
+                                    </td>
+                                    <td>
+                                      <%= e.text_field :pin_pad, class: "form-control", id: "pin_pad" %>
+                                    </td>
+                                    <td>
+                                      <%= e.text_field :autorizacao, class: "form-control", id: "autorizacao" %>
+                                    </td>
+                                    <td>
+                                      <%= e.text_field :cv_doc, class: "form-control", id: "cv_doc" %>
+                                    </td>
+                                    <td>
+                                      <%= e.text_field :valor, class: "form-control", id: "valor" %>
+                                    </td>
+                                    <td>
+                                      <button type="button" class="close" aria-label="Close" onclick="removerPagamento(this);" id="removePagamento">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </td>
+                                  </tr>
+                                <% end %>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                        
+
+                              <div class="col-sm-6">
+                                  <div class="form-group">
+                                      
+                                  </div>
+                              </div>
+
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      Valor restante:
+                                      <input class="form-control" />
+                                  </div>
+                              </div>
+                              
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      Valor total:
+                                      <input class="form-control" />
+                                  </div>
+                              </div>
+
+
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-xs-12" id="botoes-navegacao">
+      <button type="button" class="col-xs-1 btn btn-default" style="visibility:hidden"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+      <button type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</button>
+      <button class="col-xs-offset-4 col-xs-1 btn btn-default" value="Próximo" type="submit"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+    </div>
+  </div>
+</div>
+
+<% end %>
