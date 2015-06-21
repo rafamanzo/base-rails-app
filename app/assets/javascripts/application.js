@@ -76,22 +76,16 @@ function disableIfEqual(id, id_valor, valor) {
 }
 
 function buscaCEP(cep) {
-    cep = cep.replace("-", "");
-
-    // $.get('http://cep.correiocontrol.com.br/' + cep + '.json',
-        // function (data) {
-            var data = "{\"bairro\": \"Jardim Sao Saverio\", \"logradouro\": \"Avenida dos Ourives\", \"cep\": \"04194260\", \"uf\": \"SP\", \"localidade\": \"Sao Paulo\"}";
-            // alert(data)
-            var obj = JSON.parse(data);
-            // alert("logradouro: " + obj.logradouro);
-            // alert("bairro: " + obj.bairro);
-            // alert("localidade: " + obj.localidade);
-            // alert("estado: " + obj.estado);
-
-            $("#endereco").val(obj.logradouro);
-            $("#bairro").val(obj.bairro);
-            $("#cidade").val(obj.localidade);
-            $("#estado").val(obj.uf.toUpperCase());  
-        // });
+    cep = cep.replace("-","");
+    
+    var url = 'http://cep.correiocontrol.com.br/' + cep + '.json';
+    $.getJSON(url, function(json){
+        $("#endereco").val(json.logradouro);
+        $("#bairro").val(json.bairro);
+        $("#cidade").val(json.localidade);
+        $("#estado").val(json.uf.toUpperCase());  
+    }).fail(function(){
+        alert("CEP não encontrado!");
+    });
 } 
  
