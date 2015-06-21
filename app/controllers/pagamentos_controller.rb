@@ -2,17 +2,16 @@ class PagamentosController < ApplicationController
   def new
   	@cadastro_id = params[:cadastro_id]
   	@cadastro = Cadastro.find(@cadastro_id)
-  	puts " == #{@cadastro_id}"
+  	
   	@pagamento = Pagamento.new
   	@pagamento.info_pagamento.build
-    @pagamento
 
     @css = css
   end
 
   def create
   	@cadastro_id = params[:cadastro_id]
-    @pagamento = Pagamento.new(pagamemto_params)
+    @pagamento = Pagamento.new(pagamento_params)
     @cadastro = Cadastro.find(@cadastro_id)
 
     if @pagamento.save
@@ -42,9 +41,9 @@ class PagamentosController < ApplicationController
   private
 	def pagamento_params
     params.require(:pagamento).permit(:emitente_contratante, :convenio, :valor_restante,
-                       :valor_total, info_pagamento_attributes: [
-                        :emitente, :rg, :telefone, :tipo, :bandeira, :parcelamento,
-                        :pin_pad, :autorizacao, :cv_doc, :valor
-                     ])
+                                       :valor_total, info_pagamentos_attributes: [
+                                        :emitente, :rg, :telefone, :tipo, :bandeira, :parcelamento,
+                                        :pin_pad, :autorizacao, :cv_doc, :valor
+                                     ])
   end
 end

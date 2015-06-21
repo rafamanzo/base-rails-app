@@ -23,7 +23,7 @@
                       <div class="col-sm-4">
                           <div class="form-group">
                               Convênio:
-                              <input class="form-control" />
+                              <%= f.text_field :convenio, class: "form-control", id: "convenio" %>
                           </div>
                       </div>
                       <div class="col-sm-2">
@@ -120,14 +120,14 @@
                               <div class="col-sm-3">
                                   <div class="form-group">
                                       Valor restante:
-                                      <input class="form-control" />
+                                      <%= f.text_field :valor_restante, class: "form-control", id: "valor_restante" %>
                                   </div>
                               </div>
                               
                               <div class="col-sm-3">
                                   <div class="form-group">
                                       Valor total:
-                                      <input class="form-control" />
+                                      <%= f.text_field :valor_total, class: "form-control", id: "valor_total" %>
                                   </div>
                               </div>
 
