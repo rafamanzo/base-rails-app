@@ -64,8 +64,15 @@ function cnpj_mask(v){
 }
 function disableIfEqual(id, id_valor, valor) {
     id = '#'+id;
-    if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
-    else $(id).prop("disabled", false);
+    id_valor = '#'+id_valor;
+
+    if($(id_valor).val() == valor) {
+        $(id).prop("disabled", true);
+        $(id).val("");
+    }
+    else {
+        $(id).prop("disabled", false);
+    }
 }
 
 function buscaCEP(cep) {
