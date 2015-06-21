@@ -62,13 +62,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <%= f.label :sexo, "Sexo" %>
                                     <%= f.select :sexo, sexos, {}, class: "form-control", id: "sexo" %>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <%= f.label :nascimento, "Data de Nascimento" %>
                                     <%= f.date_field :nascimento, :class => 'datepicker form-control', id: "data_nascimento",  placeholder: "01/01/1900", max: Date.today %>
