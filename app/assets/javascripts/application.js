@@ -67,3 +67,24 @@ function disableIfEqual(id, id_valor, valor) {
     if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
     else $(id).prop("disabled", false);
 }
+
+function buscaCEP(cep) {
+    cep = cep.replace("-", "");
+
+    // $.get('http://cep.correiocontrol.com.br/' + cep + '.json',
+        // function (data) {
+            var data = "{\"bairro\": \"Jardim Sao Saverio\", \"logradouro\": \"Avenida dos Ourives\", \"cep\": \"04194260\", \"uf\": \"SP\", \"localidade\": \"Sao Paulo\"}";
+            // alert(data)
+            var obj = JSON.parse(data);
+            // alert("logradouro: " + obj.logradouro);
+            // alert("bairro: " + obj.bairro);
+            // alert("localidade: " + obj.localidade);
+            // alert("estado: " + obj.estado);
+
+            $("#endereco").val(obj.logradouro);
+            $("#bairro").val(obj.bairro);
+            $("#cidade").val(obj.localidade);
+            $("#estado").val(obj.uf.toUpperCase());  
+        // });
+} 
+ 
