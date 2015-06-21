@@ -3,14 +3,15 @@ class ProdutosController < ApplicationController
     @cadastro_id = params[:cadastro_id]
 
     @produto = Produto.new
-    
+    byebug
   	@css = {
   		barra_filtro: "visited first col-sm-2",
   		barra_contratante: "visited col-sm-2",
   		barra_falecido: "visited col-sm-2",
   		barra_obito: "previous visited col-sm-2",
   		barra_produtos: "active col-sm-2",
-  		barra_notas: "next col-sm-2",
+      barra_pagamento: "next col-sm-2",
+  		barra_notas: "col-sm-2",
   	}
   end
 
@@ -20,7 +21,13 @@ class ProdutosController < ApplicationController
     cadastro.produto = Produto.new(produto_params)
     if cadastro.save
       # Redirecionar para a tela de nota fiscal
-      redirect_to root_path(cadastro_id)
+      raise cadastro.inspect
+      byebug
+      if (cadastro.PNS?)
+        redirect_to new_pagamento_path(cadastro_id)
+      else
+        redirect_to root_path(cadastro_id)
+      end
     else 
       render new_produto_path(cadastro_id)
     end

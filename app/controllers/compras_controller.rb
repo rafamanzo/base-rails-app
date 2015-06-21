@@ -17,7 +17,11 @@ class ComprasController < ApplicationController
       @cadastro.compra = @compra
       @cadastro.save
       # TODO: Redirecionar para a tela de nota fiscal
-      redirect_to root_path
+      if (@cadastro.PNS?)
+        redirect_to new_pagamento_path(@cadastro_id)
+      else
+        redirect_to root_path
+      end
     else
       @css = css
       render 'new'
