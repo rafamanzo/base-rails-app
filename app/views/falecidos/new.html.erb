@@ -199,7 +199,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :deixa_filhos, "Deixa Filhos" %>
-                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeDadosEstadoCivil();" %>
+                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeCamposDeFilhos();" %>
                             </div>
                         </div>
 	                </div>
@@ -529,6 +529,134 @@
             </div>
           </div>
         </div>
+
+        <div class="row" id="dadosGravidez">
+          <div class="col-md-12 shadow">
+              <div class="over-shadow">                
+                <%= f.fields_for :nascimento_obito do |e| %>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <%= e.label :semanas_gestacao, "Gestação (semanas)" %>
+                      <%= e.text_field :semanas_gestacao, class: "form-control", id: "semanas_gestacao", placeholder: "Semanas" %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                        <%= e.label :gravidez, "Gravidez" %>
+                        <%= e.text_field :gravidez, class: "form-control", id: "gravidez", placeholder: "Gravidez" %>
+                    </div>
+                  </div>
+                </div>
+               <% end %>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="row" id="dadosCamposFilhos">
+          <div class="col-md-12 shadow">
+            <div class="over-shadow">
+              <h1 class="titulo_caixa pull-left">Informações dos Filhos</h1>
+              <button class="btn btn-info pull-right" onclick="novoFilho(); return false;" ><u>A</u>diciona filho</button>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <table class="table" id="table_filhos">
+                            <tr>
+                              <td>Nome</td>
+
+                              <td>Idade</td>
+                              <td>Observações</td>
+                              <td></td>
+                            </tr>
+                            <tr id="row_filho">
+                              <%= f.fields_for :filho do |e| %>
+                                <td>
+                                  <%= e.text_field :nome, class: "form-control", id: "nome" %>
+                                </td>
+                                <td>
+                                     <%= e.select :categoria_idade, categorias_idade, {}, class: "form-control", id: "categoria_idade" %>
+                                </td>
+                                <td>
+                                  <%= e.text_field :observacoes, class: "form-control", id: "observacoes" %>
+                                </td>
+                                <td>
+                                  <button type="button" class="close" aria-label="Close" onclick="removerFilho(this);" id="removeFilho">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </td>
+                              </tr>
+                            <% end %>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<div class="row" id="dadosCasamentos">
+      <div class="col-md-12 shadow">
+          <div class="over-shadow">
+            <h1 class="titulo_caixa pull-left">Casamentos</h1>
+            <button class="btn btn-info pull-right" onclick="novoCasamento(); return false;" ><u>N</u>ovo casamento</button>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table class="table" id="table_casamento">
+                          <tr>
+                            <td>Nome do cônjuge</td>
+                            <td>Data Casamento</td>
+                            <td>Cartório</td>
+                            <td>Cidade</td>
+                            <td>UF</td>
+                            <td>Livro</td>
+                            <td>Folha</td>
+                            <td>Nº</td>
+                            <td></td>
+                          </tr>
+                          <tr id="row_casamento">
+                            <%= f.fields_for :casamento do |e| %>
+                              <td>
+                                <%= e.text_field :nome, class: "form-control", id: "nome_conjuge" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :data_casamento, class: "form-control", id: "data_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :cartorio, class: "form-control", id: "cartorio_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :cidade, class: "form-control", id: "cidade_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.select :uf, estados, {}, class: "form-control", id: "estado_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :livro, class: "form-control", id: "livro_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :folha, class: "form-control", id: "folha_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :numero, class: "form-control", id: "numero_casamento" %>
+                              </td>
+                              <td>
+                                <button type="button" class="close" aria-label="Close" onclick="removerCasamento(this);" id="removeCasamento">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </td>
+                            </tr>
+                          <% end %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
 
         <div class="row">
           <div class="col-xs-12" id="botoes-navegacao">
