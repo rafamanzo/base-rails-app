@@ -36,12 +36,13 @@
         <li class="<%= @css[:barra_falecido] %>">Cadastro de Falecido</li>
         <li class="<%= @css[:barra_obito] %>">Dados do Óbito</li>
         <li class="<%= @css[:barra_produtos] %>">Escolha de Produtos</li>
+        <li class="<%= @css[:barra_pagamento] %>">Pagamento</li>
         <li class="<%= @css[:barra_notas] %>">Emissão de Notas</li>
       </ul>
     </div>
     <div class="titulo_pagina" id="titulo_pag"
       <% if !@css[:barra_display_none].nil? %>style="display: none" <% end %>>
-      <h1 style="  padding-left: 35%; padding-top: 3%; padding-bottom: 0%;"><b><%= @cadastro.nome_fluxo %></b></h1>
+      <h1 style="padding-top: 3%; text-align : center"><b><%= @cadastro.nome_fluxo %></b></h1>
     </div>
     
     <%= yield %>

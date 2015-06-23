@@ -85,6 +85,10 @@ group :development, :test do
   # Better error interface
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Gem to pdf generator
+  gem 'pdfkit'
+  gem 'wkhtmltopdf-binary'
 end
 
 # Acceptance tests

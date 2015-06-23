@@ -1,6 +1,9 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
+function preencheLocalFalecimento(id, local) {
+    if ($("#"+id).val() == "true")
+        $("#endereco_remocao").val(local);
+    else
+        $("#endereco_remocao").val("");
+}
 
 function enableTaxas(){
     if($('#outros').is(':checked')){
@@ -15,8 +18,8 @@ function enableTaxas(){
     }
 }
 
-function disableIfEqual(id, id_valor, valor) {
-	id = '#'+id;
-	if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
-	else $(id).prop("disabled", false);
-}
+// function disableIfEqual(id, id_valor, valor) {
+// 	id = '#'+id;
+// 	if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
+// 	else $(id).prop("disabled", false);
+// }

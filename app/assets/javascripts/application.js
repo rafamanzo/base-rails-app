@@ -64,6 +64,28 @@ function cnpj_mask(v){
 }
 function disableIfEqual(id, id_valor, valor) {
     id = '#'+id;
-    if(document.getElementById(id_valor).value==valor) $(id).prop("disabled", true);
-    else $(id).prop("disabled", false);
+    id_valor = '#'+id_valor;
+
+    if($(id_valor).val() == valor) {
+        $(id).prop("disabled", true);
+        $(id).val("");
+    }
+    else {
+        $(id).prop("disabled", false);
+    }
 }
+
+function buscaCEP(cep) {
+    cep = cep.replace("-","");
+    
+    var url = 'http://cep.correiocontrol.com.br/' + cep + '.json';
+    $.getJSON(url, function(json){
+        $("#endereco").val(json.logradouro);
+        $("#bairro").val(json.bairro);
+        $("#cidade").val(json.localidade);
+        $("#estado").val(json.uf.toUpperCase());  
+    }).fail(function(){
+        alert("CEP não encontrado!");
+    });
+} 
+ 

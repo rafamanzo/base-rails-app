@@ -75,22 +75,22 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <%= f.label :sexo, "Sexo" %>
                                     <%= f.select :sexo, sexos, {}, class: "form-control", id: "sexo" %>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <%= f.label :nascimento, "Data de Nascimento" %>
-                                    <%= f.date_field :nascimento, :class => 'datepicker form-control', id: "data_nascimento",  placeholder: "01/01/1900", max: Date.today %>
+                                    <%= f.date_field :nascimento, :class => 'datepicker form-control', id: "data_nascimento",  placeholder: "01/01/1980", max: Date.today, onblur: "calculaIdade(this.value);" %>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="form-group">
                                     <%= f.label :idade, "Idade" %>
-                                    <div class="form-control" id="idade" placeholder="Idade"></div>
+                                    <input type="text" class="form-control" id="idade" placeholder="Idade" />
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -119,7 +119,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <%= e.label :cep, "CEP" %>
-                                    <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9" %>
+                                    <%= e.text_field :cep, class: "form-control", id: "cep", placeholder: "CEP", onkeypress: "mascara(this,cep_mask)", maxlength: "9", onblur: "buscaCEP(this.value);" %>
                                 </div>
                             </div>
                         </div>
