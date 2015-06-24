@@ -9,8 +9,6 @@ FactoryGirl.define do
     telefone_celular "(11)1111-1111"
     email "MyString@email.com"
     nome_mae "MyString"
-    cnpj "MyString"
-    nome_empresarial "MyString"
-    localizacao
+    association :localizacao, factory: :localizacao, strategy: :build
   end
 end

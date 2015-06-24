@@ -27,7 +27,7 @@ class ContratantesController < ApplicationController
   end
 
   def cpf
-    @contratante = Contratante.find_by_cpf cpf
+    @contratante = Contratante.find_by_cpf params[:cpf]
     respond_to do |format|
       format.html {redirect_to :back}
       format.js
