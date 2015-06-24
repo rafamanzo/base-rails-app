@@ -27,4 +27,8 @@ module ApplicationHelper
 	def sim_nao
 		[['sim', true], ['não', false]]
 	end
+
+	def nao_sim
+		[['não', false], ['sim', true]]
+	end
 end

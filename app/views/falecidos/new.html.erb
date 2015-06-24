@@ -14,6 +14,19 @@
         </div>
     <% end %>
     <div class="container" id="formulario-dados-pessoais">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-4">
+          <%= f.label :nascimento_obito, "Nascimento e Óbito" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <%= f.select :nascimento_obito, options_for_select(sim_nao, false), {}, class: "form-control", id: "nascimento_obito", onchange: "mostraOuEscondeNascimentoObito();" %>
+        </div>
+      </div>
+    </div>
+
         <div class="row">
             <div class="col-md-12 shadow">
                 <div class="over-shadow">
@@ -83,7 +96,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <%= f.label :estado_civil, "Estado Civil" %>
-                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil" %>
+                                    <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil", onchange: "mostraOuEscondeDadosEstadoCivil();" %>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -186,7 +199,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :deixa_filhos, "Deixa Filhos" %>
-                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos" %>
+                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeCamposDeFilhos();" %>
                             </div>
                         </div>
 	                </div>
@@ -302,12 +315,355 @@
 	            </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12" id="botoes-navegacao">
-                <button type="button" class="col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-left" ></span></button>
-                <button type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</button>
-                <button type="submit" class="col-xs-offset-4 col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+
+        <div class="row" id="dadosCertidaoNascimento">
+            <div class="col-md-12 shadow">
+                <div class="over-shadow">
+                    <h1 class="titulo_caixa">Certidão de Nascimento</h1>
+                    <%= f.fields_for :certidao_nascimento, CertidaoNascimento.new do |e| %>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :cartorio, "Cartório" %>
+                                    <%= e.text_field :cartorio, class: "form-control", id: "cartorio", placeholder: "Cartório" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <%= e.label :cidade, "Cidade" %>
+                                    <%= e.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <%= e.label :uf, "UF" %>
+                                    <%= e.select :uf, estados, {}, class: "form-control", id: "estado" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :livro, "Livro" %>
+                                    <%= e.text_field :livro, class: "form-control", id: "livro", placeholder: "Livro" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :folha, "Folha" %>
+                                    <%= e.text_field :folha, class: "form-control", id: "folha", placeholder: "Folha" %>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <%= e.label :numero, "Número" %>
+                                    <%= e.text_field :numero, class: "form-control", id: "numero", placeholder: "Número" %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
             </div>
+        </div>
+        <div class="row" id="dadosNascimento">
+          <div class="col-md-12 shadow">
+              <div class="over-shadow">
+                <h1 class="titulo_caixa">Dados do Nascimento</h1>
+                <%= f.fields_for :nascimento_obito do |e| %>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <%= e.label :local_nascimento, "Local" %>
+                      <%= e.text_field :local_nascimento, class: "form-control", id: "local_nascimento", placeholder: "Local" %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                        <%= e.label :data_nascimento, "Data de Nascimento" %>
+                        <%= e.date_field :data_nascimento, :class => 'datepicker form-control', id: "data_nascimento",  placeholder: "01/01/1900", max: Date.today %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                        <%= e.label :horario_nascimento, "Horário" %>
+                        <%= e.datetime_field :hora_nascimento, class: "form-control", id: "hora_nascimento", placeholder: "00:00", onkeypress: "mascara(this,hora_mask)", maxlength: "5" %>
+                  </div>
+                  </div>
+                </div>
+               <% end %>
+              </div>
+          </div>
+        </div>
+
+        <div class="row" id="dadosFamiliares">
+          <div class="col-md-12 shadow">
+            <div class="over-shadow">
+              <h1 class="titulo_caixa">Dados Familiares</h1>
+              <%= f.fields_for :nascimento_obito do |e| %>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= e.label :avo_paterno, "Avô paterno" %>
+                    <%= e.text_field :avo_paterno, class: "form-control", id: "avo_paterno", placeholder: "Avô paterno" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= e.label :avo_paterna, "Avó paterna" %>
+                    <%= e.text_field :avo_paterna, class: "form-control", id: "avo_paterna", placeholder: "Avó paterna" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= e.label :avo_materno, "Avô materno" %>
+                    <%= e.text_field :avo_materno, class: "form-control", id: "avo_materno", placeholder: "Avô materno" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= e.label :avo_materna, "Avó materna" %>
+                    <%= e.text_field :avo_materna, class: "form-control", id: "avo_materna", placeholder: "Avó materna" %>
+                  </div>
+                </div>
+              </div>
+             <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="dadosTestemunhas">
+          <div class="col-md-12 shadow">
+            <div class="over-shadow">
+              <h1 class="titulo_caixa">Testemunhas</h1>
+              <%= f.fields_for :testemunhas do |e| %>
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="form-group">
+                      <%= e.label :nome, "Nome completo" %>
+                      <%= e.text_field :nome, class: "form-control", id: "nome_testemunha1", placeholder: "Nome completo" %>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <%= f.label :estado_civil, "Estado Civil" %>
+                        <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil_testemunha1" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :nacionalidade, "Nacionalidade" %>
+                      <%= e.text_field :nacionalidade, class: "form-control", id: "nacionalidade_testemunha1", placeholder: "Nacionalidade" %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :profissao, "Profissão" %>
+                      <%= e.text_field :profissao, class: "form-control", id: "profissao_testemunha1", placeholder: "Profissão" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :endereco, "Endereço" %>
+                      <%= e.text_field :bairro, class: "form-control", id: "endereco_testemunha1", placeholder: "Endereço" %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :bairro, "Bairro" %>
+                      <%= e.text_field :bairro, class: "form-control", id: "bairro_testemunha1", placeholder: "Bairro" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <hr size="10px" />
+              <%= f.fields_for :testemunhas do |e| %>
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="form-group">
+                      <%= e.label :nome, "Nome completo" %>
+                      <%= e.text_field :nome, class: "form-control", id: "nome_testemunha2", placeholder: "Nome completo" %>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <%= f.label :estado_civil, "Estado Civil" %>
+                        <%= f.select :estado_civil, estados_civis, {}, class: "form-control", id: "estado_civil_testemunha2" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :nacionalidade, "Nacionalidade" %>
+                      <%= e.text_field :nacionalidade, class: "form-control", id: "nacionalidade_testemunha2", placeholder: "Nacionalidade" %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :profissao, "Profissão" %>
+                      <%= e.text_field :profissao, class: "form-control", id: "profissao_testemunha2", placeholder: "Profissão" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :endereco, "Endereço" %>
+                      <%= e.text_field :bairro, class: "form-control", id: "endereco_testemunha2", placeholder: "Endereço" %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= e.label :bairro, "Bairro" %>
+                      <%= e.text_field :bairro, class: "form-control", id: "bairro_testemunha2", placeholder: "Bairro" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="dadosGravidez">
+          <div class="col-md-12 shadow">
+              <div class="over-shadow">                
+                <%= f.fields_for :nascimento_obito do |e| %>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <%= e.label :semanas_gestacao, "Gestação (semanas)" %>
+                      <%= e.text_field :semanas_gestacao, class: "form-control", id: "semanas_gestacao", placeholder: "Semanas" %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                        <%= e.label :gravidez, "Gravidez" %>
+                        <%= e.text_field :gravidez, class: "form-control", id: "gravidez", placeholder: "Gravidez" %>
+                    </div>
+                  </div>
+                </div>
+               <% end %>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="row" id="dadosCamposFilhos">
+          <div class="col-md-12 shadow">
+            <div class="over-shadow">
+              <h1 class="titulo_caixa pull-left">Informações dos Filhos</h1>
+              <button class="btn btn-info pull-right" onclick="novoFilho(); return false;" ><u>A</u>diciona filho</button>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <table class="table" id="table_filhos">
+                            <tr>
+                              <td>Nome</td>
+
+                              <td>Idade</td>
+                              <td>Observações</td>
+                              <td></td>
+                            </tr>
+                            <tr id="row_filho">
+                              <%= f.fields_for :filho do |e| %>
+                                <td>
+                                  <%= e.text_field :nome, class: "form-control", id: "nome" %>
+                                </td>
+                                <td>
+                                     <%= e.select :categoria_idade, categorias_idade, {}, class: "form-control", id: "categoria_idade" %>
+                                </td>
+                                <td>
+                                  <%= e.text_field :observacoes, class: "form-control", id: "observacoes" %>
+                                </td>
+                                <td>
+                                  <button type="button" class="close" aria-label="Close" onclick="removerFilho(this);" id="removeFilho">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </td>
+                              </tr>
+                            <% end %>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<div class="row" id="dadosCasamentos">
+      <div class="col-md-12 shadow">
+          <div class="over-shadow">
+            <h1 class="titulo_caixa pull-left">Casamentos</h1>
+            <button class="btn btn-info pull-right" onclick="novoCasamento(); return false;" ><u>N</u>ovo casamento</button>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table class="table" id="table_casamento">
+                          <tr>
+                            <td>Nome do cônjuge</td>
+                            <td>Data Casamento</td>
+                            <td>Cartório</td>
+                            <td>Cidade</td>
+                            <td>UF</td>
+                            <td>Livro</td>
+                            <td>Folha</td>
+                            <td>Nº</td>
+                            <td></td>
+                          </tr>
+                          <tr id="row_casamento">
+                            <%= f.fields_for :casamento do |e| %>
+                              <td>
+                                <%= e.text_field :nome, class: "form-control", id: "nome_conjuge" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :data_casamento, class: "form-control", id: "data_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :cartorio, class: "form-control", id: "cartorio_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :cidade, class: "form-control", id: "cidade_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.select :uf, estados, {}, class: "form-control", id: "estado_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :livro, class: "form-control", id: "livro_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :folha, class: "form-control", id: "folha_casamento" %>
+                              </td>
+                              <td>
+                                <%= e.text_field :numero, class: "form-control", id: "numero_casamento" %>
+                              </td>
+                              <td>
+                                <button type="button" class="close" aria-label="Close" onclick="removerCasamento(this);" id="removeCasamento">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </td>
+                            </tr>
+                          <% end %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+        <div class="row">
+          <div class="col-xs-12" id="botoes-navegacao">
+            <button type="button" class="col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-left" ></span></button>
+            <button type="button" class="col-xs-offset-4 col-xs-2 btn btn-default">Cancelar</button>
+            <button type="submit" class="col-xs-offset-4 col-xs-1 btn btn-default"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+          </div>
         </div>
     </div>
 <% end %>

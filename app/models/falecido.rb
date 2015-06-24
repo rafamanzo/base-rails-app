@@ -1,7 +1,10 @@
 class Falecido < ActiveRecord::Base
+  has_one :localizacao
+  has_one :certidao_nascimento
   belongs_to :cadastro
   has_one :localizacao
   has_one :nascimento_obito
+  has_one :certidao_nascimento
   has_many :filhos
   has_many :casamentos
   has_one :nascimento_obito
@@ -10,9 +13,10 @@ class Falecido < ActiveRecord::Base
   accepts_nested_attributes_for :casamentos
   accepts_nested_attributes_for :nascimento_obito
   accepts_nested_attributes_for :filhos
-  validates_associated :casamentos, :filhos, :nascimento_obito, :localizacao, if: :PNS?
-  
+  accepts_nested_attributes_for :nascimento_obito
+  accepts_nested_attributes_for :certidao_nascimento
 
+  validates_associated :casamentos, :filhos, :nascimento_obito, :localizacao, if: :PNS?
 
   #Geral
   #validates :nascimento_obito, presence: true
