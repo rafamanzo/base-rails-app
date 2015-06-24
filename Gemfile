@@ -62,6 +62,9 @@ group :development, :test do
 
   # JavaScript unit tests
   gem "konacha", "~> 3.5.0"
+
+  # Mocks and stubs for JavaScript tests
+  gem 'sinon-rails'
 end
 
 # Acceptance tests
