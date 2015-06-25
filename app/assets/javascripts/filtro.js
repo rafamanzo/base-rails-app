@@ -76,19 +76,9 @@ function destino(valor, urlAnterior)
 	/* FINAL */
 }
 
-function textsizer(e){
-    var evtobj=window.event? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
-    var unicode=evtobj.charCode? evtobj.charCode : evtobj.keyCode
-    var actualkey=String.fromCharCode(unicode)
 
-    verifica_acao(actualkey);
-
-
-    //alert(actualkey);
-}
-
-function verifica_acao(tecla){
-	if($('#pago').length == 1){
+function verifica_acao_filtro(tecla){
+    if($('#pago').length == 1){
 		acao_primeira_tela(tecla);
 	}
 	else if($('#contratacao_normal').length == 1){
@@ -151,4 +141,10 @@ function acao_terceira_tela(tecla){
     }
 }
 
-document.onkeypress = textsizer
+$(document).keypress(function(e) {
+    var evtobj=window.event? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
+    var unicode=evtobj.charCode? evtobj.charCode : evtobj.keyCode
+    var actualkey=String.fromCharCode(unicode)
+
+    verifica_acao_filtro(actualkey)
+});
