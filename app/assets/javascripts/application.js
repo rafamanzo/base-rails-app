@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+
 
 function mascara(o,f){
     v_obj=o
@@ -77,15 +77,14 @@ function disableIfEqual(id, id_valor, valor) {
 
 function buscaCEP(cep) {
     cep = cep.replace("-","");
-    
+
     var url = 'http://cep.correiocontrol.com.br/' + cep + '.json';
     $.getJSON(url, function(json){
         $("#endereco").val(json.logradouro);
         $("#bairro").val(json.bairro);
         $("#cidade").val(json.localidade);
-        $("#estado").val(json.uf.toUpperCase());  
+        $("#estado").val(json.uf.toUpperCase());
     }).fail(function(){
         alert("CEP não encontrado!");
     });
-} 
- 
+}

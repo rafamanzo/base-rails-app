@@ -11,15 +11,13 @@
 
     <link type="text/plain" rel="author" href="humans.txt" />
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true  %>
+    <%= stylesheet_link_tag 'application', params[:controller], 'bootstrap_and_overrides', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', params[:controller], 'bootstrap', 'data-turbolinks-track' => true  %>
 
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container" id="cabecalho">
         <a class="navbar-brand" href="#">Hades</a>
@@ -44,11 +42,11 @@
       <% if !@css[:barra_display_none].nil? %>style="display: none" <% end %>>
       <h1 style="padding-top: 3%; text-align : center"><b><%= @cadastro.nome_fluxo %></b></h1>
     </div>
-    
+
     <%= yield %>
-    
+
       <div id="footer" style="<% if !@css[:barra_display_none].nil? %>position:absolute; <% end %> background-color: #f5f5f5; padding: 2%; margin-top: 2%;" class="footer">
-        <p class="muted credit"> 
+        <p class="muted credit">
         Sistema Funerário de São Paulo
         </p>
       </div>
