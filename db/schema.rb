@@ -70,7 +70,10 @@ ActiveRecord::Schema.define(version: 20150618143020) do
     t.boolean  "obito"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "falecido_id"
   end
+
+  add_index "certidao_nascimentos", ["falecido_id"], name: "index_certidao_nascimentos_on_falecido_id"
 
   create_table "compras", force: :cascade do |t|
     t.boolean  "remocao_local_falecimento"
