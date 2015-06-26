@@ -187,19 +187,19 @@
                        	<div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :inventariar, "Bens a inventariar" %>
-                                <%= f.select :inventariar, sim_nao, {}, class: "form-control", id: "bens" %>
+                                <%= f.select :inventariar, options_for_select(sim_nao, false), {}, class: "form-control", id: "bens" %>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :testamento, "Deixa Testamento" %>
-                                <%= f.select :testamento, sim_nao, {}, class: "form-control", id: "testamento" %>
+                                <%= f.select :testamento, options_for_select(sim_nao, false), {}, class: "form-control", id: "testamento" %>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :deixa_filhos, "Deixa Filhos" %>
-                                <%= f.select :deixa_filhos, sim_nao, {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeCamposDeFilhos();" %>
+                                <%= f.select :deixa_filhos, options_for_select(sim_nao, false), {}, class: "form-control",  id: "deixa_filhos", onchange: "mostraOuEscondeCamposDeFilhos();" %>
                             </div>
                         </div>
 	                </div>
@@ -207,19 +207,19 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :marca_passo, "Marca Passo" %>
-                                <%= f.select :marca_passo, sim_nao, {}, class: "form-control", id: "marcaPasso" %>
+                                <%= f.select :marca_passo, options_for_select(sim_nao, false), {}, class: "form-control", id: "marcaPasso" %>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :eleitor, "Eleitor" %>
-                                <%= f.select :eleitor, sim_nao, {}, class: "form-control", id: "eleitor" %>
+                                <%= f.select :eleitor, options_for_select(sim_nao, false), {}, class: "form-control", id: "eleitor" %>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :reservista, "Reservista" %>
-                                <%= f.select :reservista, sim_nao, {}, class: "form-control", id: "reservista" %>
+                                <%= f.select :reservista, options_for_select(sim_nao, false), {}, class: "form-control", id: "reservista" %>
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
                       	<div class="col-sm-4">
                             <div class="form-group">
                                 <%= f.label :inss, "INSS" %>
-                                <%= f.select :inss, sim_nao, {}, class: "form-control", id: "inss" %>
+                                <%= f.select :inss, options_for_select(sim_nao, false), {}, class: "form-control", id: "inss" %>
                             </div>
                         </div>
                         <div class="col-sm-8">
