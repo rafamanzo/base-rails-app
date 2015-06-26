@@ -23,7 +23,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :cpf, "CPF" %>
-                <%= f.text_field(:cpf, class: "form-control", onblur: "validaCPF(this.value, 'contratante_cpf'); buscaPorCpf();", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14") %>
+                <%= f.text_field(:cpf, class: "form-control", onblur: "validaCPF(this.value, 'contratante_cpf'); buscaPorCpf(this.value);", placeholder: "CPF", onkeypress: "mascara(this,cpf_mask)", maxlength: "14") %>
               </div>
            </div>
           </div>

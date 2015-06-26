@@ -1,10 +1,12 @@
-function buscaPorCpf() {
-	var cpf = $("#cpf").val();
-	
-	$.post("contratantes/cpf/" + cpf, function(contratante) {
-		
+function buscaPorCpf(cpf) {
+	cpf = cpf.replace('.', '').replace('.', '').replace('-', '');
+
+	$.get("/contratantes/cpf/" + cpf, function(contratante) {
 		if (contratante != "") {
-			//$("#cpf").val(contratante.cpf);
+			// $("#cpf").val(contratante.cpf);
+
+			// alert(contratante);
+
 			$("#nome_completo").val(contratante.nome_completo);
 			$("#rg").val(contratante.rg);
 			$("#profissao").val(contratante.profissao);
