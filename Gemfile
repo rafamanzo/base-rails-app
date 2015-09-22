@@ -61,7 +61,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
 
   # JavaScript unit tests
-  gem "konacha", "~> 3.5.0"
+  gem "konacha", "~> 3.7.0"
 
   # Mocks and stubs for JavaScript tests
   gem 'sinon-rails'
