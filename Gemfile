@@ -65,6 +65,9 @@ group :development, :test do
 
   # Mocks and stubs for JavaScript tests
   gem 'sinon-rails'
+
+  # Gem update manager
+  gem 'gisdatigo', '~> 0.0.1'
 end
 
 # Acceptance tests
