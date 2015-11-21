@@ -77,7 +77,7 @@ group :cucumber do
   # Version fixed greater than 1.4.1. See:
   # https://github.com/DatabaseCleaner/database_cleaner/issues/317
   gem 'database_cleaner', '>= 1.4.1'
-  gem 'poltergeist', '~> 1.7.0'
+  gem 'poltergeist', '~> 1.8.0'
 end
 
 # Use ActiveModel has_secure_password
