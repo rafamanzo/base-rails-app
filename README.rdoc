@@ -12,7 +12,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 
 === Versions
 * Ruby version: *2.2.3*
-* Rails version: *4.2.4*
+* Rails version: *4.2.5*
 
 === System dependencies
 * RVM: https://rvm.io
@@ -22,6 +22,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 1. You are free to change the license on the _COPYING_ file
 1. Discard this _README.rdoc_ file and use the Rails' original one _README.rdoc.rails_
 1. There is a _config/database.yml.sample_ file that you can use to create the actual _config/database.yml_ which is required by Rails
+1. The same is valid for _config/secrets.yml.sample_ file that you can use to create the actual _config/secrets.yml_ which is required by Rails
 1. Change the gemset name at _.ruby-gemset_
    After this you may need to exit the current folder and enter it again so RVM notice the change
 1. Run _bundle_ _install_ to install all the gems
