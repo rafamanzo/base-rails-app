@@ -62,6 +62,7 @@ group :development, :test do
 
   # JavaScript unit tests
   gem "konacha", "~> 3.7.0"
+  gem 'sprockets-rails', '< 3' # Restriction required until https://github.com/jfirebaugh/konacha/issues/216 gets fixed
 
   # Mocks and stubs for JavaScript tests
   gem 'sinon-rails'
