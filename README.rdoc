@@ -2,6 +2,8 @@
 
 An empty rails app configured the way I like it :)
 
+*This Rails 4 release will only receive updates as long as Rails 5 does not get stable.*
+
 === Copyright
 
 2014-2015 Rafael Reggiani Manzo
@@ -11,7 +13,7 @@ Even that this code has just basic modifications from a clean Rails application 
 If you feel big-hearted, please acknowledge my work maintaining this repository by putting a link to this repository on whatever your THANKs file is. Thank you :)
 
 === Versions
-* Ruby version: *2.2.3*
+* Ruby version: *2.3.0*
 * Rails version: *4.2.5*
 
 === System dependencies
