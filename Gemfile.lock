@@ -83,6 +83,10 @@ GEM
     faye-websocket (0.10.2)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
+    gisdatigo (0.1.0)
+      git
+      rails
+    git (1.2.9.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hiredis (0.5.2)
@@ -174,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  gisdatigo (~> 0.1)
   jbuilder (~> 2.0)
   jquery-rails
   puma
