@@ -32,6 +32,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 
 1. You are free to change the license on the _COPYING_ file
 1. Discard this _README.md_ file and use the Rails' original one _README.md.rails_
+1. Fix the _public/humans.txt_ file with your own info
 1. There is a _config/database.yml.sample_ file that you can use to create the actual _config/database.yml_ which is required by Rails
 1. The same is valid for _config/secrets.yml.sample_ file that you can use to create the actual _config/secrets.yml_ which is required by Rails
 1. Change the gemset name at _.ruby-gemset_

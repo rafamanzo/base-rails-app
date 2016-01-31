@@ -17,6 +17,4 @@
       ShouldaMatchers
       Simplecov
 
-    HTML5, CSS3
-
-    Normalize.css, jQuery, Modernizr
+    jQuery
