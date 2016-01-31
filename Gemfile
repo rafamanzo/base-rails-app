@@ -54,6 +54,9 @@ group :test do
   # Database cleanup for each scenario
   gem 'database_cleaner'
 
+  # JavaScript driver for Capybara
+  gem 'poltergeist'
+
   # RSpec one-liners
   gem 'shoulda-matchers', '~> 3.1'
 end
