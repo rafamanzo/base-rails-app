@@ -4,6 +4,15 @@ An empty rails app configured the way I like it :)
 
 **Notice**: this Rails 5 release is still beta. If you're starting a fresh application, go for it. Otherwise look at the `rails4` branch.
 
+Breaking changes:
+
+* `mocha` has not been included in favour of `rspec-expectations`
+* `boilerplates` are no more included
+
+Still missing for a full migration:
+
+* All JS testing stuff (`konacha` and `sinon`) is still not compatible yet with Rails 5 (see work at branch rails5-konacha)
+
 ### Copyright
 
 2014-2016 Rafael Reggiani Manzo
