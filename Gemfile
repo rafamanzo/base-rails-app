@@ -53,6 +53,9 @@ group :test do
   gem 'cucumber-rails', :require => false
   # Database cleanup for each scenario
   gem 'database_cleaner'
+
+  # RSpec one-liners
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
