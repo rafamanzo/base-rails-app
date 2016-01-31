@@ -62,6 +62,9 @@ group :test do
 
   # Test coverage report
   gem 'simplecov', :require => false
+
+  # Fixtures creation and management
+  gem 'factory_girl'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
