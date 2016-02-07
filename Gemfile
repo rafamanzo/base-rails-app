@@ -35,7 +35,8 @@ group :development, :test do
   gem 'byebug'
 
   # Unit test framework
-  gem 'rspec-rails', '~> 3.0'
+  # This beta is tested against Rails 5. Once it gets released use the stable version.
+  gem 'rspec-rails', '>= 3.5.0.beta1'
 end
 
 group :development do
