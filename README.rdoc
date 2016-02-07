@@ -14,7 +14,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 
 === Versions
 * Ruby version: *2.3.0*
-* Rails version: *4.2.5*
+* Rails version: *4.2.5.1*
 
 === System dependencies
 * RVM: https://rvm.io
