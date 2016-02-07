@@ -23,7 +23,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 
 ### Versions
 * Ruby version: **2.3.0**
-* Rails version: **5.0.0.beta1**
+* Rails version: **5.0.0.beta2**
 
 ### System dependencies
 * RVM: https://rvm.io
