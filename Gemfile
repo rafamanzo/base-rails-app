@@ -68,7 +68,7 @@ group :development, :test do
   gem 'sinon-rails'
 
   # Gem update manager
-  gem 'gisdatigo', '~> 0.0.1'
+  gem 'gisdatigo', '~> 0.1.0'
 end
 
 # Acceptance tests

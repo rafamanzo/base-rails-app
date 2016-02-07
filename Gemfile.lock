@@ -84,9 +84,9 @@ GEM
       railties (>= 3.0.0)
     gherkin (2.12.2)
       multi_json (~> 1.3)
-    gisdatigo (0.0.1)
-      git (~> 1.2.9.1)
-      rails (~> 4.2.0)
+    gisdatigo (0.1.0)
+      git
+      rails
     git (1.2.9.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -236,7 +236,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner (>= 1.4.1)
   factory_girl_rails (~> 4.6.0)
-  gisdatigo (~> 0.0.1)
+  gisdatigo (~> 0.1.0)
   jbuilder (~> 2.0)
   jquery-rails (~> 4.1.0)
   konacha (~> 3.7.0)
