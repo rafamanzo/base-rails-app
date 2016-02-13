@@ -9,10 +9,6 @@ Breaking changes:
 * `mocha` has not been included in favour of `rspec-expectations`
 * `boilerplates` are no more included
 
-Still missing for a full migration:
-
-* All JS testing stuff (`konacha` and `sinon`) is still not compatible yet with Rails 5 (see work at branch rails5-konacha)
-
 ### Copyright
 
 2014-2016 Rafael Reggiani Manzo
