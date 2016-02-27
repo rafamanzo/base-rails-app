@@ -128,7 +128,7 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    puma (2.16.0)
+    puma (3.0.2)
     rack (2.0.0.alpha)
       json
     rack-test (0.6.3)
