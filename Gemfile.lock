@@ -106,7 +106,7 @@ GEM
       railties (>= 3.1, < 5)
       sprockets (>= 2, < 4)
       tilt
-    libv8 (3.16.14.13)
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
