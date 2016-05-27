@@ -61,8 +61,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.7.0'
 
   # JavaScript unit tests
-  gem "konacha", "~> 3.7.0"
-  gem 'sprockets-rails', '< 3' # Restriction required until https://github.com/jfirebaugh/konacha/issues/216 gets fixed
+  gem "konacha", "~> 4.0.0"
+  gem 'sprockets-rails'
 
   # Mocks and stubs for JavaScript tests
   gem 'sinon-rails'
