@@ -58,7 +58,7 @@ group :development, :test do
   gem 'mocha', '~> 1.1.0'
 
   # Fixtures made easy
-  gem 'factory_girl_rails', '~> 4.6.0'
+  gem 'factory_girl_rails', '~> 4.7.0'
 
   # JavaScript unit tests
   gem "konacha", "~> 3.7.0"
