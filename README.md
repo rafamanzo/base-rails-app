@@ -2,7 +2,7 @@
 
 An empty rails app configured the way I like it :)
 
-**Notice**: this Rails 5 release is still beta. If you're starting a fresh application, go for it. Otherwise look at the `rails4` branch.
+**This is the Rails 5 updated version** which introduces the changes below compared to the previous versions.
 
 Breaking changes:
 
@@ -23,7 +23,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 
 ### Versions
 * Ruby version: **2.3.1**
-* Rails version: **5.0.0.rc1**
+* Rails version: **5.0.0.1**
 
 ### System dependencies
 * RVM: https://rvm.io
