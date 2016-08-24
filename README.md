@@ -9,6 +9,10 @@ Breaking changes:
 * `mocha` has not been included in favour of `rspec-expectations`
 * `boilerplates` are no more included
 
+Soft changes:
+
+* `konacha` has been replaced by `teaspoon` which favours Rails 5 compatibility
+
 ### Copyright
 
 2014-2016 Rafael Reggiani Manzo

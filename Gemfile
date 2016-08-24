@@ -42,6 +42,10 @@ group :development, :test do
   # Unit test framework
   # This beta is tested against Rails 5. Once it gets released use the stable version.
   gem 'rspec-rails', '>= 3.5.0.beta1'
+
+  # JavaScript testing
+  gem "teaspoon-mocha"
+
   # Mocks and stubs for JavaScript tests
   gem 'sinon-rails'
 end
