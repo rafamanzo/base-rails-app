@@ -83,7 +83,7 @@ GEM
     execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
-    ffi (1.9.10)
+    ffi (1.9.14)
     gherkin (4.0.0)
     gisdatigo (0.1.0)
       git
