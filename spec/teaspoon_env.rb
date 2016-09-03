@@ -41,7 +41,7 @@ Teaspoon.configure do |config|
     suite.matcher = "{spec/javascript,app/assets}/**/*_spec.{js,js.coffee,coffee}"
 
     # Load additional JS files, but requiring them in your spec helper is the preferred way to do this.
-    #suite.javascripts = []
+    suite.javascripts += ['support/expect', 'support/sinon']
 
     # You can include your own stylesheets if you want to change how Teaspoon looks.
     # Note: Spec related CSS can and should be loaded using fixtures.
