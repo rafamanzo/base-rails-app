@@ -88,7 +88,7 @@ GEM
     docile (1.1.5)
     erubis (2.7.0)
     execjs (2.7.0)
-    factory_girl (4.8.0)
+    factory_girl (4.8.1)
       activesupport (>= 3.0.0)
     ffi (1.9.18)
     gherkin (4.1.3)
