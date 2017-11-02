@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'simplecov'
-SimpleCov.coverage_dir("coverage/rspec")
+SimpleCov.coverage_dir('coverage/rspec')
 
 require 'factory_bot'
 

@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'features/support/env.rb'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'spec/teaspoon_env.rb'
+    - 'lib/tasks/cucumber.rake'
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
