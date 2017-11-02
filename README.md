@@ -2,28 +2,17 @@
 
 An empty rails app configured the way I like it :)
 
-**This is the Rails 5 updated version** which introduces the changes below compared to the previous versions.
-
-Breaking changes:
-
-* `mocha` has not been included in favour of `rspec-expectations`
-* `boilerplates` are no more included
-
-Soft changes:
-
-* `konacha` has been replaced by `teaspoon` which favours Rails 5 compatibility
-
 ### Copyright
 
-2014-2016 Rafael Reggiani Manzo
+2014-2017 Rafael Reggiani Manzo
 
 Even that this code has just basic modifications from a clean Rails application and I want to impose no restrictions on it, just for the formality here I define the license as MIT. Please check its text on the COPYING file.
 
 If you feel big-hearted, please acknowledge my work maintaining this repository by putting a link to this repository on whatever your THANKs file is. Thank you :)
 
 ### Versions
-* Ruby version: **2.3.1**
-* Rails version: **5.0.0.1**
+* Ruby version: **2.4.2**
+* Rails version: **5.1.4**
 
 ### System dependencies
 * RVM: https://rvm.io
