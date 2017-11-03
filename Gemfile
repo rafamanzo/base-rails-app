@@ -41,8 +41,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Unit test framework
-  # This beta is tested against Rails 5. Once it gets released use the stable version.
-  gem 'rspec-rails', '>= 3.5.0.beta1'
+  gem 'rspec-rails', '~> 3.6'
 
   # JavaScript testing
   gem 'teaspoon-mocha'
