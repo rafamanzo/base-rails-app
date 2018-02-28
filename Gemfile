@@ -67,7 +67,7 @@ group :development do
   gem 'gisdatigo', '~> 0.1'
 
   # Code linter
-  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'rubocop', '~> 0.52.0', require: false
 end
 
 group :test do
