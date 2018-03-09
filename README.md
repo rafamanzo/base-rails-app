@@ -11,7 +11,7 @@ Even that this code has just basic modifications from a clean Rails application 
 If you feel big-hearted, please acknowledge my work maintaining this repository by putting a link to this repository on whatever your THANKs file is. Thank you :)
 
 ### Versions
-* Ruby version: **2.4.2**
+* Ruby version: **2.5.0**
 * Rails version: **5.1.4**
 
 ### System dependencies
