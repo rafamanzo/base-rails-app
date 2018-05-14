@@ -64,7 +64,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Automated gem updates
-  gem 'gisdatigo', '~> 0.1'
+  gem 'gisdatigo', '~> 0.3.0'
 
   # Code linter
   gem 'rubocop', '~> 0.53.0', require: false
