@@ -4,7 +4,7 @@ An empty rails app configured the way I like it :)
 
 ### Copyright
 
-2014-2017 Rafael Reggiani Manzo
+2014-2018 Rafael Reggiani Manzo
 
 Even that this code has just basic modifications from a clean Rails application and I want to impose no restrictions on it, just for the formality here I define the license as MIT. Please check its text on the COPYING file.
 
@@ -12,7 +12,7 @@ If you feel big-hearted, please acknowledge my work maintaining this repository 
 
 ### Versions
 * Ruby version: **2.5.0**
-* Rails version: **5.1.4**
+* Rails version: **5.2.0**
 
 ### System dependencies
 * RVM: https://rvm.io
